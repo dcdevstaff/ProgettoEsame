@@ -6,14 +6,15 @@ if (isset($_POST['submit'])) {
 
 	$adminName = mysqli_real_escape_string($conn, $_POST['adminName']);
 	$adminPassword = mysqli_real_escape_string($conn, $_POST['adminPassword']);
+	$admPassConf = mysqli_real_escape_string($conn, $_POST['adminPasswordConf']);
 
-	if (empty($adminName) || empty($adminPassword)) {
+	if (empty($adminName) || empty($adminPassword) || empty($admPassConf)) {
 		header("Location: ../signupAdmin.php?signupAdmin=MancaUnDato");
 			exit();
 	} 
 	else {
-		$emailNewAdmin = $adminName."@iot.it";
-		//header("Location: ../signupAdmin.php?signupAdmin=CONSOLE_".$emailNewAdmin);
+		if($adminPassword == $admPassConf){
+			$emailNewAdmin = $adminName."@iot.it";
 
 		$sqlNomeAdmOccupatoQuery= "SELECT * FROM admin WHERE admin_email = '$adminName' ;" ;
 		$resultQueryAdmin = mysqli_query($conn, $sqlNomeAdmOccupatoQuery);
@@ -29,8 +30,15 @@ if (isset($_POST['submit'])) {
 				header("Location: ../homeIOT.php?signup=success");
 				exit();
 			}
+		} else{ echo ("<script LANGUAGE='JavaScript'>
+			window.alert('Le password non corrspondono !');
+			window.location.href='../HomeIOT.php';
+			</script>");
+		}
+		
 	} 
 }else{
+	//NON ESISTE PIU, CORREGGERE LINK!!!
 	header("Location: ../signupAdmin.php"); 
 	exit();
 }

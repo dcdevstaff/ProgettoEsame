@@ -95,6 +95,7 @@ include_once 'header.php';
 					<h5><sub><small><i>Il suffisso "@iot.it" sarà aggiunto automaticamente</i></small></sub></h5>
 					<br>
 					<h3>Password</h3><input type="text" name="adminPassword">
+					<h3>Conferma Password</h3><input type="text" name="adminPasswordConf">
 
 
 					<button type="submit" name="submit" onclick="mostraAllert()">Registra Admin</button>
