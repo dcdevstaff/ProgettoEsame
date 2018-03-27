@@ -42,15 +42,16 @@ include_once 'header.php';
       <div class="modal-body">
 	  <form class="signup-form" action="includes/signup.inc.php" method="POST" >
 
-	<h3>Nome</h3><input type="text" name="first" placeholder="add placeolder">
-	<h3>Cognome</h3><input type="text" name="last">
-	<h3>e-Mail</h3><input type="text" name="email">
-	<h3>Password</h3><input type="password" name="password" >
-	<h3>Scadenza</h3><input type="date" name="scadenza" >
-	<h3>Telefono</h3><input type="text" name="telefono" >
-	<h3>Azienda</h3><input type="text" name="azienda" >
-	<h3>Partita Iva</h3><input type="text" name="p_iva">
-	<h3>Sede</h3><input type="text" name="sede">
+	<h3>Nome</h3><input type="text" name="first" placeholder="" required>
+	<h3>Cognome</h3><input type="text" name="last" placeholder="" required>
+	<h3>e-Mail</h3><input type="text" name="email" placeholder="" required>
+	<h3>Password</h3><input type="password" name="password" placeholder="" required>
+	<h3>Conferma Password</h3><input type="password" name="passwordConf" placeholder="" required>
+	<h3>Scadenza</h3><input type="date" name="scadenza" placeholder="" required>
+	<h3>Telefono</h3><input type="text" name="telefono" placeholder="">
+	<h3>Azienda</h3><input type="text" name="azienda" placeholder="">
+	<h3>Partita Iva</h3><input type="text" name="p_iva" placeholder="" >
+	<h3>Sede</h3><input type="text" name="sede" placeholder="">
 
 	<button type="submit" name="submit" onclick="mostraAllert()">Registra Cliente</button>
 	</form>

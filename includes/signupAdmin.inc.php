@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
 	} 
 }else{
 	//NON ESISTE PIU, CORREGGERE LINK!!!
-	header("Location: ../signupAdmin.php"); 
+	header("Location: ../HomeIOT.php"); 
 	exit();
 }
 	
