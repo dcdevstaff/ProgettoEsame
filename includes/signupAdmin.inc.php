@@ -39,8 +39,13 @@ if (isset($_POST['submit'])) {
 	} 
 }else{
 	//NON ESISTE PIU, CORREGGERE LINK!!!
+<<<<<<< HEAD
 	header("Location: ../signupAdmin.php"); 
 	
+=======
+	header("Location: ../HomeIOT.php"); 
+	exit();
+>>>>>>> 90a38c09ded8de710fc243012ab26be4bee19187
 }
 	
 
