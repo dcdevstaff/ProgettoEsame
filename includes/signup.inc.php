@@ -58,12 +58,6 @@ if (isset($_POST['submit'])){
 	}
 
 
-}elseif (isset($_POST['bottZONA'])) {
-	header("Location: ../signup.php?zona"); 
-
-}elseif (isset($_POST['bottSENS'])) {
-	header("Location: ../signup.php?sensore"); 
-
 }else{
 	header("Location: ../signup.php?errore"); 
 	
