@@ -52,9 +52,9 @@ if (isset($_SESSION['u_email'])){
 	
                                 <?php
 																		
-
+                                	$i=0;
                                     foreach($resultZon as $resultZ) {
-
+                                    										$i=1;
 																			$sensor=$resultZ['id_pos'];
 																			$querySensor="SELECT * FROM sensori_zona WHERE id_pos = '$sensor';";
 																			$resultSensor= mysqli_query($conn,$querySensor);
@@ -85,6 +85,12 @@ if (isset($_SESSION['u_email'])){
 																					
                                         }echo "<h3 class=\"intestazione\">".$resultZ['zona']."<h3>";
 
+                                    }
+                                    if($i==0){
+                                    	echo ("<script LANGUAGE='JavaScript'>
+										window.alert('Zona richiesta non trovata!');
+										window.location.href='HomeCliente.php';
+										</script>");
                                     }
                                 ?>
                  
