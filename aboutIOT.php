@@ -6,7 +6,7 @@
 		<div class="cover__filter"></div>
 		<div class="cover__caption">
 			<div class="cover__caption__copy">
-				<h1 class="centrto">ABOUT IOT </h1>
+				<h1 class="centrto">ABOUT IOT vers2</h1>
 				
 			</div>
 		</div>
