@@ -26,7 +26,7 @@ if (isset($_POST['bottZONA'])) {
 					 window.location.href='../HomeIOT.php';
 			 </script>");
 					
-		exit();
+	
 	
 
 }elseif (isset($_POST['bottSENS'])) {
@@ -57,8 +57,7 @@ if (isset($_POST['bottZONA'])) {
 		</script>");
 		
 
-	//header("Refresh:0");
-	exit();
+	
 		
 	
 

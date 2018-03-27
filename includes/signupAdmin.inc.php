@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
 
 	if (empty($adminName) || empty($adminPassword) || empty($admPassConf)) {
 		header("Location: ../signupAdmin.php?signupAdmin=MancaUnDato");
-			exit();
+			
 	} 
 	else {
 		if($adminPassword == $admPassConf){
@@ -21,14 +21,14 @@ if (isset($_POST['submit'])) {
 		$resultQueryAdminCheck  = mysqli_num_rows($resultQueryAdmin);
 			if ($resultQueryAdminCheck<0) {
 				header("Location: ../signup.php?signup=NomeAdminInUso");
-				exit();
+				
 			}
 			else {
 				$hashedAdminPassword = password_hash($adminPassword, PASSWORD_DEFAULT);
 				$sqlQuerySalvataggioAccountAdmin = "INSERT INTO admin (admin_email,password) VALUES('$emailNewAdmin','$hashedAdminPassword');";
 				mysqli_query($conn,$sqlQuerySalvataggioAccountAdmin);
 				header("Location: ../homeIOT.php?signup=success");
-				exit();
+				
 			}
 		} else{ echo ("<script LANGUAGE='JavaScript'>
 			window.alert('Le password non corrspondono !');
@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
 }else{
 	//NON ESISTE PIU, CORREGGERE LINK!!!
 	header("Location: ../signupAdmin.php"); 
-	exit();
+	
 }
 	
 

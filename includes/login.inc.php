@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 
 if (empty($email) || empty($password)) {
 		header("Location: ../index.php?login=empty");
-		exit();		
+				
 } //gestione stringhe
 else{
 		//Preparazione Query e avvaloramento dei risultati
@@ -82,7 +82,7 @@ elseif ($resultCheckUser >0){
 elseif($resultCheckUser<1 && $resultCheckAdmin<1){
 			
 			header("Location: ../index.php?login=noAdmin_noUser");
-			//exit();
+			//
 } 
 
 else header("Location: ../index.php?login=FineBlocco");

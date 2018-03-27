@@ -11,7 +11,7 @@ if (isset($_POST['submit'])){
 	//Check for empty fields
 	if (empty($target)) {
 		header("Location: ../cercaZona.php?cercaZona=empty");
-		exit();
+		
 
 	}
 	else {
