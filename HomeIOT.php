@@ -1,4 +1,5 @@
 <?php
+//home Iot
 include_once 'header.php';
 ?>
 	<section class="cover cover--single" style="margin-top: 50px">
