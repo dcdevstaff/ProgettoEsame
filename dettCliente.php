@@ -60,7 +60,7 @@ if (isset($_POST['delete'])) {
 
     $sql = " UPDATE cliente SET nome=ciao,cognome=ciao,azienda=ciao,telefono=ciao,p_iva=ciao,sede=ciao,email=ciao  WHERE cod_cliente = '$cod ';";
 
-    echo $sql;
+
 
 }elseif (isset($_POST['delAllSens'])) {
 	
@@ -174,13 +174,17 @@ if ($resultCheckZone<1) {
 				$id = $resultS['id_sensori'];
 				$collocazione= $resultS['id_pos'];
 
+				$idS=htmlspecialchars($resultS['id_sensori']);
+				$tip=htmlspecialchars($resultS['tipo']);
+				$nomeS=htmlspecialchars($resultS['nome_sensore']);
+
                 echo "<tbody>
 						<tr>
 								<input type=\"hidden\" name=\"name\" value=$id/>
 								<input type=\"hidden\" name=\"name\" value=$collocazione/>
-								<td name=\"serial\">" . $resultS['id_sensori'] . "</td>
-								<td>" . $resultS['tipo'] . "</td>
-								<td>" . $resultS['nome_sensore'] . "</td>
+								<td name=\"serial\">" . $idS. "</td>
+								<td>" .$tip . "</td>
+								<td>" . $nomeS . "</td>
 								<td>
 									<button
 										type=\"submit\"
@@ -196,8 +200,9 @@ if ($resultCheckZone<1) {
 				";
 			 }
         }
+        $rZona=htmlspecialchars($resultZ['zona']);
 		echo "
-			<h3 class=\"intestazione\"> " . $resultZ['zona'] . "</h3>
+			<h3 class=\"intestazione\"> " . $rZona . "</h3>
 			<button
 			type=\"submit\"
 			name=\"delAllSens\"
@@ -240,8 +245,8 @@ if ($resultCheckZone<1) {
       </div>
       <div class="modal-body">
 	  <form class="signup-form" action="includes/addItem.inc.php?id=<?php
-echo $cod;
-    ?>" method="POST" >
+			echo htmlspecialchars($cod);
+    	?>" method="POST" >
 
 	<h3>Nome zona</h3><input type="text" name="zona">
 
@@ -274,7 +279,7 @@ echo $cod;
       </div>
       <div class="modal-body">
 	  <form class="signup-form" action="includes/addItem.inc.php?id=<?php
-	echo $cod;
+	echo htmlspecialchars($cod);
     ?>" method="POST" >
 
 	<h3>Nome Sensore</h3><input type="text" name="name" placeholder="add placeolder">

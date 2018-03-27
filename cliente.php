@@ -28,7 +28,7 @@
 		<div class="cover__filter"></div>
 		<div class="cover__caption">
 			<div class="cover__caption__copy">
-                <h1 class="centrto">DETTAGLIO CLIENTE</h1>
+                <h1 class="centrto">ANAGRAFICA CLIENTE</h1>
                 <h1 class="centrto"><?php echo $email?></h1>
 			</div>
 		</div>
