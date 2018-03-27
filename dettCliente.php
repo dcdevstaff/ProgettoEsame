@@ -29,14 +29,12 @@ if (isset($_POST['delete'])) {
     		window.alert('Cliente cancellato !');
     		window.location.href='../HomeIOT.php';
     		</script>");
-        exit();
     } else {
 
         echo ("<script LANGUAGE='JavaScript'>
     		window.alert('Errore riprovare !');
     		window.location.href='../HomeIOT.php';
     		</script>");
-        exit();
     }
 
 }elseif (isset($_POST['deleteSENS'])){
@@ -49,13 +47,11 @@ if (isset($_POST['delete'])) {
     			window.alert('Sensore cancellato !');
     			window.location.href='HomeIOT.php';
     			</script>");
-			exit();
 		}else {
 				echo ("<script LANGUAGE='JavaScript'>
     		window.alert('Errore riprovare !');
     		window.location.href='HomeIOT.php';
     		</script>");
-				exit();
         }
 	
 }elseif (isset($_POST['modify'])) {
@@ -78,13 +74,13 @@ if (isset($_POST['delete'])) {
 			window.alert('Tutti i sensori in zona cancellati !');
 			window.location.href='HomeIOT.php';
 			</script>");
-		exit();
+		
 	}else {
 			echo ("<script LANGUAGE='JavaScript'>
 		window.alert('Errore riprovare !');
 		window.location.href='HomeIOT.php';
 		</script>");
-			exit();
+			
 	}
 
 
@@ -104,13 +100,13 @@ if (isset($_POST['delete'])) {
 			window.alert('Zona eliminata!');
 			window.location.href='HomeIOT.php';
 			</script>");
-		exit();
+		
 	}else {
 			echo ("<script LANGUAGE='JavaScript'>
 		window.alert('Errore riprovare !');
 		window.location.href='HomeIOT.php';
 		</script>");
-			exit();
+		
 	}
 
 }elseif (isset($_POST['dectail'])) {
