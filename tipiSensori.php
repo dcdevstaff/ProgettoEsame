@@ -17,7 +17,7 @@ include_once 'header.php';
 	</section>
 
 	<section>	
-				<h1 class="evidenzia">Gestione dati dei Sesori</h1>			
+				<h1 class="evidenzia">Gestione dati dei Sensori</h1>			
 	</section>
 
 <?php
@@ -28,7 +28,7 @@ if (!isset($_POST['submitSens'])){
 <div class="form-wrapper">
 	<form class="signup-form" action="tipiSensori.php" method="POST" >
 
-	<h3>Tipo</h3><input type="text" name="tipo" placeholder="Tipo di Sensore" reqired>
+	<h3>Tipo</h3><input type="text" name="typeT" placeholder="Tipo di Sensore" required>
 	<h3>Numero Campi</h3><input type="text" name="nCampi" placeholder="Numero dei campi" required>
 <button type="submit" name="submitSens" >Crea Struttura Sensore</button>
 </form>
@@ -37,6 +37,7 @@ if (!isset($_POST['submitSens'])){
 </section>
 <?php 
 }else{
+	$typ=$_POST['typeT'];
 	$num=$_POST['nCampi'];
 	?>
 	<div class="card">
@@ -63,11 +64,11 @@ if (!isset($_POST['submitSens'])){
         <h4 class="modal-title" id="myModalLabel">Aggiungi Info al Tipo di Sensore</h4>
       </div>
       <div class="modal-body">
-	  <form class="signup-form" action="includes/tipiSensori.inc.php" method="POST" >
+	  <form class="signup-form" action="includes/tipiSensori.inc.php?tipo=<?php echo $typ ?>" method="POST" >
 	  	<?php 
 	  	for( $i=1;$i<=$num;$i++){
 		?>
-	  		<h3>Campo <?php echo $i ?></h3><input type="text" name=<?php echo 'campo'.$i ?> placeholder="Inserisci nome campo">
+	  		<h3>Campo <?php echo $i ?></h3><input type="text" name=<?php echo 'campo'.$i ?> placeholder="Inserisci nome campo" required>
 	  	<?php 
 	  }
 	  	 ?>
