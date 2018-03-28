@@ -16,16 +16,10 @@ include_once 'header.php';
 		</div>
 	</section>
 
-<<<<<<< HEAD
-	<section class="cards clearfix">
-				<h1 class="evidenzia">Gestione dati dei Sesori</h1>
-	
-=======
-	<section>
-	
+	<section>	
 				<h1 class="evidenzia">Gestione dati dei Sesori</h1>			
 	</section>
->>>>>>> b5bc534fc3c7420a96505817a6db0a68dc0b725b
+
 <?php
 if (!isset($_POST['submitSens'])){
 ?>	
