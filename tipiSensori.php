@@ -64,7 +64,7 @@ if (!isset($_POST['submitSens'])){
         <h4 class="modal-title" id="myModalLabel">Aggiungi Info al Tipo di Sensore</h4>
       </div>
       <div class="modal-body">
-	  <form class="signup-form" action="includes/tipiSensori.inc.php?tipo=<?php echo $typ ?>" method="POST" >
+	  <form class="signup-form" action="includes/tipiSensori.inc.php?tipo=<?php echo $typ ?>&num=<?php echo $num ?>" method="POST" >
 	  	<?php 
 	  	for( $i=1;$i<=$num;$i++){
 		?>
