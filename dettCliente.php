@@ -66,21 +66,26 @@ if (isset($_POST['delete'])) {
 	window.location.href='HomeIOT.php';
 	</script>");
 	} elseif(empty($nAzienda) && empty($nTelefono) ){
+		//query aggiorna sede
 		$sqlUpdateSede = " UPDATE cliente SET sede = '$nSede' WHERE cliente.cod_cliente = '$cod' ; " ;
 		$resUpdateSede = mysqli_query($conn, $sqlUpdateSede);
 		if ($resUpdateSede) {
 			echo ("<script LANGUAGE='Javascript'>
-			window.alert('Cliente modificato con successo'); 
+			window.alert('Sede modificata con successo'); 
 			window.location.href='HomeIOT.php';
 			</script>");
 		}
 	
 	} elseif (empty($nAzienda) && empty($nSede)) {
+		//query aggiorna telefono
 		$sqlUpdateTelfono;
+
 	} elseif (empty($nTelefono) && empty($nSede)) {
+		//query aggiorna nomeAzienda
 		$sqlUpdateAzienda;
+
 	} else{
-		//BO!
+		//Query aggiorna tutto
 	} 
 
 
