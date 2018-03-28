@@ -73,7 +73,7 @@
                         </tr>
                         <tr>
                             <th>
-                                <label>Azienda : </label>
+                                <label>Ragione Sociale : </label>
                             </th>
                             <th>
                             	<?php
@@ -130,10 +130,36 @@
 
                 <button type="submit" name="delete" value='<?php echo $cod_cliente; ?>'>Cancella Cliente</button>
                 
-
-                <button type="submit" name="modify" value='<?php echo $cod_cliente; ?>'>Modifica Cliente</button>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalModificaCliente">Modifica dati Cliente</button>
                 
-         
+            <!----------------- MODAL MODIFICA CLIENTE------------------------>
+            <section>
+                <div class="modal fade" id="ModalModificaCliente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+				<h3 class="evidenzia" id="myModalLabel">Modifica dati cliente</h3>
+                </div>
+                <div class="modal-body">
+	        <form class="signup-form" action="includes/dettCliente.inc.php" method="POST" >
+                
+                <input type="hidden" name="idCliente" value="<?php echo htmlspecialchars($cod_cliente); ?>">
+                <h3>Ragione sociale</h3><input type="text" name="newAzienda">
+		        <h3>Telefono</h3><input type="text" name="newTelefono">
+                <h3>Sede</h3><input type="text" name="newSede">
+
+	            <button type="submit" name="btnUpdateCliente" value='<?php echo $cod_cliente; ?>'>Aggiorna cliente</button>
+	        </form>
+
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+            </div>
+            </div>
+            </div>
+            </div>
+           <!----------------- fine MODAL MODIFICA CLIENTE------------------------>
+
                 <button type="submit" name="dectail" value='<?php echo $cod_cliente; ?>'>Dettagli Zone e Sensori </button>
 
                

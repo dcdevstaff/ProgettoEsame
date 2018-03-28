@@ -7,13 +7,14 @@ include_once 'header.php';
 		<div class="cover__caption">
 			<div class="cover__caption__copy">
 				<h1 class="centrto">PANNELLO DI CONTROLLO IOT </h1>
+
 			</div>
 		</div>
 	</section>
 
 	<section class="cards clearfix">
 				<h1 class="evidenzia">Gestione clienti</h1>
-
+				<button onclick="window.location.href='tipiSensori.php'">Gestione Tipi Sensori</button>
 
 
 
@@ -47,7 +48,6 @@ include_once 'header.php';
 	<h3>Cognome</h3><input type="text" name="last" placeholder="" required>
 	<h3>e-Mail</h3><input type="text" name="email" placeholder="" required>
 	<h3>Password</h3><input type="password" name="password" placeholder="" required>
-	<h3>Conferma Password</h3><input type="password" name="passwordConf" placeholder="" required>
 	<h3>Scadenza</h3><input type="date" name="scadenza" placeholder="" required>
 	<h3>Telefono</h3><input type="text" name="telefono" placeholder="">
 	<h3>Azienda</h3><input type="text" name="azienda" placeholder="">
