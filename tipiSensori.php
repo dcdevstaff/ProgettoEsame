@@ -18,7 +18,7 @@ include_once 'header.php';
 
 	<section class="cards clearfix">
 				<h1 class="evidenzia">Gestione dati dei Sesori</h1>
-
+	
 <?php
 if (!isset($_POST['submitSens'])){
 ?>	
