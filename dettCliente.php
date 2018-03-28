@@ -1,15 +1,6 @@
 <?php
 error_reporting(0);
-/* <SISTEMARE:>
-.
-. Aggiungere una funzione per rimuovere
-- un sensore; FATTO
-- tutti i sensori di una zona; FATTO
-- la zona; FATTO 
 
-. Se un cliente non ha zone, mostrare il messaggio "nessuna zona" FATTO
-
-</SISTEMARE:>*/
 
 include_once 'includes/dbh.inc.php';
 include_once 'header.php';

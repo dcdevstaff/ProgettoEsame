@@ -7,13 +7,14 @@ include_once 'header.php';
 		<div class="cover__caption">
 			<div class="cover__caption__copy">
 				<h1 class="centrto">PANNELLO DI CONTROLLO IOT </h1>
+
 			</div>
 		</div>
 	</section>
 
 	<section class="cards clearfix">
 				<h1 class="evidenzia">Gestione clienti</h1>
-
+				<button onclick="window.location.href='tipiSensori.php'">Gestione Tipi Sensori</button>
 
 
 
