@@ -16,20 +16,29 @@ include_once 'header.php';
 		</div>
 	</section>
 
+<<<<<<< HEAD
 	<section class="cards clearfix">
 				<h1 class="evidenzia">Gestione dati dei Sesori</h1>
 	
+=======
+	<section>
+	
+				<h1 class="evidenzia">Gestione dati dei Sesori</h1>			
+	</section>
+>>>>>>> b5bc534fc3c7420a96505817a6db0a68dc0b725b
 <?php
 if (!isset($_POST['submitSens'])){
 ?>	
 
 <div><!-- Button trigger modal -->
+<div class="form-wrapper">
 	<form class="signup-form" action="tipiSensori.php" method="POST" >
 
-	<h3>Tipo</h3><input type="text" name="tipo" placeholder="Tipo di Sensore">
-	<h3>Numero Campi</h3><input type="text" name="nCampi" placeholder="Numero dei campi">
+	<h3>Tipo</h3><input type="text" name="tipo" placeholder="Tipo di Sensore" reqired>
+	<h3>Numero Campi</h3><input type="text" name="nCampi" placeholder="Numero dei campi" required>
 <button type="submit" name="submitSens" >Crea Struttura Sensore</button>
 </form>
+</div>
 </div>
 </section>
 <?php 
@@ -50,7 +59,7 @@ if (!isset($_POST['submitSens'])){
 ?>
 
 
-<!-- MODAL ADD ACCOUNT-->
+<!-- MODAL ADD TIPO SENSORE -->
 <section>
 <div class="modal fade" id="ModalSensor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
