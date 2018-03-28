@@ -141,14 +141,14 @@
 				<h3 class="evidenzia" id="myModalLabel">Modifica dati cliente</h3>
                 </div>
                 <div class="modal-body">
-	        <form class="signup-form" action="includes/updateCliente.inc.php" method="POST" >
+	        <form class="signup-form" action="includes/dettCliente.inc.php" method="POST" >
                 
                 <input type="hidden" name="idCliente" value="<?php echo htmlspecialchars($cod_cliente); ?>">
                 <h3>Ragione sociale</h3><input type="text" name="newAzienda">
 		        <h3>Telefono</h3><input type="text" name="newTelefono">
                 <h3>Sede</h3><input type="text" name="newSede">
 
-	            <button type="submit" name="btnUpdateCliente">Aggiorna cliente</button>
+	            <button type="submit" name="btnUpdateCliente" value='<?php echo $cod_cliente; ?>'>Aggiorna cliente</button>
 	        </form>
 
             </div>

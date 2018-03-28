@@ -1,4 +1,5 @@
 <?php
+/* DEPRECATED*/
 include_once 'dbh.inc.php';
     if (isset($_POST['btnUpdateCliente'])) {
         $nAzienda = mysqli_real_escape_string($conn, $_POST['newAzienda']);

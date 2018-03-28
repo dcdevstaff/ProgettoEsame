@@ -45,11 +45,49 @@ if (isset($_POST['delete'])) {
     		</script>");
         }
 	
-}elseif (isset($_POST['modify'])) {
 
-    $cod = mysqli_real_escape_string($conn, $_POST['modify']);
 
-    $sql = " UPDATE cliente SET nome=ciao,cognome=ciao,azienda=ciao,telefono=ciao,p_iva=ciao,sede=ciao,email=ciao  WHERE cod_cliente = '$cod ';";
+
+
+
+
+
+
+}elseif (isset($_POST['btnUpdateCliente'])) {
+
+    $cod = mysqli_real_escape_string($conn, $_POST['btnUpateCliente']);
+	$nAzienda = mysqli_real_escape_string($conn, $_POST['newAzienda']);
+    $nTelefono = mysqli_real_escape_string($conn, $_POST['newTelefono']);
+	$nSede = mysqli_real_escape_string($conn, $_POST['newSede']);
+
+	if (isset($cod) && empty($nTelefono) && empty($nSede) && empty($nAzienda)) {
+		echo ("<script LANGUAGE='Javascript'>
+	window.alert('Nulla da aggiornare!'); 
+	window.location.href='HomeIOT.php';
+	</script>");
+	} elseif(empty($nAzienda) && empty($nTelefono) ){
+		$sqlUpdateSede = " UPDATE cliente SET sede = '$nSede' WHERE cliente.cod_cliente = '$cod' ; " ;
+		$resUpdateSede = mysqli_query($conn, $sqlUpdateSede);
+		if ($resUpdateSede) {
+			echo ("<script LANGUAGE='Javascript'>
+			window.alert('Cliente modificato con successo'); 
+			window.location.href='HomeIOT.php';
+			</script>");
+		}
+	
+	} elseif (empty($nAzienda) && empty($nSede)) {
+		$sqlUpdateTelfono;
+	} elseif (empty($nTelefono) && empty($nSede)) {
+		$sqlUpdateAzienda;
+	} else{
+		//BO!
+	} 
+
+
+
+
+
+
 
 
 
