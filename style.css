@@ -155,11 +155,11 @@ Cards
 
 .cards {
     max-width: 1200px;
-    margin: 40px auto
+    margin: 10px auto
 }
 
 .card {
-    width: 30%;
+    width: 22%;
     margin: 0 1.5%;
     background: #fff;
     float: left;

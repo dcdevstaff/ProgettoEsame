@@ -55,19 +55,20 @@ if (isset($_POST['delete'])) {
 
 }elseif (isset($_POST['btnUpdateCliente'])) {
 
-    $cod = mysqli_real_escape_string($conn, $_POST['btnUpateCliente']);
+    $codC = mysqli_real_escape_string($conn, $_POST['btnUpateCliente']);
 	$nAzienda = mysqli_real_escape_string($conn, $_POST['newAzienda']);
     $nTelefono = mysqli_real_escape_string($conn, $_POST['newTelefono']);
 	$nSede = mysqli_real_escape_string($conn, $_POST['newSede']);
 
-	if (isset($cod) && empty($nTelefono) && empty($nSede) && empty($nAzienda)) {
+	if (isset($codC) && empty($nTelefono) && empty($nSede) && empty($nAzienda)) {
+
 		echo ("<script LANGUAGE='Javascript'>
 	window.alert('Nulla da aggiornare!'); 
 	window.location.href='HomeIOT.php';
 	</script>");
 	} elseif(empty($nAzienda) && empty($nTelefono) ){
 		//query aggiorna sede
-		$sqlUpdateSede = " UPDATE cliente SET sede = '$nSede' WHERE cliente.cod_cliente = '$cod' ; " ;
+		$sqlUpdateSede = " UPDATE cliente SET sede = '$nSede' WHERE cod_cliente = '$codC' ; " ;
 		$resUpdateSede = mysqli_query($conn, $sqlUpdateSede);
 		if ($resUpdateSede) {
 			echo ("<script LANGUAGE='Javascript'>
@@ -166,7 +167,6 @@ if (isset($_POST['delete'])) {
 		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalAddS">
  					 Aggiungi Sensore
 		</button>
-
 			</div>
 		</div>
 	</section>
