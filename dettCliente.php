@@ -347,11 +347,11 @@ if ($resultCheckZone<1) {
       </div>
       <div class="modal-body">
 	  <form class="signup-form" action="includes/addItem.inc.php?id=<?php
-	echo htmlspecialchars($cod);
-    ?>" method="POST" >
+		echo htmlspecialchars($cod);
+    	?>" method="POST" >
 
-	<h3>Nome Sensore</h3><input type="text" name="name" placeholder="add placeolder">
-	<h3>Id Sensore</h3><input type="text" name="id">
+	<h3>Nome Sensore</h3><input type="text" name="name" placeholder="">
+	<h3>Serial Number Sensore</h3><input type="text" name="id">
 	<h3>Tipo</h3><input type="text" name="tipo">
 	<h3>Marca</h3><input type="text" name="marca" >
 	<h3>Zona</h3><input type="text" name="zona" >
@@ -359,9 +359,7 @@ if ($resultCheckZone<1) {
 	<h3>Massimo Accettabile</h3><input type="text" name="MaxA">
 	<h3>Minimo Critico</h3><input type="text" name="MinC" >
 	<h3>Massimo Critico</h3><input type="text" name="MaxC" >
-	<?php
-/* Fare controllo dati Di MINIMO E MASSIMO*/
-    ?>
+	
 	<button type="submit" name="bottSENS" onclick="mostraAllert()">Inserisci</button>
 	</form>
 
