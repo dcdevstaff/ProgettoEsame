@@ -138,7 +138,9 @@
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
-				<h3 class="evidenzia" id="myModalLabel">Modifica dati cliente</h3>
+                <h3 class="evidenzia" id="myModalLabel">Modifica dati cliente</h3>
+                <h5><small><i>Compilare solo i campi che si desidera aggiornare </i></small></h5>
+                    <br>
                 </div>
                 <div class="modal-body">
 	        <form class="signup-form" action="includes/dettCliente.inc.php" method="POST" >
@@ -160,7 +162,7 @@
             </div>
            <!----------------- fine MODAL MODIFICA CLIENTE------------------------>
 
-                <button type="submit" name="dectail" value='<?php echo $cod_cliente; ?>'>Dettagli Zone e Sensori </button>
+                <button type="submit" name="dectail" value='<?php echo $cod_cliente; ?>'>Gestione Zone e Sensori </button>
 
                
 		</form>
