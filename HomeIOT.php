@@ -141,7 +141,7 @@ include_once 'header.php';
                         <form class="signup-form" action="includes/searcAccount.inc.php" method="POST">
 
                             <h3>e-Mail user</h3><input type="text" name="email">
-
+                            
                             <button type="submit" name="submit">Cerca cliente</button>
                         </form>
 

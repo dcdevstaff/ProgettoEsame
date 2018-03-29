@@ -352,9 +352,33 @@ if ($resultCheckZone<1) {
 
 	<h3>Nome Sensore</h3><input type="text" name="name" placeholder="">
 	<h3>Serial Number Sensore</h3><input type="text" name="id">
-	<h3>Tipo</h3><input type="text" name="tipo">
+
+	<h3> Tipo </h3><select name="tipo">
+		<?php
+			$sqlTipiDidponibili = "SELECT * FROM TipiSensori; ";
+			$resultTipiDisponibili = mysqli_query($conn, $sqlTipiDidponibili);
+			$resultTD = mysqli_fetch_array($resultTipiDisponibili);
+			foreach ($resultTipiDisponibili as $resultTD ) {
+				$tipo = $resultTD['tipologia'];
+				echo "<option value=$tipo> $tipo </option>";
+			}
+	?>
+
+ 	</select>
+
 	<h3>Marca</h3><input type="text" name="marca" >
-	<h3>Zona</h3><input type="text" name="zona" >
+
+	<h3>Zona</h3><select name="zona">
+	<?php
+		$sqlZoneDidponibili = "SELECT zona FROM zona_cliente WHERE cliente = '$cod'; ";
+		$resultZoneDisponibili = mysqli_query($conn, $sqlZoneDidponibili);
+		$resultZD = mysqli_fetch_array($resultZoneDisponibili);
+		foreach ($resultZoneDisponibili as $resultZD ) {
+			$zonax = $resultZD['zona'];
+			echo "<option value=$zonax> $zonax </option>";
+		}
+	?>
+	</select>
 	<h3>Minimo Accettabile</h3><input type="text" name="MinA">
 	<h3>Massimo Accettabile</h3><input type="text" name="MaxA">
 	<h3>Minimo Critico</h3><input type="text" name="MinC" >
