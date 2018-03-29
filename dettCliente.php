@@ -55,38 +55,72 @@ if (isset($_POST['delete'])) {
 
 }elseif (isset($_POST['btnUpdateCliente'])) {
 
-    $codC = mysqli_real_escape_string($conn, $_POST['btnUpateCliente']);
+    $codC = mysqli_real_escape_string($conn, $_POST['btnUpdateCliente']);
 	$nAzienda = mysqli_real_escape_string($conn, $_POST['newAzienda']);
     $nTelefono = mysqli_real_escape_string($conn, $_POST['newTelefono']);
 	$nSede = mysqli_real_escape_string($conn, $_POST['newSede']);
 
-	if (isset($codC) && empty($nTelefono) && empty($nSede) && empty($nAzienda)) {
+	if (empty($nTelefono) && empty($nSede) && empty($nAzienda)) {
 
 		echo ("<script LANGUAGE='Javascript'>
-	window.alert('Nulla da aggiornare!'); 
-	window.location.href='HomeIOT.php';
-	</script>");
+		window.alert('Nulla da aggiornare!'); 
+		window.location.href='HomeIOT.php';
+		</script>");
+
 	} elseif(empty($nAzienda) && empty($nTelefono) ){
-		//query aggiorna sede
+
+		//query aggiorna solo sede
 		$sqlUpdateSede = " UPDATE cliente SET sede = '$nSede' WHERE cod_cliente = '$codC' ; " ;
 		$resUpdateSede = mysqli_query($conn, $sqlUpdateSede);
+		//header("Location:HomeIOT.php?cod:". $sqlUpdateSede);
+		
 		if ($resUpdateSede) {
 			echo ("<script LANGUAGE='Javascript'>
-			window.alert('Sede modificata con successo'); 
+			window.alert('Sede modificata'); 
+			window.location.href='HomeIOT.php';
+			</script>");
+		} 
+		
+	} elseif (empty($nAzienda) && empty($nSede)) {
+		//query aggiorna telefono
+		$sqlUpdateTelefono = " UPDATE cliente SET telefono = '$nTelefono' WHERE cod_cliente = '$codC' ; " ;
+		$resUpdateTelefono = mysqli_query($conn, $sqlUpdateTelefono);
+		//header("Location:HomeIOT.php?cod:". $sqlUpdateTelefono);
+
+		if ($resUpdateTelefono) {
+			echo ("<script LANGUAGE='Javascript'>
+			window.alert('Recapito modificato'); 
 			window.location.href='HomeIOT.php';
 			</script>");
 		}
-	
-	} elseif (empty($nAzienda) && empty($nSede)) {
-		//query aggiorna telefono
-		$sqlUpdateTelfono;
+		
 
 	} elseif (empty($nTelefono) && empty($nSede)) {
 		//query aggiorna nomeAzienda
-		$sqlUpdateAzienda;
+		$sqlUpdateAzienda= " UPDATE cliente SET azienda = '$nAzienda' WHERE cod_cliente = '$codC' ; " ;
+		$resUpdateAzienda = mysqli_query($conn, $sqlUpdateAzienda);
+		//header("Location:HomeIOT.php?cod:". $sqlUpdateAzienda);
+
+		if ($resUpdateAzienda) {
+			echo ("<script LANGUAGE='Javascript'>
+			window.alert('Nome aziendale modificato'); 
+			window.location.href='HomeIOT.php';
+			</script>");
+		}
 
 	} else{
 		//Query aggiorna tutto
+		$sqlUpdateAll= " UPDATE cliente SET sede = '$nSede' , telefono = '$nTelefono' , azienda = '$nAzienda' WHERE cod_cliente = '$codC' ; " ;
+		$resUpdateAll = mysqli_query($conn, $sqlUpdateAll);
+		//header("Location:HomeIOT.php?cod:". $sqlUpdateAll);
+
+		if ($resUpdateAll) {
+			echo ("<script LANGUAGE='Javascript'>
+			window.alert('Profilo cliente modificato'); 
+			window.location.href='HomeIOT.php';
+			</script>");
+		}
+
 	} 
 
 
