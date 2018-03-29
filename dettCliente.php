@@ -189,32 +189,32 @@ if (isset($_POST['delete'])) {
 
     ?>
 
-	<section class="cover cover--single" style="margin-top: 50px">
-		<div class="cover__filter"></div>
-		<div class="cover__caption">
-			<div class="cover__caption__copy">
-				<h1 style="margin: auto">Dettagli Cliente </h1>
-				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalAddZ">
+    <section class="cover cover--single" style="margin-top: 50px">
+        <div class="cover__filter"></div>
+        <div class="cover__caption">
+            <div class="cover__caption__copy">
+                <h1 style="margin: auto">Dettagli Cliente </h1>
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalAddZ">
  					 Aggiungi Zona
 		</button>
 
-		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalAddS">
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalAddS">
  					 Aggiungi Sensore
 		</button>
-			</div>
-		</div>
-	</section>
-<br>
+            </div>
+        </div>
+    </section>
+    <br>
 
 
 
-	<section class="main-container">
+    <section class="main-container">
 
 
-		<div class="tabel-wrapper centrato" >
+        <div class="tabel-wrapper centrato">
 
 
-<?php
+            <?php
 if ($resultCheckZone<1) {
 	 echo "<h1>QUESTO ACCOUNT NON HA ANCORA ZONE</h1>";
 } else{
@@ -294,66 +294,66 @@ if ($resultCheckZone<1) {
 
 
 
-</div>
-</section>
+        </div>
+    </section>
 
 
 
 
 
 
-<!-- MODAL ADD ZONA-->
-<section>
-<div class="modal fade" id="ModalAddZ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Aggiungi Zona</h4>
-      </div>
-      <div class="modal-body">
-	  <form class="signup-form" action="includes/addItem.inc.php?id=<?php
+    <!-- MODAL ADD ZONA-->
+    <section>
+        <div class="modal fade" id="ModalAddZ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Aggiungi Zona</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="signup-form" action="includes/addItem.inc.php?id=<?php
 			echo htmlspecialchars($cod);
-    	?>" method="POST" >
+    	?>" method="POST">
 
-	<h3>Nome zona</h3><input type="text" name="zona">
+                            <h3>Nome zona</h3><input type="text" name="zona">
 
-	<button type="submit" name="bottZONA" onclick="mostraAllert()">Inserisci</button>
-	</form>
+                            <button type="submit" name="bottZONA" onclick="mostraAllert()">Inserisci</button>
+                        </form>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
-
-
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
 
 
-<!-- MODAL ADD SENS-->
-<section>
-<div class="modal fade" id="ModalAddS" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Aggiungi Sensore</h4>
-      </div>
-      <div class="modal-body">
-	  <form class="signup-form" action="includes/addItem.inc.php?id=<?php
+
+
+    <!-- MODAL ADD SENS-->
+    <section>
+        <div class="modal fade" id="ModalAddS" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Aggiungi Sensore</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="signup-form" action="includes/addItem.inc.php?id=<?php
 		echo htmlspecialchars($cod);
-    	?>" method="POST" >
+    	?>" method="POST">
 
-	<h3>Nome Sensore</h3><input type="text" name="name" placeholder="">
-	<h3>Serial Number Sensore</h3><input type="text" name="id">
+                            <h3>Nome Sensore</h3><input type="text" name="name" placeholder="">
+                            <h3>Serial Number Sensore</h3><input type="text" name="id">
 
-	<h3> Tipo </h3><select name="tipo">
+                            <h3> Tipo </h3><select name="tipo">
 		<?php
 			$sqlTipiDidponibili = "SELECT * FROM TipiSensori; ";
 			$resultTipiDisponibili = mysqli_query($conn, $sqlTipiDidponibili);
@@ -366,9 +366,9 @@ if ($resultCheckZone<1) {
 
  	</select>
 
-	<h3>Marca</h3><input type="text" name="marca" >
+                            <h3>Marca</h3><input type="text" name="marca">
 
-	<h3>Zona</h3><select name="zona">
+                            <h3>Zona</h3><select name="zona">
 	<?php
 		$sqlZoneDidponibili = "SELECT zona FROM zona_cliente WHERE cliente = '$cod'; ";
 		$resultZoneDisponibili = mysqli_query($conn, $sqlZoneDidponibili);
@@ -379,26 +379,26 @@ if ($resultCheckZone<1) {
 		}
 	?>
 	</select>
-	<h3>Minimo Accettabile</h3><input type="text" name="MinA">
-	<h3>Massimo Accettabile</h3><input type="text" name="MaxA">
-	<h3>Minimo Critico</h3><input type="text" name="MinC" >
-	<h3>Massimo Critico</h3><input type="text" name="MaxC" >
-	
-	<button type="submit" name="bottSENS" onclick="mostraAllert()">Inserisci</button>
-	</form>
+                            <h3>Minimo Accettabile</h3><input type="text" name="MinA">
+                            <h3>Massimo Accettabile</h3><input type="text" name="MaxA">
+                            <h3>Minimo Critico</h3><input type="text" name="MinC">
+                            <h3>Massimo Critico</h3><input type="text" name="MaxC">
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-</section>
+                            <button type="submit" name="bottSENS" onclick="mostraAllert()">Inserisci</button>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
-<?php }
+    <?php }
 //altrnativa a eliminaSensZona
 
 

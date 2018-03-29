@@ -13,7 +13,7 @@ for( $i=1;$i<=$n;$i++){
 	$campo[$i]=mysqli_real_escape_string($conn,$_POST['campo'.$i]);
 }
 
-$createSql="CREATE TABLE IF NOT EXISTS $tipo(idSensore VARCHAR(255));";
+$createSql="CREATE TABLE IF NOT EXISTS $tipo(idRilevazione INT(250) NOT NULL PRIMARY KEY  AUTO_INCREMENT, idSensore VARCHAR(255));";
 $result = mysqli_query($conn, $createSql);
 
 $sqlAddTipo="INSERT INTO TipiSensori (tipologia) VALUES ('$tipo'); ";
