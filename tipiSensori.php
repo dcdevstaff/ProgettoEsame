@@ -34,7 +34,7 @@ if (!isset($_POST['submitSens'])){
                     <h5><small><i>Che tipo di dato verrà monitorato? E' raccomandato usare nomi quali "velocità","pressione","umidità"...</i></small></h5>
                     <br>
                     <h3>Numero Campi</h3><input type="text" name="nCampi" style="margin-bottom: 0px" required>
-                    <h5><small><i>Esempio: Usa 4 campi per registrare Giorno, Mese, Anno, Dato </i></small></h5>
+                    <h5><small><i>N.B. il campo per la data e quello per il valore rilevato saranno aggiunti automaticamente! </i></small></h5>
                     <br>
 
                     <button type="submit" name="submitSens">Avanti</button>

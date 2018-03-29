@@ -76,7 +76,7 @@
            $queryDataSensor = "SELECT * from Temperatura WHERE idSensore = '$cod' ; ";
    
         echo "
-           <form method=\"POST\" action=\"includes/infoDash.php\">
+           <form method=\"POST\" action=\"includes/infoDash.inc.php\">
        
            <table class=\"table table-bordered\">
              <thead>
@@ -90,20 +90,26 @@
            $collocazione=$resultZ['id_pos'];
           if ($resultS) {
               foreach ($resultSensor as $resultS) {
+                  
                   $id = $resultS['id_sensori'];
                   $collocazione= $resultS['id_pos'];
    
                   $idS=htmlspecialchars($resultS['id_sensori']);
                   $tip=htmlspecialchars($resultS['tipo']);
                   $nomeS=htmlspecialchars($resultS['nome_sensore']);
+                  
+                  
    
                    echo "
                    <tbody>
                    <tr>
-                   <input type=\"hidden\" name=\"name\" value=$id/>
-                   <input type=\"hidden\" name=\"name\" value=$collocazione/>
+                   <input type=\"hidden\" name=\"name\" value=$id>
+                   <input type=\"hidden\" name=\"tipo\" value=$tip>
+                   <input type=\"hidden\" name=\"name\" value=$collocazione>
+                   <input type=\"hidden\" name=\"nomeS\" value=$nomeS>
+
                    <td name=\"sensName\">" . $nomeS. "</td>
-                   <td>" .$tip . "</td>
+                   <td>" . $tip . "</td>
                    <td>" . $nomeS . "</td>
                    <td>
                      <button
