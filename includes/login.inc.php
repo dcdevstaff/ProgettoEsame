@@ -43,8 +43,8 @@ else{
 		$userPassword = $arrayDatiUser['user_password'];
 		$hashedPwdCheckUser = password_verify($password,$userPassword);	 
 		$mysqlDate = strtotime($arrayDatiUser['scadenza']);	
-		$scadenzaPhp = date("d/m/y", $mysqlDate);
-		$today = date("d/m/y"); 
+		$scadenzaPhp = date("yyyy-mm-dd", $mysqlDate);
+		$today = date("yyyy-mm-dd"); 
 		//CONTROLLO VALIDITA' ABBONAMENTO
 		$check = 0;
 		if ($today < $scadenzaPhp){
@@ -55,7 +55,7 @@ else{
 
  //---------------GESTIONE ACCESSI_____________________________________
 			
-
+ 
 		
 		// CASO: è un ADMIN
 if ($resultCheckAdmin >0) {
