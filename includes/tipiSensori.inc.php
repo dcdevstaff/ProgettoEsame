@@ -28,7 +28,7 @@ if($result){
 
 	echo ("<script LANGUAGE='JavaScript'>
     		window.alert('CREATO !');
-    		window.location.href='../tipiSensori.php';
+    		window.location.href='../HomeIOT.php';
     		</script>");
 }else{
 	echo ("<script LANGUAGE='JavaScript'>
