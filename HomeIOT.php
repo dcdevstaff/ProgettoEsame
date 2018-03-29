@@ -39,11 +39,11 @@ include_once 'header.php';
                         <div class="modal-body">
                             <form class="signup-form" action="includes/signup.inc.php" method="POST">
 
-                                <h3>Nome</h3><input type="text" name="first" placeholder="*" required>
-                                <h3>Cognome</h3><input type="text" name="last" placeholder="*" required>
-                                <h3>e-Mail</h3><input type="text" name="email" placeholder="*" required>
-                                <h3>Password</h3><input type="password" name="password" placeholder="*" required>
-                                <h3>Scadenza</h3><input type="date" name="scadenza" placeholder="*" required>
+                                <h3>Nome *</h3><input type="text" name="first"  required>
+                                <h3>Cognome *</h3><input type="text" name="last"  required>
+                                <h3>e-Mail *</h3><input type="text" name="email"  required>
+                                <h3>Password *</h3><input type="password" name="password"  required>
+                                <h3>Scadenza *</h3><input type="date" name="scadenza"  required>
                                 <h3>Telefono</h3><input type="text" name="telefono" placeholder="">
                                 <h3>Azienda</h3><input type="text" name="azienda" placeholder="">
                                 <h3>Partita Iva</h3><input type="text" name="p_iva" placeholder="">

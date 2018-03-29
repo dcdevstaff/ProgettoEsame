@@ -13,12 +13,13 @@ if (isset($_POST['submit'])){
 	$azienda =  mysqli_real_escape_string($conn,$_POST['azienda']);
 	$p_iva =  mysqli_real_escape_string($conn,$_POST['p_iva']);
 	$sede =  mysqli_real_escape_string($conn,$_POST['sede']);
+	$limit = strtotime($scadenza);
+	$limitPhp = date("d/m/y", $limit);
 	$today = date("d/m/y"); 
 
 	//Error handLers
 	//Check for empty fields
-	if (empty($first) || empty($last) || empty($email) || empty($password) || empty($scadenza) || $scadenza < $today) {
-		//header("Location: ../signup.php?signup=error");
+	if (empty($first) || empty($last) || empty($email) || empty($password) || empty($scadenza) ) {
 		echo ("<script LANGUAGE='Javascript'>
 					 window.alert('Campo obbligatorio vuoto o scadenza impossibile'); 
 					 window.location.href='../HomeIOT.php';
@@ -44,7 +45,8 @@ if (isset($_POST['submit'])){
 					header("Location: ../signup.php?signup=usertaken");
 					
 				}else{
-					//Hashing the password
+					
+						//Hashing the password
 					$hashedPwd = password_hash($password,PASSWORD_DEFAULT);
 					//Insert the user into the Databases
 					$sql = "INSERT INTO users (user_email,user_password,scadenza) VALUES ('$email','$hashedPwd','$scadenza');";
@@ -56,7 +58,7 @@ if (isset($_POST['submit'])){
 					 window.alert('Utente registrato'); 
 					 window.location.href='../HomeIOT.php';
 					 </script>");
-					
+				
 				}
 			}
 		}

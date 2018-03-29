@@ -73,7 +73,7 @@ session_start();
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Info <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="HomeIOT.php">Home IOT (verrà tolto)</a></li>
-            <li role="separator" class="divider"></li>
+            <li role="separator" class="divider"></li> 
             <li><a href="HomeCLIENTE.php">Dashboard (verrà tolto)</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="aboutRadar.php">About Radar</a></li>
