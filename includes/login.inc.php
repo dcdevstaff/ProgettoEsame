@@ -44,7 +44,7 @@ else{
 		$hashedPwdCheckUser = password_verify($password,$userPassword);	 
 		$mysqlDate = strtotime($arrayDatiUser['scadenza']);	
 		$scadenzaPhp = date("d/m/y", $mysqlDate);
-		$today = date("d/m/y");
+		$today = date("d/m/y"); 
 		//CONTROLLO VALIDITA' ABBONAMENTO
 		$check = 0;
 		if ($today < $scadenzaPhp){

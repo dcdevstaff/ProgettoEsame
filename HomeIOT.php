@@ -33,16 +33,17 @@ include_once 'header.php';
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Aggiungi Cliente</h4>
+                            <h4 class="intestazione" id="myModalLabel">Aggiungi Cliente</h4>
+                            <h5><small><i>I campi contrassegnati con * sono obbligatori </i></small></h5>
                         </div>
                         <div class="modal-body">
                             <form class="signup-form" action="includes/signup.inc.php" method="POST">
 
-                                <h3>Nome</h3><input type="text" name="first" placeholder="" required>
-                                <h3>Cognome</h3><input type="text" name="last" placeholder="" required>
-                                <h3>e-Mail</h3><input type="text" name="email" placeholder="" required>
-                                <h3>Password</h3><input type="password" name="password" placeholder="" required>
-                                <h3>Scadenza</h3><input type="date" name="scadenza" placeholder="" required>
+                                <h3>Nome</h3><input type="text" name="first" placeholder="*" required>
+                                <h3>Cognome</h3><input type="text" name="last" placeholder="*" required>
+                                <h3>e-Mail</h3><input type="text" name="email" placeholder="*" required>
+                                <h3>Password</h3><input type="password" name="password" placeholder="*" required>
+                                <h3>Scadenza</h3><input type="date" name="scadenza" placeholder="*" required>
                                 <h3>Telefono</h3><input type="text" name="telefono" placeholder="">
                                 <h3>Azienda</h3><input type="text" name="azienda" placeholder="">
                                 <h3>Partita Iva</h3><input type="text" name="p_iva" placeholder="">
@@ -79,7 +80,8 @@ include_once 'header.php';
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title" id="myModalLabel">Cerca Cliente</h4>
+                            <h4 class="intestazione" id="myModalLabel">Aggiungi nuovo admin</h4>
+    
                         </div>
                         <div class="modal-body">
                             <form class="signup-form" action="includes/signupAdmin.inc.php" method="POST">
@@ -135,7 +137,7 @@ include_once 'header.php';
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Cerca Cliente</h4>
+                        <h4 class="intestazione" id="myModalLabel">Cerca Cliente</h4>
                     </div>
                     <div class="modal-body">
                         <form class="signup-form" action="includes/searcAccount.inc.php" method="POST">

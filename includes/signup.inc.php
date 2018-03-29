@@ -13,11 +13,16 @@ if (isset($_POST['submit'])){
 	$azienda =  mysqli_real_escape_string($conn,$_POST['azienda']);
 	$p_iva =  mysqli_real_escape_string($conn,$_POST['p_iva']);
 	$sede =  mysqli_real_escape_string($conn,$_POST['sede']);
+	$today = date("d/m/y"); 
 
 	//Error handLers
 	//Check for empty fields
-	if (empty($first) || empty($last) || empty($email) || empty($password) || empty($scadenza)) {
-		header("Location: ../signup.php?signup=empty");
+	if (empty($first) || empty($last) || empty($email) || empty($password) || empty($scadenza) || $scadenza < $today) {
+		//header("Location: ../signup.php?signup=error");
+		echo ("<script LANGUAGE='Javascript'>
+					 window.alert('Campo obbligatorio vuoto o scadenza impossibile'); 
+					 window.location.href='../HomeIOT.php';
+					 </script>");
 		
 
 	}else {
