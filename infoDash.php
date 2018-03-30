@@ -194,13 +194,13 @@ if(isset($_POST['infoSENS'])){
         <table class=\"table table-bordered\" style=\"width: 400px\">
         <thead>
             <tr>";
-            $i=1;
+            
             foreach ($nomeCampi as $arrCampi) {
              	echo "<th>".$arrCampi['Field']."</th>";
                 foreach ($resultRilevazioni as $arrRilevazioni) {
            			
            			$dataRil = $arrRilevazioni[$arrCampi['Field']];
-           			$i=$i+1;
+           		
          
             		echo "
             		<tbody>
@@ -220,12 +220,32 @@ if(isset($_POST['infoSENS'])){
         </table>
     ";
         
+//DA QUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+echo ("<script LANGUAGE='JavaScript'>
+					var i=1;
+					var graphic = [];
+	</script>");
 
-
-
+    foreach ($resultRilevazioni as $arrGrafico) {    //Questo pezzo di condice fatto per incastonare variabili JS e Php dovrebbe prendermi le Date rilevazioni
+    	$temp=$arrGrafico['data_rilevamento'];		//dal php e metterle in un array Js. Andando piu giu se vedi in Js in un labels.
+    												//ce l'array ricavato messo "forzato" senza cilcare per testare.... ora da Crome in effetti escono degli anni
+    												//che prima non uscivano ma da dove cazzo li ha presi???? non sto capendo piu un cazzo faccio pausa.
+    	echo ("<script LANGUAGE='JavaScript'>		
+    			var temp=".$temp.";
+				graphic.push(temp);
+				i++;
+			  </script>");
+    }
+//A QUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
     ?>
 
+
+
+
+
+
  <script>
+ 	
 
     let myChart = document.getElementById('myChart').getContext('2d');
 
@@ -237,7 +257,7 @@ if(isset($_POST['infoSENS'])){
     let massPopChart = new Chart(myChart, {
       type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
       data:{
-        labels:['ciao','ciaooooo'],
+        labels:[graphic[0],graphic[1],graphic[2],graphic[3],graphic[4],graphic[5],graphic[6]],
         datasets:[{
           label:'Rilevazione',
           data:[
