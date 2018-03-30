@@ -44,17 +44,12 @@ if(isset($_POST['infoSENS'])){
     <br>
 
 
+<?php
 
-
-
-    <?php
  echo "
         <h1>GRAFICO </h1>
         <img src=\"res/gaf.png\">
     ";
-
-
-
 
 
     echo"
