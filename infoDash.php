@@ -44,7 +44,7 @@ session_start();
 
     }
   </style>
-  <title>My Chart.js Chart</title>
+  <title>Radar</title>
 </head>
 
 
@@ -226,7 +226,7 @@ if(isset($_POST['infoSENS'])){
     ?>
 
  <script>
- 	
+
     let myChart = document.getElementById('myChart').getContext('2d');
 
     // Global Options
