@@ -21,7 +21,7 @@ session_start();
   rel="stylesheet"
   href="style.css"
   >
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
   <link
   rel="stylesheet"
   href="stile3.css"
