@@ -43,11 +43,18 @@ if(isset($_POST['infoSENS'])){
     </section>
     <br>
 
+
+
+
+
     <?php
  echo "
         <h1>GRAFICO </h1>
         <img src=\"res/gaf.png\">
     ";
+
+
+
 
 
     echo"
