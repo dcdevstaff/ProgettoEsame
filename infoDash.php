@@ -6,6 +6,7 @@ if(isset($_POST['infoSENS'])){
 	
 	include_once 'includes/dbh.inc.php';
 
+	
 	//$sess=$_SESSION['u_email'];
 	$info= $_POST['infoSENS'];
 
@@ -43,6 +44,10 @@ if(isset($_POST['infoSENS'])){
     <br>
 
     <?php
+ echo "
+        <h1>GRAFICO </h1>
+        <img src=\"res/gaf.png\">
+    ";
 
 
     echo"
