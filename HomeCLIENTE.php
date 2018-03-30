@@ -76,7 +76,7 @@
            $queryDataSensor = "SELECT * from Temperatura WHERE idSensore = '$cod' ; ";
    
         echo "
-           <form method=\"POST\" action=\"includes/infoDash.inc.php\">
+           <form method=\"POST\" action=\"infoDash.php\">
        
            <table class=\"table table-bordered\">
              <thead>
