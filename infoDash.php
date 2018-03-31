@@ -131,8 +131,6 @@ if(isset($_POST['infoSENS'])){
 	
 	include_once 'includes/dbh.inc.php';
 
-	
-	//$sess=$_SESSION['u_email'];
 	$info= $_POST['infoSENS'];
 
 	$cod = mysqli_real_escape_string($conn,$info);
@@ -146,21 +144,16 @@ if(isset($_POST['infoSENS'])){
 
     $sqlCol="SHOW COLUMNS FROM $tipo ;";
     $nomeCampi= mysqli_query($conn,$sqlCol);
- 	$arrCampi = mysqli_fetch_array($nomeCampi);
+ 	  $arrCampi = mysqli_fetch_array($nomeCampi);
 
-
-
- 	$sqlinfo="SELECT marca FROM sensori_zona WHERE id_sensori = '$cod';";
- 	$sInfo= mysqli_query($conn,$sqlinfo);
- 	$sArr=mysqli_fetch_array($sInfo);
+ 	  $sqlinfo="SELECT marca FROM sensori_zona WHERE id_sensori = '$cod';";
+    $sInfo= mysqli_query($conn,$sqlinfo);
+ 	  $sArr=mysqli_fetch_array($sInfo);
 }
 
 
 
  ?>
-
-
-
    <section class="cover cover--single" style="margin-top: 50px">
         <div class="cover__filter"></div>
         <div class="cover__caption">
@@ -180,12 +173,6 @@ if(isset($_POST['infoSENS'])){
     
 <?php /*
  echo "
-        <h1>GRAFICO </h1>
-        <img src=\"res/gaf.png\">
-    ";
-
-
-
 
 */
     echo"
@@ -193,33 +180,23 @@ if(isset($_POST['infoSENS'])){
         <h1 class=\"intestazione\"> Sensore: $nomeS </h1>
         <table class=\"table table-bordered\" style=\"width: 400px\">
         <thead>
-            <tr>";
-            
+            <tr>"; 
+
             foreach ($nomeCampi as $arrCampi) {
-             	echo "<th>".$arrCampi['Field']."</th>";
-                foreach ($resultRilevazioni as $arrRilevazioni) {
-           			
-           			$dataRil = $arrRilevazioni[$arrCampi['Field']];
-           		
-         
-            		echo "
-            		<tbody>
-                	<tr>
-                    	<td> $dataRil </td>
-                    
-                	</tr>
-            		</tbody>
-           			
-            		";
-        		}
-               
-            }
-               echo "
-            </tr>
-        </thead>
-        </table>
-    ";
-        
+               echo "<th>".$arrCampi['Field']."</th>";
+            }  echo "</tr> </thead> <tbody>";
+            //p.o. rilevazione stampa una riga
+            foreach ($resultRilevazioni as $arrRilevazioni) {
+              echo "<tr>"; 
+              $dataRil = $arrRilevazioni[$arrCampi['Field']];
+                  foreach ($arrRilevazioni as $dataRil)  {
+                    echo "<td>" . $dataRil . "</td>";
+                  }
+               echo "</tr>";
+            }  
+            echo "</tbody>";
+        		
+
 //DA QUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
 echo ("<script LANGUAGE='JavaScript'>
 					var i=1;

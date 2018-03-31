@@ -47,7 +47,7 @@
 <?php
   if (isset($_SESSION['u_email'])) {
 
-    // 1-Cerco l'id dell'utente loggato
+    // 1-Cerco l'id dell'utente loggato e lo metto in $cod
     $userMail = $_SESSION['u_email'];
     $sql1= "SELECT * FROM cliente WHERE email = '$userMail' ";
     $resSql1 = mysqli_query($conn, $sql1);
@@ -66,14 +66,12 @@
       echo "<h1>QUESTO ACCOUNT NON HA ANCORA ZONE</h1>";
     } else {
        foreach ($resultZone as $resultZ) {
-   
+           //cerco tutti i sensori in quella zona
            $sensor = $resultZ['id_pos'];
            $querySensor = "SELECT * FROM sensori_zona WHERE id_pos = '$sensor';";
            $resultSensor = mysqli_query($conn, $querySensor);
            $resultS = mysqli_fetch_array($resultSensor);
-           $resultS2= mysqli_num_rows($resultSensor);
-
-           $queryDataSensor = "SELECT * from Temperatura WHERE idSensore = '$cod' ; ";
+           //$queryDataSensor = "SELECT * from Temperatura WHERE idSensore = '$cod' ; ";
    
         echo "
            <form method=\"POST\" action=\"infoDash.php\">
@@ -90,14 +88,22 @@
            $collocazione=$resultZ['id_pos'];
           if ($resultS) {
               foreach ($resultSensor as $resultS) {
-                  
-                  $id = $resultS['id_sensori'];
-                  $collocazione= $resultS['id_pos'];
+                
+                $id = $resultS['id_sensori'];
+                $collocazione= $resultS['id_pos'];
    
                   $idS=htmlspecialchars($resultS['id_sensori']);
                   $tip=htmlspecialchars($resultS['tipo']);
                   $nomeS=htmlspecialchars($resultS['nome_sensore']);
                   
+                  $queryLastRil = "SELECT * FROM $tip WHERE idSensore = '$id' ORDER BY idRilevazione DESC LIMIT 1;";
+                  $resRil = mysqli_query($conn,$queryLastRil);
+                  //echo $queryLastRil;
+                  $arrRil = mysqli_fetch_array($resRil);
+                  $lastRil = $arrRil['valore_rilevato'];
+
+
+
                   
    
                    echo "
@@ -110,7 +116,7 @@
 
                    <td name=\"sensName\">" . $nomeS. "</td>
                    <td>" . $tip . "</td>
-                   <td>" . $nomeS . "</td>
+                   <td>" . $lastRil. "</td>
                    <td>
                      <button
                        type=\"submit\"
