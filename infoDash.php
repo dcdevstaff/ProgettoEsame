@@ -199,7 +199,7 @@ if(isset($_POST['infoSENS'])){
 
       // Load the Visualization API and the corechart package.
       google.charts.load('current', {'packages':['corechart']});
-            <?php $a= 'dario' ?>
+            
       // Set a callback to run when the Google Visualization API is loaded.
       google.charts.setOnLoadCallback(drawChart);
 
@@ -236,4 +236,6 @@ if(isset($_POST['infoSENS'])){
         chart.draw(data, options);
       }
     </script>
+
+
 <div id="chart_div"></div>
