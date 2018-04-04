@@ -168,19 +168,24 @@ if(isset($_POST['infoSENS'])){
   </div>
 
   <div>
-  <form class="float-wrapper" action="#" method="POST">
+  <form class="float-wrapper" action="infoDashStorico.php" method="POST">
+
     <h3 class="intestazione"> Cambia Periodo</h3>
+
     <h3 style= "float:left"></h3><input type="date"  name="primaData">
     <h3 style= "float:left"></h3><input type="date"  name="ultimaData">
+    <input type="hidden" name="cod" value="<?php echo $cod; ?>">
+    <input type="hidden" name="tipo" value="<?php echo $tipo; ?>">
 
-    <button class= "buttonVerd" type="submit" name="submit">Vedi periodo</button>
+  <button type="submit" name="submit">Elabora Grafico</button>
 </form>
-  </div>
-   
-<?php /*
- echo "
 
-*/
+  </div>
+       
+   
+<?php 
+
+
     echo"
         <div class=\"table-wrapper\">
         <h1 class=\"intestazione\"> Sensore: $nomeS </h1>
@@ -202,7 +207,8 @@ if(isset($_POST['infoSENS'])){
                echo "</tr>";
             }  
             echo "</tbody>";
-           
+      
+
     ?>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
