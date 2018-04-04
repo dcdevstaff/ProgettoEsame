@@ -138,9 +138,11 @@ if(isset($_POST['infoSENS'])){
     $nomeS = mysqli_real_escape_string($conn, $_POST['nomeS']);
 
     $sqlRilevazioni = "SELECT * FROM $tipo WHERE idSensore = '$cod' ORDER BY idRilevazione DESC; ";
+    $sqlRilevazioniG = "SELECT * FROM $tipo WHERE idSensore = '$cod' ORDER BY idRilevazione DESC LIMIT 6; ";
     $resultRilevazioni = mysqli_query($conn, $sqlRilevazioni);
+    $resultRilevazioniG = mysqli_query($conn, $sqlRilevazioniG);
     $arrRilevazioni = mysqli_fetch_array($resultRilevazioni);
-    $arrGrafico=mysqli_fetch_array($resultRilevazioni);
+    $arrGrafico=mysqli_fetch_array($resultRilevazioniG);
 
     $sqlCol="SHOW COLUMNS FROM $tipo ;";
     $nomeCampi= mysqli_query($conn,$sqlCol);
@@ -175,7 +177,7 @@ if(isset($_POST['infoSENS'])){
         <table class=\"table table-bordered\" style=\"width: 400px\">
         <thead>
             <tr>"; 
-
+           
             foreach ($nomeCampi as $arrCampi) {
                echo "<th>".$arrCampi['Field']."</th>";
             }  echo "</tr> </thead> <tbody>";
@@ -185,6 +187,7 @@ if(isset($_POST['infoSENS'])){
               $dataRil = $arrRilevazioni[$arrCampi['Field']];
                   foreach ($arrRilevazioni as $dataRil)  {
                     echo "<td>" . $dataRil . "</td>";
+                   
                   }
                echo "</tr>";
             }  
@@ -210,13 +213,18 @@ if(isset($_POST['infoSENS'])){
         data.addColumn('string', 'DataRil');
         data.addColumn('number', 'ValoreRilevato');
         //foreach (tutteledate as data) {
+      
+        <?php
+            foreach ($resultRilevazioniG as $arrGrafico) {
+        ?>
         data.addRows([
-          ['<?php echo $a?>', 3],
-          ['Onions', 1],
-          ['Olives', 1],
-          ['Zucchini', 1],
-          ['Pepperoni', 2]
-        ]);
+              ['<?php echo $arrGrafico['data_rilevamento']; ?>',Number('<?php echo $arrGrafico['valore_rilevato']; ?>')]
+        ]);  
+        <?php } 
+        
+        ?>
+
+
         //}
         // Set chart options
         var options = {'title':'Rilevazioni sensore',
