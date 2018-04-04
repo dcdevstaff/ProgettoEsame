@@ -22,7 +22,7 @@ session_start();
   >
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
   <link
-  rel="stylesheet"
+  rel="stylesheet" 
   href="stile3.css"
   >
 
@@ -160,6 +160,8 @@ if(isset($_POST['infoSENS'])){
         <div class="cover__caption">
             <div class="cover__caption__copy">
                 <h1 style="margin: auto">Info Sensore ID : <?php echo $info." Tipo : ".$tipo." Marca : ".$sArr['marca']; ?></h1>
+                <button type="button" class="btn btn-primary btn-lg" style="width: 200px" data-toggle="modal" data-target="#ModalCercaS">Modifica Sensore</button>
+
             </div>
         </div>
     </section>
