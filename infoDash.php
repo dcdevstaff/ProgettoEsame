@@ -150,10 +150,7 @@ if(isset($_POST['infoSENS'])){
     $sInfo= mysqli_query($conn,$sqlinfo);
  	  $sArr=mysqli_fetch_array($sInfo);
 }
-
-
-
- ?>
+?>
    <section class="cover cover--single" style="margin-top: 50px">
         <div class="cover__filter"></div>
         <div class="cover__caption">
@@ -167,10 +164,7 @@ if(isset($_POST['infoSENS'])){
      <div class="container">
     <canvas id="myChart"></canvas>
   </div>
-
-
-
-    
+   
 <?php /*
  echo "
 
@@ -195,102 +189,43 @@ if(isset($_POST['infoSENS'])){
                echo "</tr>";
             }  
             echo "</tbody>";
-        		
-
-//DA QUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
-echo ("<script LANGUAGE='JavaScript'>
-					var i=1;
-					var graphic = [];
-	</script>");
-
-    foreach ($resultRilevazioni as $arrGrafico) {    //Questo pezzo di condice fatto per incastonare variabili JS e Php dovrebbe prendermi le Date rilevazioni
-    	$temp=$arrGrafico['data_rilevamento'];		//dal php e metterle in un array Js. Andando piu giu se vedi in Js in un labels.
-    												//ce l'array ricavato messo "forzato" senza cilcare per testare.... ora da Crome in effetti escono degli anni
-    												//che prima non uscivano ma da dove cazzo li ha presi???? non sto capendo piu un cazzo faccio pausa.
-    	echo ("<script LANGUAGE='JavaScript'>		
-          var temp=".$temp.";
-          console.log('adding temp to graphic')
-				graphic.push(temp);
-				i++;
-			  </script>");
-    }
-//A QUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
     ?>
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
 
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+            <?php $a= 'dario' ?>
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
 
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
 
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'DataRil');
+        data.addColumn('number', 'ValoreRilevato');
+        //foreach (tutteledate as data) {
+        data.addRows([
+          ['<?php echo $a?>', 3],
+          ['Onions', 1],
+          ['Olives', 1],
+          ['Zucchini', 1],
+          ['Pepperoni', 2]
+        ]);
+        //}
+        // Set chart options
+        var options = {'title':'Rilevazioni sensore',
+                       'width':900,
+                       'height':300};
 
-
- <script>
- 	
-
-    let myChart = document.getElementById('myChart').getContext('2d');
-
-    // Global Options
-    Chart.defaults.global.defaultFontFamily = 'Lato';
-    Chart.defaults.global.defaultFontSize = 18;
-    Chart.defaults.global.defaultFontColor = '#777';
-
-    let massPopChart = new Chart(myChart, {
-      type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
-      data:{
-        labels:[graphic[0],graphic[1],graphic[2],graphic[3],graphic[4],graphic[5],graphic[6]],
-        datasets:[{
-          label:'Rilevazione',
-          data:[
-          4,
-           5,
-            15,
-            10,
-            2,
-            9,20
-          ],
-          //backgroundColor:'green',
-          backgroundColor:[
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)',
-            'rgba(255, 159, 64, 0.6)',
-            'rgba(255, 99, 132, 0.6)'
-          ],
-          borderWidth:1,
-          borderColor:'#777',
-          hoverBorderWidth:3,
-          hoverBorderColor:'#000'
-        }]
-      },
-      options:{
-        title:{
-          display:true,
-          text:'Rilevazioni del Sensore',
-          fontSize:25
-        },
-        legend:{
-          display:true,
-          position:'right',
-          labels:{
-            fontColor:'#000'
-          }
-        },
-        layout:{
-          padding:{
-            left:50,
-            right:0,
-            bottom:0,
-            top:0
-          }
-        },
-        tooltips:{
-          enabled:true
-        }
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
       }
-    });
-  </script>
-</body>
-
-
-
-    </html>
+    </script>
+<div id="chart_div"></div>
