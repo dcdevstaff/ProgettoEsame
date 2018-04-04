@@ -148,6 +148,8 @@ if(isset($_POST['infoSENS'])){
     $nomeCampi= mysqli_query($conn,$sqlCol);
  	  $arrCampi = mysqli_fetch_array($nomeCampi);
 
+    
+
  	  $sqlinfo="SELECT marca FROM sensori_zona WHERE id_sensori = '$cod';";
     $sInfo= mysqli_query($conn,$sqlinfo);
  	  $sArr=mysqli_fetch_array($sInfo);
