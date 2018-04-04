@@ -208,7 +208,8 @@ echo ("<script LANGUAGE='JavaScript'>
     												//ce l'array ricavato messo "forzato" senza cilcare per testare.... ora da Crome in effetti escono degli anni
     												//che prima non uscivano ma da dove cazzo li ha presi???? non sto capendo piu un cazzo faccio pausa.
     	echo ("<script LANGUAGE='JavaScript'>		
-    			var temp=".$temp.";
+          var temp=".$temp.";
+          console.log('adding temp to graphic')
 				graphic.push(temp);
 				i++;
 			  </script>");

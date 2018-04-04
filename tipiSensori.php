@@ -31,10 +31,11 @@ if (!isset($_POST['submitSens'])){
                 <form class="signup-form" action="tipiSensori.php" method="POST">
                     <h2 class="intestazione centrato">1- Crea la struttura del sensore</h2><br>
                     <h3>Nome Tipo</h3><input type="text" name="typeT" style="margin-bottom: 0px" required>
-                    <h5><small><i>Che tipo di dato verrà monitorato? E' raccomandato usare nomi quali "velocità","pressione","umidità"...</i></small></h5>
+                    <h5><small><i>Che tipo di dato verrà monitorato? E' raccomandato usare nomi quali "velocita","pressiona","umidita"...</i></small></h5>
+                    <h5><small><i>N.B. non utilizzare caratteri accentati nel nome. Utilizzare 'velocita' al posto di 'velocità'.</i></small></h5>
                     <br>
                     <h3>Numero Campi</h3><input type="text" name="nCampi" style="margin-bottom: 0px" required>
-                    <h5><small><i>N.B. il campo per la data e quello per il valore rilevato saranno aggiunti automaticamente! </i></small></h5>
+                    <h5><small><i>Utilizza questo campo per eventuali messaggi di malfunzionamento e/o errore o info aggiuntive. </i></small></h5>
                     <br>
 
                     <button type="submit" name="submitSens">Avanti</button>
@@ -50,6 +51,8 @@ if (!isset($_POST['submitSens'])){
         <div class="form-wrapper">
             <form class="signup-form" action="includes/tipiSensori.inc.php?tipo=<?php echo $typ ?>&num=<?php echo $num ?>" method="POST">
                 <h2 class="intestazione centrato">2- Definisci struttura dati</h2><br>
+                <h5><small><i>Utilizza questo campo per eventuali messaggi di malfunzionamento e/o errore...</i></small></h5>
+                <h5><small><i>Usa nomi quali 'stato' o 'cdice errore'.</i></small></h5><br>
                 <?php 
 	  	            for( $i=1;$i<=$num;$i++){
 		        ?>
