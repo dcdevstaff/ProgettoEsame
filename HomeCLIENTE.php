@@ -78,7 +78,7 @@
        
            <table class=\"table table-bordered\">
              <thead>
-                   <tr>
+                   <tr align=\"center\">
                     <th>Nome Sensore</th>
                     <th>Tipo</th>
                     <th>Ultima rilevazione</th>
@@ -101,6 +101,7 @@
                   //echo $queryLastRil;
                   $arrRil = mysqli_fetch_array($resRil);
                   $lastRil = $arrRil['valore_rilevato'];
+                  $lastRilData = $arrRil['data_rilevamento'];
 
 
 
@@ -114,10 +115,10 @@
                    <input type=\"hidden\" name=\"name\" value=$collocazione>
                    <input type=\"hidden\" name=\"nomeS\" value=$nomeS>
 
-                   <td name=\"sensName\">" . $nomeS. "</td>
-                   <td>" . $tip . "</td>
-                   <td>" . $lastRil. "</td>
-                   <td>
+                   <td name=\"sensName\" align=\"center\">" . $nomeS. "</td>
+                   <td align=\"center\">" . $tip . "</td>
+                   <td align=\"center\">" . $lastRil. " del ". $lastRilData . "</td>
+                   <td align=\"center\">
                      <button
                        type=\"submit\"
                        class=\"btn btn-default btn-sm\"

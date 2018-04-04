@@ -6,7 +6,7 @@ include_once 'header.php';
         <div class="cover__filter"></div>
         <div class="cover__caption">
             <div class="cover__caption__copy">
-                <h1 class="centrto">PANNELLO DI CONTROLLO IOT </h1>
+                
                 
             </div>
         </div>

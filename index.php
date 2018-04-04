@@ -5,9 +5,6 @@
 		<div class="cover__filter"></div>
 		<div class="cover__caption">
 			<div class="cover__caption__copy">
-				<h1 class "evidenzia">R.A.D.A.R. </h1>
-				<h1 class "evidenzia">DEFAULT HOME </h1>
-				<a href="" class="button"> Call to action</a>
 			</div>
 		</div>
 	</section>

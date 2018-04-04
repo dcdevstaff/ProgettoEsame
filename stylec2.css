@@ -221,7 +221,7 @@
     .evidenzia {
         font-family: arial;
         font-size: 50px;
-        color: #088A85;
+        color: #31AADF;
         text-align: center;
         margin: 30px;
     }
@@ -231,7 +231,7 @@
         margin-right: auto;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 25px;
-        color: #088A85;
+        color: #31AADF;
     }
     
     .main-container {
@@ -275,7 +275,7 @@
         width: 100%;
         height: 40px;
         border: none;
-        background-color: #088A85;
+        background-color: #31AADF;
         font-family: arial;
         font-size: 16px;
         color: #FFFFFF;
@@ -287,7 +287,7 @@
     }
     
     .signup-form button:hover {
-        background-color: #04B486;
+        background-color: #31AADF;
     }
     
     .buttonVerd {
@@ -296,7 +296,7 @@
         width: 100%;
         height: 40px;
         border: none;
-        background-color: #088A85;
+        background-color: #31AADF;
         font-family: arial;
         font-size: 16px;
         color: #FFFFFF;
@@ -354,4 +354,10 @@ Smartphone
         margin-left: auto;
         margin-right: auto;
         width: 800px;
+    }
+    
+    .scrollable {
+        height: 100px;
+        /* or any value */
+        overflow-y: auto;
     }
