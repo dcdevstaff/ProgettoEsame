@@ -136,6 +136,10 @@ Cover
     height: 30%
 }
 
+.cover--singleUser {
+    height: 15%
+}
+
 .cover--single h1 {
     font-size: 42px;
 }

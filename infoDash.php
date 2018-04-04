@@ -151,7 +151,7 @@ if(isset($_POST['infoSENS'])){
  	  $sqlinfo="SELECT marca FROM sensori_zona WHERE id_sensori = '$cod';";
     $sInfo= mysqli_query($conn,$sqlinfo);
  	  $sArr=mysqli_fetch_array($sInfo);
-}
+} 
 ?>
    <section class="cover cover--single" style="margin-top: 50px">
         <div class="cover__filter"></div>
@@ -201,9 +201,13 @@ if(isset($_POST['infoSENS'])){
                   }
                echo "</tr>";
             }  
-            echo "</tbody>";
+            echo "</tbody></div>";
            
     ?>
+
+
+
+
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">

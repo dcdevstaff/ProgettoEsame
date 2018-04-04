@@ -356,7 +356,7 @@ Smartphone
     }
     
     .scrollable {
-        height: 100px;
+        height: 350px;
         /* or any value */
         overflow-y: auto;
     }

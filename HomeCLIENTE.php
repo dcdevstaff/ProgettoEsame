@@ -3,48 +3,79 @@
   include_once 'includes/dbh.inc.php';
 ?>
 
-    <section class="cover cover--single" style="margin-top: 50px">
+    <section class="cover cover--singleUser" style="margin-top: 50px">
         <div class="cover__filter"></div>
         <div class="cover__caption">
             <div class="cover__caption__copy">
-                <h1 style="margin: auto">R.A.D.A.R. DASHBOARD </h1>
                 <button type="button" class="btn btn-primary btn-lg" style="width: 200px" data-toggle="modal" data-target="#ModalCercaZ">Cerca Zona</button>
+                <button type="button" class="btn btn-primary btn-lg" style="width: 200px" data-toggle="modal" data-target="#ModalCercaS">Cerca Sensore</button>
+
             </div>
         </div>
     </section>
     <br>
 
-    <!--MODAL CERCA ZONA -->
-    <section>
-        <div class="modal fade" id="ModalCercaZ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Cerca Zona</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form class="signup-form" action="dettaglioZona.php" method="POST">
-                            <!--cambiato-->
+        
 
-                            <h3>Nome zona: </h3><input type="text" name="nomeZona">
+        <!--MODAL CERCA ZONA -->
+        <section>
+            <div class="modal fade" id="ModalCercaZ" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="intestazione" id="myModalLabel">Cerca Zona</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="signup-form" action="dettaglioZona.php" method="POST">
+                                <!--cambiato-->
 
-                            <button type="submit" name="submit">Cerca</button>
-                        </form>
+                                <h3>Nome zona: </h3><input type="text" name="nomeZona">
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="submit" name="submit">Cerca</button>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="main-container">
-        <div class="tabel-wrapper centrato">
+             <!--MODAL cerca Sensore -->
+             <section>
+            <div class="modal fade" id="ModalCercaS" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="intestazione" id="myModalLabel">Cerca Sensore</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="signup-form" action="modificaSensore.php" method="POST">
 
-<?php
+                                <h3>Nome Sensore: </h3><input type="text" name="nomeSensore">
+                                <h3>Seriale Sensore: </h3><input type="text" name="idSensore">
+
+                                <button type="submit" name="submit">Cerca</button>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /MODAL cerca Sensore -->
+
+        <section class="main-container">
+            <div class="tabel-wrapper centrato">
+
+                <?php
   if (isset($_SESSION['u_email'])) {
 
     // 1-Cerco l'id dell'utente loggato e lo metto in $cod
@@ -57,21 +88,55 @@
 
     // 2- Cerco le zone
     $zone = "SELECT * FROM zona_cliente WHERE cliente = '$cod' ; ";
-
     $resultZone = mysqli_query($conn, $zone);
     $resultCheckZone = mysqli_num_rows($resultZone);
     $resultZ = mysqli_fetch_array($resultZone);
+    $contaZone = mysqli_num_rows($resultZone);
+    
+    
+    $sqlContaSens = "SELECT sensori_zona.id_sensori,zona_cliente.cliente FROM sensori_zona 
+    INNER JOIN zona_cliente ON zona_cliente.id_pos=sensori_zona.id_pos WHERE zona_cliente.cliente='$cod';";
+    $resultContaSens = mysqli_query($conn, $sqlContaSens);
+    $contaSensori = mysqli_num_rows($resultContaSens);
+    
+    echo ("
+        <section class=\"cards clearfix\">
+
+        <div class=\"card\">
+            <img class=\"card__image\" src=\"res/cerchio.jpg\">
+            <div class=\"card__copy\">
+                <p>Zone : ".$contaZone."</p>
+            </div>
+        </div>
+
+        <div class=\"card\">
+            <img class=\"card__image\" src=\"res/cerchio.jpg\">
+            <div class=\"card__copy\">
+                <p>Sensori : ".$contaSensori."</p>
+            </div>
+        </div>
+
+        <div class=\"card\">
+            <img class=\"card__image\" src=\"res/cerchio.jpg\">
+            <div class=\"card__copy\">
+                <p>Qualcosa</p>
+            </div>
+        </div>
+        
+    </section>
+    ");
 
     if ($resultCheckZone<1) {
       echo "<h1>QUESTO ACCOUNT NON HA ANCORA ZONE</h1>";
     } else {
+        echo "<div class=\"scrollable\">";
        foreach ($resultZone as $resultZ) {
            //cerco tutti i sensori in quella zona
            $sensor = $resultZ['id_pos'];
            $querySensor = "SELECT * FROM sensori_zona WHERE id_pos = '$sensor';";
            $resultSensor = mysqli_query($conn, $querySensor);
            $resultS = mysqli_fetch_array($resultSensor);
-           //$queryDataSensor = "SELECT * from Temperatura WHERE idSensore = '$cod' ; ";
+         
    
         echo "
            <form method=\"POST\" action=\"infoDash.php\">
@@ -82,7 +147,7 @@
                     <th>Nome Sensore</th>
                     <th>Tipo</th>
                     <th>Ultima rilevazione</th>
-                   <th>Dettagli</th>
+                   <th>Altro</th>
                   </tr>
              </thead>";
            $collocazione=$resultZ['id_pos'];
@@ -123,14 +188,15 @@
                        type=\"submit\"
                        class=\"btn btn-default btn-sm\"
                        name=\"infoSENS\"
-                       value=$id
-                     >
+                       value=$id>
                        <span class=\"glyphicon glyphicon-info-sign\"></span>
-                     </button>
+                     </button>"."   "."
+                     
+
                    </td>
                   </tr>
                   </tbody>
-                  ";
+                  </div>";
               }
           }
            $rZona=htmlspecialchars($resultZ['zona']);
@@ -146,6 +212,4 @@
       }
     }
   }
-        ?>
-        </div>
-    </section>
+?>
