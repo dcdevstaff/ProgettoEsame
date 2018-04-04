@@ -166,6 +166,16 @@ if(isset($_POST['infoSENS'])){
      <div class="container">
     <canvas id="myChart"></canvas>
   </div>
+
+  <div>
+  <form class="float-wrapper" action="#" method="POST">
+    <h3 class="intestazione"> Cambia Periodo</h3>
+    <h3 style= "float:left"></h3><input type="date"  name="primaData">
+    <h3 style= "float:left"></h3><input type="date"  name="ultimaData">
+
+    <button class= "buttonVerd" type="submit" name="submit">Vedi periodo</button>
+</form>
+  </div>
    
 <?php /*
  echo "
@@ -192,6 +202,7 @@ if(isset($_POST['infoSENS'])){
                echo "</tr>";
             }  
             echo "</tbody>";
+           
     ?>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
