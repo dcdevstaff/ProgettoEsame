@@ -10,12 +10,12 @@ if (isset($_POST['submit'])){
 	$sql=" SELECT *  FROM cliente WHERE email = '$email' ;";
 	$result = mysqli_query($conn,$sql);
 	$resultCheck = mysqli_num_rows($result);
-	$numcampi = @mysqli_num_fields($result);
+	$numcampi = mysqli_num_fields($result);
 
 	if ($resultCheck>0) {
 
 
-   		$row = @mysqli_fetch_row($result);
+   		$row = mysqli_fetch_row($result);
    		
 
 		echo ("<script LANGUAGE='JavaScript'>
