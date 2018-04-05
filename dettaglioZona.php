@@ -28,6 +28,12 @@ if (isset($_SESSION['u_email'])){
 	$resultCheckZone=mysqli_num_rows($resultZon);
 	$resultZ=mysqli_fetch_array($resultZon);
 
+	    //controllo massimimi minimi con colori
+			$x=$resultZ['id_pos'];
+			$queryColor="SELECT * FROM sensori_zona WHERE id_pos = '$x' ;";
+			$qColor=mysqli_query($conn,$queryColor);
+			$arrColor=mysqli_fetch_array($qColor);
+
 	?>
 
 	<section class="cover cover--single" style="margin-top: 50px">
@@ -60,38 +66,90 @@ if (isset($_SESSION['u_email'])){
 																			$resultSensor= mysqli_query($conn,$querySensor);
 																			$resultS=mysqli_fetch_array($resultSensor);
 																			
-																			
-																				echo "<table class=\"table table-bordered\">
-																			
-   	 																			<thead>
-      																			<tr>
-																							<th>Serial Number</th>
-																							<th>Tipo</th>
-																							<th>Nome</th>
-     																				 </tr>
-																				</thead>";
-																				
-                                       
-																				if($resultS)
-                                        foreach($resultSensor as $resultS) {
-																					echo "<tbody>
-																					<tr>
-																						<td>".$resultS['id_sensori']."</td>
-																						<td>".$resultS['tipo']."</td>
-																						<td>".$resultS['nome_sensore']."</td>
-																						
-																					</tr>
-																					</tbody>";	
-																					
-                                        }echo "<h3 class=\"intestazione\">".$resultZ['zona']."<h3>";
+																		   
+        echo "
+				<form method=\"POST\" action=\"infoDash.php\">
 
-                                    }
-                                    if($i==0){
-                                    	echo ("<script LANGUAGE='JavaScript'>
-										window.alert('Zona richiesta non trovata!');
-										window.location.href='HomeCliente.php';
-										</script>");
-                                    }
+				<table class=\"table table-bordered\">
+					<thead>
+								<tr align=\"center\">
+								 <th>Nome Sensore</th>
+								 <th>Tipo</th>
+								 <th>Ultima rilevazione</th>
+								<th>Altro</th>
+							 </tr>
+					</thead>";
+				$collocazione=$resultZ['id_pos'];
+			 if ($resultS) {
+					 foreach ($resultSensor as $resultS) {
+						 
+						 $id = $resultS['id_sensori'];
+						 $collocazione= $resultS['id_pos'];
+
+							 $idS=htmlspecialchars($resultS['id_sensori']);
+							 $tip=htmlspecialchars($resultS['tipo']);
+							 $nomeS=htmlspecialchars($resultS['nome_sensore']);
+							 
+							 $queryLastRil = "SELECT * FROM $tip WHERE idSensore = '$id' ORDER BY idRilevazione DESC LIMIT 1;";
+							 $resRil = mysqli_query($conn,$queryLastRil);
+							 //echo $queryLastRil;
+							 $arrRil = mysqli_fetch_array($resRil);
+							 $lastRil = $arrRil['valore_rilevato'];
+							 $lastRilData = $arrRil['data_rilevamento'];
+
+
+
+							 
+
+								echo "
+								<tbody id='myTable'>
+								<tr>
+								<input type=\"hidden\" name=\"name\" value=$id>
+								<input type=\"hidden\" name=\"tipo\" value=$tip>
+								<input type=\"hidden\" name=\"name\" value=$collocazione>
+								<input type=\"hidden\" name=\"nomeS\" value=$nomeS>
+
+								<td name=\"sensName\" align=\"center\">" . $nomeS. "</td>
+								<td align=\"center\">" . $tip . "</td>";
+								if($lastRil<= $arrColor['min_critico'] ||  $lastRil>= $arrColor['max_critico']){
+								 echo "<td align=\"center\" > <font color='red'>" . $lastRil. " del ". $lastRilData . " </font> </td>";
+								}elseif($lastRil<= $arrColor['min_accettabile'] ||  $lastRil>= $arrColor['max_accettabile'] ){
+									 echo "<td align=\"center\" > <font color='orange'>" . $lastRil. " del ". $lastRilData . "</font></td>";
+								}else{
+								 echo "<td align=\"center\" > <font color='green'>" . $lastRil. " del ". $lastRilData . "</font></td>";
+								}
+								
+
+								echo "<td align=\"center\">
+									<button
+										type=\"submit\"
+										class=\"btn btn-default btn-sm\"
+										name=\"infoSENS\"
+										value=$id>
+										<span class=\"glyphicon glyphicon-info-sign\"></span>
+									</button>"."   "."
+									
+
+								</td>
+							 </tr>
+							 </tbody>
+							 </div>";
+					 }
+			 }
+				$rZona=htmlspecialchars($resultZ['zona']);
+			 echo "
+			<h3 class=\"intestazione\"> " . $rZona . "</h3>
+			<button
+			type=\"submit\"
+			name=\"infoZONA\"
+			value=$collocazione
+			>Info Zona
+			</button>
+			</form>";
+	 }
+ }
+	
+		
                                 ?>
                  
                 
@@ -177,6 +235,6 @@ if (isset($_SESSION['u_email'])){
 </div>
 </section>
 <?php
-}
+
 
 ?>

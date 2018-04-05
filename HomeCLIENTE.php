@@ -44,37 +44,13 @@
             </div>
         </section>
 
-             <!--MODAL cerca Sensore 
-             <section>
-            <div class="modal fade" id="ModalCercaS" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            <h4 class="intestazione" id="myModalLabel">Cerca Sensore</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form class="signup-form" action="infoDash.php" method="POST">
-
-                                <h3>Nome Sensore: </h3><input type="text" name="nomeSensore">
-                                <h3>Seriale Sensore: </h3><input type="text" name="idSensore">
-
-                                <button type="submit" name="submit">Cerca</button>
-                            </form>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        /MODAL cerca Sensore -->
-<div class="form-wrapper"> 
+     
+<div class="form-wrapper" style="float-left"> 
+<h1 class = "intestazione">Cerca sensore</h1>
   <input class="form-control" id="myInput" type="text" placeholder="Search..">
   <br>
 </div>
+
 
 <script>
 $(document).ready(function(){
