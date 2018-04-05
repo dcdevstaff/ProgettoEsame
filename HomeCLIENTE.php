@@ -71,22 +71,25 @@ $(document).ready(function(){
   if (isset($_SESSION['u_email'])) {
 
     // 1-Cerco l'id dell'utente loggato e lo metto in $cod
-    $userMail = $_SESSION['u_email'];
+    $userMail1 = $_SESSION['u_email'];
+    $userMail= mysqli_real_escape_string($userMail1);
     $sql1= "SELECT * FROM cliente WHERE email = '$userMail' ";
     $resSql1 = mysqli_query($conn, $sql1);
     $arrayDati = mysqli_fetch_array($resSql1);
-    $cod = $arrayDati['cod_cliente'];
+    $cod1 = $arrayDati['cod_cliente'];
     // FUNZIONA echo "$cod";
 
     // 2- Cerco le zone
+    $cod=mysqli_real_escape_string($conn,$cod1);
     $zone = "SELECT * FROM zona_cliente WHERE cliente = '$cod' ; ";
+
     $resultZone = mysqli_query($conn, $zone);
     $resultCheckZone = mysqli_num_rows($resultZone);
     $resultZ = mysqli_fetch_array($resultZone);
     $contaZone = mysqli_num_rows($resultZone);
 
     //controllo massimimi minimi con colori
-    $x=$resultZ['id_pos'];
+    $x=mysqli_real_escape_string($conn,$resultZ['id_pos']);
     $queryColor="SELECT * FROM sensori_zona WHERE id_pos = '$x' ;";
     $qColor=mysqli_query($conn,$queryColor);
     $arrColor=mysqli_fetch_array($qColor);
@@ -153,7 +156,7 @@ $(document).ready(function(){
           if ($resultS) {
               foreach ($resultSensor as $resultS) {
                 
-                $id = $resultS['id_sensori'];
+                $id = mysqli_real_escape_string($conn,$resultS['id_sensori']);
                 $collocazione= $resultS['id_pos'];
    
                   $idS=htmlspecialchars($resultS['id_sensori']);

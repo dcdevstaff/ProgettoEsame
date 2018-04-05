@@ -48,7 +48,7 @@ if (isset($_POST['bottZONA'])) {
 
 		$resultPos = mysqli_query($conn,$sqlPos);
 		$resP= mysqli_fetch_array($resultPos);
-		$pos= $resP['id_pos'];
+		$pos= mysqli_real_escape_string($conn,$resP['id_pos']);
 		$sqlSensor = " INSERT INTO sensori_zona (id_sensori, nome_sensore, min_critico, max_critico, min_accettabile, max_accettabile, marca, tipo, id_pos) VALUES ('$idSens','$nomeSens','$minC','$maxC','$minA','$maxA','$marcaSens','$tipoSens','$pos');";
 	
 		$resultSensor = mysqli_query($conn,$sqlSensor);

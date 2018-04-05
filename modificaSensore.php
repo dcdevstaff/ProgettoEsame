@@ -50,8 +50,7 @@ include_once 'header.php';
     
 
     //echo ("$idS"."---"."$newName"."---"."$newMinCritico"."---"."$newMin"."---"."$newMax"."---"."$newMaxCritico");
-    echo "<br>";
-    echo "$sqlModificaSeore";
+  
 
 
 

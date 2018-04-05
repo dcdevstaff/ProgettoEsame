@@ -30,7 +30,7 @@
             <div class="cover__caption__copy">
                 <h1 class="centrto">ANAGRAFICA CLIENTE</h1>
                 <h1 class="centrto">
-                    <?php echo $email?>
+                    <?php echo htmlspecialchars($email); ?>
                 </h1>
             </div>
         </div>
@@ -49,7 +49,7 @@
                         </th>
                         <th>
                             <?php
-                                	echo $cod_cliente;
+                                	echo htmlspecialchars($cod_cliente);
                                 ?>
                         </th>
                     </tr>
@@ -59,7 +59,7 @@
                         </th>
                         <th>
                             <?php
-                                	echo $nome;
+                                	echo htmlspecialchars($nome);
                                 ?>
                         </th>
                     </tr>
@@ -69,7 +69,7 @@
                         </th>
                         <th>
                             <?php
-                                	echo $cognome;
+                                	echo htmlspecialchars($cognome);
                                 ?>
                         </th>
                     </tr>
@@ -79,7 +79,7 @@
                         </th>
                         <th>
                             <?php
-                                	echo $azienda;
+                                	echo htmlspecialchars($azienda);
                                 ?>
 
                         </th>
@@ -90,7 +90,7 @@
                         </th>
                         <th>
                             <?php
-                                	echo $telefono;
+                                	echo htmlspecialchars($telefono);
                                 ?>
                         </th>
                     </tr>
@@ -100,7 +100,7 @@
                         </th>
                         <th>
                             <?php
-                                	echo $p_iva;
+                                	echo htmlspecialchars($p_iva);
                                 ?>
                         </th>
                     </tr>
@@ -110,7 +110,7 @@
                         </th>
                         <th>
                             <?php
-                                	echo $sede;
+                                	echo htmlspecialchars($sede);
                                 ?>
                         </th>
                     </tr>
@@ -120,7 +120,7 @@
                         </th>
                         <th>
                             <?php
-                                	echo $email;
+                                	echo htmlspecialchars($email);
                                 ?>
                         </th>
                     </tr>
