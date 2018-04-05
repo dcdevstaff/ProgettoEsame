@@ -135,7 +135,7 @@ if(isset($_POST['infoSENS'])){
 	
 	include_once 'includes/dbh.inc.php';
 
-	$info= $_POST['infoSENS'];
+	  $info= $_POST['infoSENS'];
 
 	  $cod = mysqli_real_escape_string($conn,$info);
     $tipo = mysqli_real_escape_string($conn, $_POST['tipo']);
@@ -166,7 +166,8 @@ if(isset($_POST['infoSENS'])){
         <div class="cover__filter"></div>
         <div class="cover__caption">
             <div class="cover__caption__copy">
-                <h1 style="margin: auto">Info Sensore ID : <?php echo $info;?> Tipo : <?php echo $tipo; ?> Marca : <?php
+                <h1 style="margin: auto">Info Sensore ID : <?php echo $info; ?> Tipo : <?php echo $tipo; ?> Marca : 
+                  <?php
                 $sArr['marca']; ?></h1>
                 <button type="button" class="btn btn-primary btn-lg" style="width: 200px" data-toggle="modal" data-target="#ModalModificaS">Modifica Sensore</button>
 
