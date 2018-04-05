@@ -8,7 +8,7 @@
         <div class="cover__caption">
             <div class="cover__caption__copy">
                 <button type="button" class="btn btn-primary btn-lg" style="width: 200px" data-toggle="modal" data-target="#ModalCercaZ">Cerca Zona</button>
-                <button type="button" class="btn btn-primary btn-lg" style="width: 200px" data-toggle="modal" data-target="#ModalCercaS">Cerca Sensore</button>
+            <!--   <button type="button" class="btn btn-primary btn-lg" style="width: 200px" data-toggle="modal" data-target="#ModalCercaS">Cerca Sensore</button> -->
 
             </div>
         </div>
@@ -44,7 +44,7 @@
             </div>
         </section>
 
-             <!--MODAL cerca Sensore -->
+             <!--MODAL cerca Sensore 
              <section>
             <div class="modal fade" id="ModalCercaS" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -54,7 +54,7 @@
                             <h4 class="intestazione" id="myModalLabel">Cerca Sensore</h4>
                         </div>
                         <div class="modal-body">
-                            <form class="signup-form" action="modificaSensore.php" method="POST">
+                            <form class="signup-form" action="infoDash.php" method="POST">
 
                                 <h3>Nome Sensore: </h3><input type="text" name="nomeSensore">
                                 <h3>Seriale Sensore: </h3><input type="text" name="idSensore">
@@ -70,7 +70,23 @@
                 </div>
             </div>
         </section>
-        <!-- /MODAL cerca Sensore -->
+        /MODAL cerca Sensore -->
+<div class="form-wrapper"> 
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+</div>
+
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
 
         <section class="main-container">
             <div class="tabel-wrapper centrato">
@@ -92,6 +108,12 @@
     $resultCheckZone = mysqli_num_rows($resultZone);
     $resultZ = mysqli_fetch_array($resultZone);
     $contaZone = mysqli_num_rows($resultZone);
+
+    //controllo massimimi minimi con colori
+    $x=$resultZ['id_pos'];
+    $queryColor="SELECT * FROM sensori_zona WHERE id_pos = '$x' ;";
+    $qColor=mysqli_query($conn,$queryColor);
+    $arrColor=mysqli_fetch_array($qColor);
     
     
     $sqlContaSens = "SELECT sensori_zona.id_sensori,zona_cliente.cliente FROM sensori_zona 
@@ -130,6 +152,7 @@
       echo "<h1>QUESTO ACCOUNT NON HA ANCORA ZONE</h1>";
     } else {
         echo "<div class=\"scrollable\">";
+
        foreach ($resultZone as $resultZ) {
            //cerco tutti i sensori in quella zona
            $sensor = $resultZ['id_pos'];
@@ -140,7 +163,7 @@
    
         echo "
            <form method=\"POST\" action=\"infoDash.php\">
-       
+ 
            <table class=\"table table-bordered\">
              <thead>
                    <tr align=\"center\">
@@ -173,7 +196,7 @@
                   
    
                    echo "
-                   <tbody>
+                   <tbody id='myTable'>
                    <tr>
                    <input type=\"hidden\" name=\"name\" value=$id>
                    <input type=\"hidden\" name=\"tipo\" value=$tip>
@@ -181,9 +204,17 @@
                    <input type=\"hidden\" name=\"nomeS\" value=$nomeS>
 
                    <td name=\"sensName\" align=\"center\">" . $nomeS. "</td>
-                   <td align=\"center\">" . $tip . "</td>
-                   <td align=\"center\">" . $lastRil. " del ". $lastRilData . "</td>
-                   <td align=\"center\">
+                   <td align=\"center\">" . $tip . "</td>";
+                   if($lastRil<= $arrColor['min_critico'] ||  $lastRil>= $arrColor['max_critico']){
+                    echo "<td align=\"center\" > <font color='red'>" . $lastRil. " del ". $lastRilData . " </font> </td>";
+                   }elseif($lastRil<= $arrColor['min_accettabile'] ||  $lastRil>= $arrColor['max_accettabile'] ){
+                      echo "<td align=\"center\" > <font color='orange'>" . $lastRil. " del ". $lastRilData . "</font></td>";
+                   }else{
+                    echo "<td align=\"center\" > <font color='green'>" . $lastRil. " del ". $lastRilData . "</font></td>";
+                   }
+                   
+
+                   echo "<td align=\"center\">
                      <button
                        type=\"submit\"
                        class=\"btn btn-default btn-sm\"
