@@ -162,7 +162,8 @@ if(isset($_POST['infoSENS'])){
         <div class="cover__filter"></div>
         <div class="cover__caption">
             <div class="cover__caption__copy">
-                <h1 style="margin: auto">Info Sensore ID : <?php echo htmlspecialchars($info)." Tipo : ".htmlspecialchars($tipo)." Marca : ".htmlspecialchars($sArr['marca']); ?></h1>
+                <h1 style="margin: auto">Info Sensore ID : <?php echo $info;?> Tipo : <?php echo $tipo; ?> Marca : <?php
+                $sArr['marca']; ?></h1>
                 <button type="button" class="btn btn-primary btn-lg" style="width: 200px" data-toggle="modal" data-target="#ModalModificaS">Modifica Sensore</button>
 
             </div>

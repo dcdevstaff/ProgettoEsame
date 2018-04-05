@@ -155,12 +155,12 @@ $(document).ready(function(){
           if ($resultS) {
               foreach ($resultSensor as $resultS) {
                 
-                $id = mysqli_real_escape_string($conn,$resultS['id_sensori']);
+                $id = $resultS['id_sensori'];
                 $collocazione= $resultS['id_pos'];
    
-                  $idS=htmlspecialchars($resultS['id_sensori']);
-                  $tip=htmlspecialchars($resultS['tipo']);
-                  $nomeS=htmlspecialchars($resultS['nome_sensore']);
+                  $idS=$resultS['id_sensori'];
+                  $tip=$resultS['tipo'];
+                  $nomeS=$resultS['nome_sensore'];
                   
                   $queryLastRil = "SELECT * FROM $tip WHERE idSensore = '$id' ORDER BY idRilevazione DESC LIMIT 1;";
                   $resRil = mysqli_query($conn,$queryLastRil);
@@ -176,13 +176,13 @@ $(document).ready(function(){
       ?>
                    <tbody id='myTable'>
                    <tr>
-                   <input type="hidden" name="name" value=$id>
-                   <input type="hidden" name="tipo" value=$tip>
-                   <input type="hidden" name="name" value=$collocazione>
-                   <input type="hidden" name="nomeS" value=$nomeS>
+                   <input type="hidden" name="name" value=<?php echo $id; ?>>
+                   <input type="hidden" name="tipo" value=<?php echo $tip; ?>>
+                   <input type="hidden" name="name" value=<?php echo $collocazione; ?>>
+                   <input type="hidden" name="nomeS" value=<?php echo $nomeS; ?>>
 
                    <td name="sensName" align="center"><?php echo  htmlspecialchars($nomeS); ?></td>
-                   <td align="center">"<?php echo  htmlspecialchars($tip); ?></td>
+                   <td align="center"><?php echo  htmlspecialchars($tip); ?></td>
                    <?php
                    if($lastRil<= $arrColor['min_critico'] ||  $lastRil>= $arrColor['max_critico']){
                    ?> 
@@ -205,7 +205,7 @@ $(document).ready(function(){
                        type="submit"
                        class="btn btn-default btn-sm"
                        name="infoSENS"
-                       value=$id>
+                       value=<?php echo $id; ?>>
                        <span class="glyphicon glyphicon-info-sign"></span>
                      </button>
                      
@@ -213,12 +213,12 @@ $(document).ready(function(){
                    </td>
                   </tr>
                   </tbody>
-                  </div>";
+                  </div>
                   <?php
               }
           }
 
-           $rZona=htmlspecialchars($resultZ['zona']);
+           $rZona=$resultZ['zona'];
            ?>
         
          <h3 class="intestazione"><?php echo  htmlspecialchars($rZona); ?></h3>
@@ -228,7 +228,7 @@ $(document).ready(function(){
          value=$collocazione
          >Info Zona
          </button>
-         </form>";
+         </form>
          <?php
       }
     }
