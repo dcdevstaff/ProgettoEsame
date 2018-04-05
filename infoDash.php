@@ -87,18 +87,22 @@ session_start();
 
      	 <?php
 if (isset($_SESSION['u_email'])) {
-    echo '<form action="includes/logout.inc.php" class="navbar-form navbar-right  method="POST">
+    ?>
+    <form action="includes/logout.inc.php" class="navbar-form navbar-right  method="POST">
 							<button type="submit" name="submit">Logout</button>
-							</form>';
+							</form>
+<?php
 } else {
-    echo '<form class="navbar-form navbar-right" action="includes/login.inc.php" method="POST">
+?>
+<form class="navbar-form navbar-right" action="includes/login.inc.php" method="POST">
        							<div class="form-group">
           							<input type="text" class="form-control" name="email" placeholder="E-mail">
          							<input type="password" class="form-control" name="password" placeholder="Password" >
         						</div>
 
        								<button type="submit" name="submit" class="btn btn-default">Login</button>
-     						</form>';
+     						</form>
+<?php
 }?>
 
 
@@ -231,33 +235,45 @@ if(isset($_POST['infoSENS'])){
   </div>
        
    
-<?php 
 
 
-    echo"
-        <div class=\"table-wrapper\">
-        <h1 class=\"intestazione\"> Sensore: $nomeS </h1>
-        <table class=\"table table-bordered\" style=\"width: 400px\">
+   
+        <div class="table-wrapper">
+        <h1 class="intestazione"> Sensore: $nomeS </h1>
+        <table class="table table-bordered" style="width: 400px">
         <thead>
-            <tr>"; 
-           
+            <tr> 
+       <?php    
             foreach ($nomeCampi as $arrCampi) {
-               echo "<th>".$arrCampi['Field']."</th>";
-            }  echo "</tr> </thead> <tbody>";
+              ?>
+               <th><?php echo htmlspecialchars($arrCampi['Field']); ?></th>
+            <?php
+            } 
+            ?>
+            </tr> </thead> <tbody>
+            <?php
             //p.o. rilevazione stampa una riga
             foreach ($resultRilevazioni as $arrRilevazioni) {
-              echo "<tr>"; 
+            ?>
+              <tr>
+            <?php 
               $dataRil = $arrRilevazioni[$arrCampi['Field']];
                   foreach ($arrRilevazioni as $dataRil)  {
-                    echo "<td>" . $dataRil . "</td>";
+              ?>
+                <td><?php echo htmlspecialchars($dataRil); ?></td>
+                <?php
                    
-                  }
-               echo "</tr>";
+            }
+            ?>
+            </tr>
+            <?php
+               
             }  
-            echo "</tbody>";
+            ?>
+          </tbody>
       
 
-    ?>
+    
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">

@@ -14,35 +14,37 @@ if (isset($_POST['submit'])){
 	$p_iva =  mysqli_real_escape_string($conn,$_POST['p_iva']);
 	$sede =  mysqli_real_escape_string($conn,$_POST['sede']);
 	$limit = strtotime($scadenza);
-	$limitPhp = date("d/m/y", $limit);
-	$today = date("d/m/y"); 
+	$limitPhp = date('d/m/y', $limit);
+	$today = date('d/m/y'); 
 
 	//Error handLers
 	//Check for empty fields
 	if (empty($first) || empty($last) || empty($email) || empty($password) || empty($scadenza) ) {
-		echo ("<script LANGUAGE='Javascript'>
+		?>
+		<script LANGUAGE='Javascript'>
 					 window.alert('Campo obbligatorio vuoto o scadenza impossibile'); 
 					 window.location.href='../HomeIOT.php';
-					 </script>");
+					 </script>
+	<?php
 		
 
 	}else {
 		
 		//Check if input are valid
 		if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last) ) {
-			header("Location: ../signup.php?signup=invalid");
+			header('Location: ../signup.php?signup=invalid');
 			
 		}else{
 			//Check Mail Valid
 			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-				header("Location: ../signup.php?signup=email");
+				header('Location: ../signup.php?signup=email');
 				
 			}else{
 				$sql=" SELECT *  FROM users WhERE user_email = '$email'  ;";
 				$result = mysqli_query($conn,$sql);
 				$resultCheck = mysqli_num_rows($result);
 				if ($resultCheck>0) {
-					header("Location: ../signup.php?signup=usertaken");
+					header('Location: ../signup.php?signup=usertaken');
 					
 				}else{
 					
@@ -54,10 +56,12 @@ if (isset($_POST['submit'])){
 					'$sede','$email');";
 					mysqli_query($conn,$sql);
 					mysqli_query($conn,$sql2);
-					echo ("<script LANGUAGE='Javascript'>
+					?>
+					<script LANGUAGE='Javascript'>
 					 window.alert('Utente registrato'); 
 					 window.location.href='../HomeIOT.php';
-					 </script>");
+					 </script>
+					 <?php
 				
 				}
 			}
@@ -66,7 +70,7 @@ if (isset($_POST['submit'])){
 
 
 }else{
-	header("Location: ../signup.php?errore"); 
+	header('Location: ../signup.php?errore'); 
 	
 }
 

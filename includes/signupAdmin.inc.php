@@ -9,25 +9,25 @@ if (isset($_POST['submit'])) {
 	$admPassConf = mysqli_real_escape_string($conn, $_POST['adminPasswordConf']);
 
 	if (empty($adminName) || empty($adminPassword) || empty($admPassConf)) {
-		header("Location: ../signupAdmin.php?signupAdmin=MancaUnDato");
+		header('Location: ../signupAdmin.php?signupAdmin=MancaUnDato');
 			
 	} 
 	else {
 		if($adminPassword == $admPassConf){
-			$emailNewAdmin = $adminName."@iot.it";
+			$emailNewAdmin = $adminName.'@iot.it';
 
 		$sqlNomeAdmOccupatoQuery= "SELECT * FROM admin WHERE admin_email = '$adminName' ;" ;
 		$resultQueryAdmin = mysqli_query($conn, $sqlNomeAdmOccupatoQuery);
 		$resultQueryAdminCheck  = mysqli_num_rows($resultQueryAdmin);
 			if ($resultQueryAdminCheck<0) {
-				header("Location: ../signup.php?signup=NomeAdminInUso");
+				header('Location: ../signup.php?signup=NomeAdminInUso');
 				
 			}
 			else {
 				$hashedAdminPassword = password_hash($adminPassword, PASSWORD_DEFAULT);
 				$sqlQuerySalvataggioAccountAdmin = "INSERT INTO admin (admin_email,password) VALUES('$emailNewAdmin','$hashedAdminPassword');";
 				mysqli_query($conn,$sqlQuerySalvataggioAccountAdmin);
-				header("Location: ../homeIOT.php?signup=success");
+				header('Location: ../homeIOT.php?signup=success');
 				
 			}
 		} else{ ?>
@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 	} 
 }else{
 	//NON ESISTE PIU, CORREGGERE LINK!!!
-	header("Location: ../HomeIOT.php"); 
+	header('Location: ../HomeIOT.php'); 
 
 }
 	

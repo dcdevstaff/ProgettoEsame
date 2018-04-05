@@ -15,17 +15,19 @@ if (isset($_POST['delete'])) {
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
-
-        echo ("<script LANGUAGE='JavaScript'>
+    	?>
+        <script LANGUAGE='JavaScript'>
     		window.alert('Cliente cancellato !');
     		window.location.href='../HomeIOT.php';
-    		</script>");
+    		</script>
+    <?php
     } else {
-
-        echo ("<script LANGUAGE='JavaScript'>
+    ?>
+     <script LANGUAGE='JavaScript'>
     		window.alert('Errore riprovare !');
     		window.location.href='../HomeIOT.php';
-    		</script>");
+    		</script>
+    <?php
     }
 
 }elseif (isset($_POST['deleteSENS'])){
@@ -34,15 +36,19 @@ if (isset($_POST['delete'])) {
 	$sqlDelSens= "DELETE FROM sensori_zona WHERE id_sensori = '$targetSens' ; ";
 	$resDelSen= mysqli_query($conn, $sqlDelSens);
 		if($resDelSen){
-			echo ("<script LANGUAGE='JavaScript'>
+		?>
+		<script LANGUAGE='JavaScript'>
     			window.alert('Sensore cancellato !');
     			window.location.href='HomeIOT.php';
-    			</script>");
+    			</script>
+    	<?php
 		}else {
-				echo ("<script LANGUAGE='JavaScript'>
+		?>
+			<script LANGUAGE='JavaScript'>
     		window.alert('Errore riprovare !');
     		window.location.href='HomeIOT.php';
-    		</script>");
+    		</script>
+    	<?php
         }
 	
 
@@ -61,11 +67,12 @@ if (isset($_POST['delete'])) {
 	$nSede = mysqli_real_escape_string($conn, $_POST['newSede']);
 
 	if (empty($nTelefono) && empty($nSede) && empty($nAzienda)) {
-
-		echo ("<script LANGUAGE='Javascript'>
+		?>
+		<script LANGUAGE='Javascript'>
 		window.alert('Nulla da aggiornare!'); 
 		window.location.href='HomeIOT.php';
-		</script>");
+		</script>
+		<?php
 
 	} elseif(empty($nAzienda) && empty($nTelefono) ){
 
@@ -75,10 +82,12 @@ if (isset($_POST['delete'])) {
 		//header("Location:HomeIOT.php?cod:". $sqlUpdateSede);
 		
 		if ($resUpdateSede) {
-			echo ("<script LANGUAGE='Javascript'>
+		?>	
+			<script LANGUAGE='Javascript'>
 			window.alert('Sede modificata'); 
 			window.location.href='HomeIOT.php';
-			</script>");
+			</script>
+		<?php
 		} 
 		
 	} elseif (empty($nAzienda) && empty($nSede)) {
@@ -88,10 +97,12 @@ if (isset($_POST['delete'])) {
 		//header("Location:HomeIOT.php?cod:". $sqlUpdateTelefono);
 
 		if ($resUpdateTelefono) {
-			echo ("<script LANGUAGE='Javascript'>
+		?>	
+			<script LANGUAGE='Javascript'>
 			window.alert('Recapito modificato'); 
 			window.location.href='HomeIOT.php';
-			</script>");
+			</script>
+		<?php
 		}
 		
 
@@ -102,10 +113,12 @@ if (isset($_POST['delete'])) {
 		//header("Location:HomeIOT.php?cod:". $sqlUpdateAzienda);
 
 		if ($resUpdateAzienda) {
-			echo ("<script LANGUAGE='Javascript'>
+		?>	
+			<script LANGUAGE='Javascript'>
 			window.alert('Nome aziendale modificato'); 
 			window.location.href='HomeIOT.php';
-			</script>");
+			</script>
+		<?php
 		}
 
 	} else{
@@ -115,10 +128,12 @@ if (isset($_POST['delete'])) {
 		//header("Location:HomeIOT.php?cod:". $sqlUpdateAll);
 
 		if ($resUpdateAll) {
-			echo ("<script LANGUAGE='Javascript'>
+		?>	
+			<script LANGUAGE='Javascript'>
 			window.alert('Profilo cliente modificato'); 
 			window.location.href='HomeIOT.php';
-			</script>");
+			</script>
+		<?php
 		}
 
 	} 
@@ -139,16 +154,20 @@ if (isset($_POST['delete'])) {
 	$resDelAllSensInZone= mysqli_query($conn,$squDelAllSensInZone);
 
 	if($resDelAllSensInZone){
-		echo ("<script LANGUAGE='JavaScript'>
+	?>		
+			<script LANGUAGE='JavaScript'>
 			window.alert('Tutti i sensori in zona cancellati !');
 			window.location.href='HomeIOT.php';
-			</script>");
+			</script>
+	<?php		
 		
 	}else {
-			echo ("<script LANGUAGE='JavaScript'>
+	?>		
+			<script LANGUAGE='JavaScript'>
 		window.alert('Errore riprovare !');
 		window.location.href='HomeIOT.php';
-		</script>");
+		</script>
+	<?php
 			
 	}
 
@@ -165,16 +184,20 @@ if (isset($_POST['delete'])) {
 	$resDelZona= mysqli_query($conn,$squDelZona);
 
 	if($resDelZona){
-		echo ("<script LANGUAGE='JavaScript'>
+	?>
+	<script LANGUAGE='JavaScript'>
 			window.alert('Zona eliminata!');
 			window.location.href='HomeIOT.php';
-			</script>");
+			</script>
+	<?php
 		
 	}else {
-			echo ("<script LANGUAGE='JavaScript'>
+	?>
+			<script LANGUAGE='JavaScript'>
 		window.alert('Errore riprovare !');
 		window.location.href='HomeIOT.php';
-		</script>");
+		</script>
+	<?php	
 		
 	}
 
@@ -216,7 +239,9 @@ if (isset($_POST['delete'])) {
 
             <?php
 if ($resultCheckZone<1) {
-	 echo "<h1>QUESTO ACCOUNT NON HA ANCORA ZONE</h1>";
+	 ?>
+	 <h1>QUESTO ACCOUNT NON HA ANCORA ZONE</h1>
+	<?php
 } else{
     foreach ($resultZone as $resultZ) {
 
@@ -226,8 +251,9 @@ if ($resultCheckZone<1) {
 		$resultS = mysqli_fetch_array($resultSensor);
 		$resultS2= mysqli_num_rows($resultSensor);
 
-		echo "<form method=\"POST\" action=\"dettCliente.php\">
-				<table class=\"table table-bordered\">
+		?>
+		<form method="POST" action="dettCliente.php">
+				<table class="table table-bordered">
 					<thead>
       					<tr>
 							<th>Serial Number</th>
@@ -235,7 +261,8 @@ if ($resultCheckZone<1) {
 									<th>Nome</th>
 								<th></th>
      					</tr>
-					</thead>";
+					</thead>
+		<?php
 		$collocazione=$resultZ['id_pos'];
         if ($resultS) {
             foreach ($resultSensor as $resultS) {

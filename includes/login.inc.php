@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
 }
 
 if (empty($email) || empty($password)) {
-		header("Location: ../index.php?login=empty");
+		header('Location: ../index.php?login=empty');
 				
 } //gestione stringhe
 else{
@@ -43,8 +43,8 @@ else{
 		$userPassword = $arrayDatiUser['user_password'];
 		$hashedPwdCheckUser = password_verify($password,$userPassword);	 
 		$mysqlDate = strtotime($arrayDatiUser['scadenza']);	
-		$scadenzaPhp = date("yyyy-mm-dd", $mysqlDate);
-		$today = date("yyyy-mm-dd"); 
+		$scadenzaPhp = date('yyyy-mm-dd', $mysqlDate);
+		$today = date('yyyy-mm-dd'); 
 		//CONTROLLO VALIDITA' ABBONAMENTO
 		$check = 0;
 		if ($today < $scadenzaPhp){
@@ -61,30 +61,30 @@ else{
 if ($resultCheckAdmin >0) {
 		if ($hashedPwdCheckAdmin){
 			$_SESSION['u_email'] = $adminName;
-			header("Location: ../HomeIOT.php");
+			header('Location: ../HomeIOT.php');
 		} 
 		else
-			header("Location: ../index.php?login=passwordAdminSbagliata");
+			header('Location: ../index.php?login=passwordAdminSbagliata');
 		}
 	
 	// CASO: è un USER
 elseif ($resultCheckUser >0){
 		if ($hashedPwdCheckUser && $check==1){
 			$_SESSION['u_email'] = $usernameUser;
-			header("Location: ../HomeCliente.php");
+			header('Location: ../HomeCliente.php');
 			} 
 		else
-			header("Location: ../index.php?login=passwordUserSbagliata".$check);
+			header('Location: ../index.php?login=passwordUserSbagliata'.$check);
 		}
 
 
 		//  CASO: NON è UN USER - NON è UN ADMIN
 elseif($resultCheckUser<1 && $resultCheckAdmin<1){
 			
-			header("Location: ../index.php?login=noAdmin_noUser");
+			header('Location: ../index.php?login=noAdmin_noUser');
 			//
 } 
 
-else header("Location: ../index.php?login=FineBlocco");
+else header('Location: ../index.php?login=FineBlocco');
 
 ?>
