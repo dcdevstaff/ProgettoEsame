@@ -26,15 +26,19 @@ if($result){
 		$res=mysqli_query($conn,$resultCol);
 	}
 
-	echo ("<script LANGUAGE='JavaScript'>
+	?>
+	<script LANGUAGE='JavaScript'>
     		window.alert('CREATO !');
     		window.location.href='../HomeIOT.php';
-    		</script>");
+    		</script>
+    <?php
 }else{
-	echo ("<script LANGUAGE='JavaScript'>
+	?>
+	<script LANGUAGE='JavaScript'>
     		window.alert('NON CREATO ERRORE !');
     		window.location.href='../tipiSensori.php';
-    		</script>");
+    		</script>
+   <?php
 }
 
 

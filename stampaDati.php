@@ -29,13 +29,14 @@ foreach ($stampa as $arrStampa) {
 
 // chiude il file
 fclose($fp);
-	echo ("<script LANGUAGE='JavaScript'>
+?>
+	<script LANGUAGE='JavaScript'>
     		window.alert('File Creato nella Directory del progetto !');
     		window.location.href='index.php';
-    		</script>");
+    </script>")
 		
 
 
-
+<?php
 }
 ?>

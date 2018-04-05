@@ -35,14 +35,18 @@ include_once 'header.php';
         $resModificaSensore = mysqli_query($conn, $sqlModificaSeore);
 
         if ($resModificaSensore){
-            echo ("<script LANGUAGE='Javascript'>
+            ?>
+            <script LANGUAGE='Javascript'>
 			window.alert('Sensore modificato'); 
 			window.location.href='HomeCLIENTE.php';
-			</script>");
+			</script>
+        <?php
         }else {
-            echo ("<script LANGUAGE='Javascript'>
+        ?>
+        <script LANGUAGE='Javascript'>
 			window.alert('Errore, riprovare'); 
-			</script>");
+		</script>
+        <?php
         }
 
      //ednd mod all 

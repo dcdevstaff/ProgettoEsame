@@ -30,17 +30,19 @@ if (isset($_POST['submit'])) {
 				header("Location: ../homeIOT.php?signup=success");
 				
 			}
-		} else{ echo ("<script LANGUAGE='JavaScript'>
+		} else{ ?>
+			<script LANGUAGE='JavaScript'>
 			window.alert('Le password non corrspondono !');
 			window.location.href='../HomeIOT.php';
-			</script>");
+			</script>
+		<?php
 		}
 		
 	} 
 }else{
 	//NON ESISTE PIU, CORREGGERE LINK!!!
 	header("Location: ../HomeIOT.php"); 
-	exit();
+
 }
 	
 
