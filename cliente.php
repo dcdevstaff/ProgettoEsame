@@ -169,7 +169,7 @@
 
             </form>
             <form action="stampaDati.php" method="POST">
-                <button type="submit" name="export" value='<?php echo $email;?>'> Esportjjja dati </button>
+                <button type="submit" name="export" value='<?php echo $email;?>'> Esporta dati </button>
             </form>
         </div>
         </section>
