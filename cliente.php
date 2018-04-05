@@ -128,7 +128,7 @@
 
 
                 <br>
-
+                
 
                 <button type="submit" name="delete" value='<?php echo $cod_cliente; ?>'>Cancella Cliente</button>
 
@@ -168,8 +168,9 @@
 
 
             </form>
-
-
+            <form action="stampaDati.php" method="POST">
+                <button type="submit" name="export" value='<?php echo $email;?>'> Esportjjja dati </button>
+            </form>
         </div>
         </section>
 
