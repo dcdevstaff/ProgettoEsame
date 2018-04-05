@@ -10,14 +10,51 @@
 </section>
 
 <?php
-include_once 'includes/dbh.inc.php';
+
+
+if (isset($_POST['btnModificaSensore'])) {
+    include_once 'includes/dbh.inc.php';
 include_once 'header.php';
+    
 
-$nomeS =  mysqli_real_escape_string($conn, $_POST['nomeSensore']);
-$idS = mysqli_real_escape_string($conn, $_POST['idSensore']);
-echo "$nomeS";
-echo "$idS"."sss";
-//$sqlCercaSeore = "s";
+        $oldSname = mysqli_real_escape_string($conn, $_POST['oldSensorName']);
+        $newName = mysqli_real_escape_string($conn, $_POST['newSensorName']);
+        $newMinCritico = mysqli_real_escape_string($conn, $_POST['newMinCrit']);
+        $newMin = mysqli_real_escape_string($conn, $_POST['newMin']);
+        $newMaxCritico = mysqli_real_escape_string($conn, $_POST['newMaxCrit']);
+        $newMax = mysqli_real_escape_string($conn, $_POST['newMax']);
 
+        $sqlModificaSeore = "UPDATE sensori_zona SET 
+            nome_sensore = '$newName', 
+            min_critico = '$newMinCritico', 
+            min_accettabile = '$newMin',
+            max_accettabile ='$newMax', 
+            max_critico = '$newMaxCritico' 
+            WHERE nome_sensore = '$oldSname';";
+
+        $resModificaSensore = mysqli_query($conn, $sqlModificaSeore);
+
+        if ($resModificaSensore){
+            echo ("<script LANGUAGE='Javascript'>
+			window.alert('Sensore modificato'); 
+			window.location.href='HomeCLIENTE.php';
+			</script>");
+        }else {
+            echo ("<script LANGUAGE='Javascript'>
+			window.alert('Errore, riprovare'); 
+			</script>");
+        }
+
+     //ednd mod all 
+    
+    
+
+    //echo ("$idS"."---"."$newName"."---"."$newMinCritico"."---"."$newMin"."---"."$newMax"."---"."$newMaxCritico");
+    echo "<br>";
+    echo "$sqlModificaSeore";
+
+
+
+}//end class
 
 ?>

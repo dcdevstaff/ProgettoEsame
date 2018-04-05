@@ -133,7 +133,7 @@ if(isset($_POST['infoSENS'])){
 
 	$info= $_POST['infoSENS'];
 
-	$cod = mysqli_real_escape_string($conn,$info);
+	  $cod = mysqli_real_escape_string($conn,$info);
     $tipo = mysqli_real_escape_string($conn, $_POST['tipo']);
     $nomeS = mysqli_real_escape_string($conn, $_POST['nomeS']);
 
@@ -154,17 +154,60 @@ if(isset($_POST['infoSENS'])){
     $sInfo= mysqli_query($conn,$sqlinfo);
  	  $sArr=mysqli_fetch_array($sInfo);
 }
+
+
+
 ?>
    <section class="cover cover--single" style="margin-top: 50px">
         <div class="cover__filter"></div>
         <div class="cover__caption">
             <div class="cover__caption__copy">
                 <h1 style="margin: auto">Info Sensore ID : <?php echo $info." Tipo : ".$tipo." Marca : ".$sArr['marca']; ?></h1>
-                <button type="button" class="btn btn-primary btn-lg" style="width: 200px" data-toggle="modal" data-target="#ModalCercaS">Modifica Sensore</button>
+                <button type="button" class="btn btn-primary btn-lg" style="width: 200px" data-toggle="modal" data-target="#ModalModificaS">Modifica Sensore</button>
 
             </div>
         </div>
     </section>
+       <!-- MODAL AGGIORNA SENSORE-->
+       <section>
+            <div class="modal fade" id="ModalModificaS" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="intestazione" id="myModalLabel">Modifica Sensore</h4>
+                            <h5><sub><small><i>Il suffisso "@iot.it" sarà aggiunto automaticamente</i></small></sub></h5>
+    
+                        </div>
+                        <div class="modal-body">
+                            <form class="signup-form" action="modificaSensore.php" method="POST">
+
+                                <h3>Vecchio Nome Sensore</h3><input type="text" name="oldSensorName">
+                                <br>
+                                <h3>Nome Sensore</h3><input type="text" name="newSensorName">
+                                <br>
+                                <h3>min Critico</h3><input type="text" name="newMinCrit">
+                                <br>
+                                <h3>Minimo</h3><input type="text" name="newMin">
+                                <br>
+                                <h3>max Critico</h3><input type="text" name="newMaxCrit">
+                                <br>
+                                <h3>Massimo</h3><input type="text" name="newMax">
+                                <br>
+                                
+
+
+                                <button type="submit" name="btnModificaSensore">Salva cambiamenti</button>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     <br>
 
      <div class="container">
