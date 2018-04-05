@@ -1,8 +1,2 @@
-Zona : Vinovo Nome Sensore : testUMI2 Marca : Sony Tipo : Umidita
-Zona : Parco Nome Sensore : Pressione Marca : Acer Tipo : Pressione
-Zona : Vinovo Nome Sensore : testUMI2 Marca : Sony Tipo : Umidita
-Zona : Parco Nome Sensore : Pressione Marca : Acer Tipo : Pressione
-Zona : Vinovo Nome Sensore : testUMI2 Marca : Sony Tipo : Umidita
-Zona : Parco Nome Sensore : Pressione Marca : Acer Tipo : Pressione
-Zona : Vinovo Nome Sensore : testUMI2 Marca : Sony Tipo : Umidita
-Zona : Parco Nome Sensore : Pressione Marca : Acer Tipo : Pressione
+Zona : Vinovo Nome Sensore : testUMI2 Marca : Sony Tipo : Umidita\r\nZona : Parco Nome Sensore : PressioneCamera Marca : Acer Tipo : Pressione\r\nZona : Vinovo Nome Sensore : testUMI2 Marca : Sony Tipo : Umidita
+Zona : Parco Nome Sensore : PressioneCamera Marca : Acer Tipo : Pressione

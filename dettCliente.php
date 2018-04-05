@@ -273,46 +273,49 @@ if ($resultCheckZone<1) {
 				$tip=htmlspecialchars($resultS['tipo']);
 				$nomeS=htmlspecialchars($resultS['nome_sensore']);
 
-                echo "<tbody>
+                ?>
+               <tbody>
 						<tr>
-								<input type=\"hidden\" name=\"name\" value=$id/>
-								<input type=\"hidden\" name=\"name\" value=$collocazione/>
-								<td name=\"serial\">" . $idS. "</td>
-								<td>" .$tip . "</td>
-								<td>" . $nomeS . "</td>
+								<input type="hidden" name="name" value=<?php echo $id; ?>>
+								<input type="hidden" name="name" value=<?php echo $collocazione; ?>/>
+								<td name=\"serial\">" <?php htmlspecialchars($idS); ?></td>
+								<td> <?php htmlspecialchars($tip); ?></td>
+								<td><?php htmlspecialchars($nomeS); ?></td>
 								<td>
 									<button
-										type=\"submit\"
-										class=\"btn btn-default btn-sm\"
-										name=\"deleteSENS\"
-										value=$id
+										type="submit"
+										class="btn btn-default btn-sm"
+										name="deleteSENS"
+										value=<? echo $id; ?>
 									>
-										<span class=\"glyphicon glyphicon-remove-circle\"></span>
+										<span class="glyphicon glyphicon-remove-circle"></span>
 									</button>
 								</td>
 						</tr>
 					</tbody>
-				";
+			<?php
 			 }
         }
         $rZona=htmlspecialchars($resultZ['zona']);
-		echo "
-			<h3 class=\"intestazione\"> " . $rZona . "</h3>
+        ?>
+		
+			<h3 class="intestazione"> <?php htmlspecialchars($rZona); ?></h3>
 			<button
-			type=\"submit\"
-			name=\"delAllSens\"
-			value=$collocazione
+			type="submit"
+			name="delAllSens"
+			value=<?php echo $collocazione; ?>
 			>Svuota Zona
 			</button>
 
 			<button
-			type=\"submit\"
-			name=\"delZona\"
-			value=$collocazione
+			type="submit"
+			name="delZona"
+			value=<?php echo $collocazione; ?>
 			>Elimina Zona
 			</button>
 
-			</form>";
+			</form>
+		<?php
 
 	}
 }
@@ -382,12 +385,14 @@ if ($resultCheckZone<1) {
 
                             <h3> Tipo </h3><select name="tipo">
 		<?php
-			$sqlTipiDidponibili = "SELECT * FROM TipiSensori; ";
+			$sqlTipiDidponibili = 'SELECT * FROM TipiSensori; ';
 			$resultTipiDisponibili = mysqli_query($conn, $sqlTipiDidponibili);
 			$resultTD = mysqli_fetch_array($resultTipiDisponibili);
 			foreach ($resultTipiDisponibili as $resultTD ) {
 				$tipo = $resultTD['tipologia'];
-				echo "<option value=$tipo> $tipo </option>";
+				?>
+				<option value=<?php echo $tipo; ?>><?php htmlspecialchars($tipo); ?> </option>
+				<?php
 			}
 	?>
 
@@ -402,7 +407,9 @@ if ($resultCheckZone<1) {
 		$resultZD = mysqli_fetch_array($resultZoneDisponibili);
 		foreach ($resultZoneDisponibili as $resultZD ) {
 			$zonax = $resultZD['zona'];
-			echo "<option value=$zonax> $zonax </option>";
+			?>
+			<option value=<?php echo $zonax; ?>> <?php htmlspecialchars($zonax); ?> </option>
+		<?php
 		}
 	?>
 	</select>

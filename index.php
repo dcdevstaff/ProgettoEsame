@@ -36,10 +36,10 @@
 			if ( (isset($_SESSION['u_email'])) && (strpos($_SESSION['u_email'], '@iot.it'))  ) {
 				//echo "You are Log in GAY!";
 				//echo $_SESSION['u_email']; //Stampa info utente
-				header("location: HomeIOT.php");
+				header('location: HomeIOT.php');
 			}
 			elseif (isset($_SESSION['u_email'])){
-				header("location: HomeCliente.php");
+				header('location: HomeCliente.php');
 			}
 		?>
 
