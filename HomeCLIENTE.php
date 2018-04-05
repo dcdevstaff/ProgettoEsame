@@ -72,7 +72,7 @@ $(document).ready(function(){
 
     // 1-Cerco l'id dell'utente loggato e lo metto in $cod
     $userMail1 = $_SESSION['u_email'];
-    $userMail= mysqli_real_escape_string($userMail1);
+    $userMail= mysqli_real_escape_string($conn,$userMail1);
     $sql1= "SELECT * FROM cliente WHERE email = '$userMail' ";
     $resSql1 = mysqli_query($conn, $sql1);
     $arrayDati = mysqli_fetch_array($resSql1);
@@ -100,37 +100,35 @@ $(document).ready(function(){
     $resultContaSens = mysqli_query($conn, $sqlContaSens);
     $contaSensori = mysqli_num_rows($resultContaSens);
     
-    echo ("
-        <section class=\"cards clearfix\">
+    ?>
+        <section class="cards clearfix">
 
-        <div class=\"card\">
-            <img class=\"card__image\" src=\"res/cerchio.jpg\">
-            <div class=\"card__copy\">
-                <p>Zone : ".$contaZone."</p>
+        <div class="card">
+            <img class="card__image" src="res/cerchio.jpg">
+            <div class="card__copy">
+                <p>Zone :<?php echo  htmlspecialchars($contaZone); ?></p>
             </div>
         </div>
 
-        <div class=\"card\">
-            <img class=\"card__image\" src=\"res/cerchio.jpg\">
-            <div class=\"card__copy\">
-                <p>Sensori : ".$contaSensori."</p>
+        <div class="card">
+            <img class="card__image" src="res/cerchio.jpg">
+            <div class="card__copy">
+                <p>Sensori : <?php echo  htmlspecialchars($contaSensori); ?></p>
             </div>
         </div>
 
-        <div class=\"card\">
-            <img class=\"card__image\" src=\"res/cerchio.jpg\">
-            <div class=\"card__copy\">
-                <p>Qualcosa</p>
-            </div>
-        </div>
         
     </section>
-    ");
+    <?php
 
     if ($resultCheckZone<1) {
-      echo "<h1>QUESTO ACCOUNT NON HA ANCORA ZONE</h1>";
+    ?>
+      <h1>QUESTO ACCOUNT NON HA ANCORA ZONE</h1>
+    <?php
     } else {
-        echo "<div class=\"scrollable\">";
+    ?>
+    <div class="scrollable">
+    <?php
 
        foreach ($resultZone as $resultZ) {
            //cerco tutti i sensori in quella zona
@@ -140,19 +138,20 @@ $(document).ready(function(){
            $resultS = mysqli_fetch_array($resultSensor);
          
    
-        echo "
-           <form method=\"POST\" action=\"infoDash.php\">
+       ?>
+           <form method="POST" action="infoDash.php">
  
-           <table class=\"table table-bordered\">
+           <table class="table table-bordered">
              <thead>
-                   <tr align=\"center\">
+                   <tr align="center">
                     <th>Nome Sensore</th>
                     <th>Tipo</th>
                     <th>Ultima rilevazione</th>
                    <th>Altro</th>
                   </tr>
-             </thead>";
-           $collocazione=$resultZ['id_pos'];
+             </thead>
+      <?php
+          $collocazione=$resultZ['id_pos'];
           if ($resultS) {
               foreach ($resultSensor as $resultS) {
                 
@@ -165,7 +164,7 @@ $(document).ready(function(){
                   
                   $queryLastRil = "SELECT * FROM $tip WHERE idSensore = '$id' ORDER BY idRilevazione DESC LIMIT 1;";
                   $resRil = mysqli_query($conn,$queryLastRil);
-                  //echo $queryLastRil;
+                 
                   $arrRil = mysqli_fetch_array($resRil);
                   $lastRil = $arrRil['valore_rilevato'];
                   $lastRilData = $arrRil['data_rilevamento'];
@@ -174,51 +173,63 @@ $(document).ready(function(){
 
                   
    
-                   echo "
+      ?>
                    <tbody id='myTable'>
                    <tr>
-                   <input type=\"hidden\" name=\"name\" value=$id>
-                   <input type=\"hidden\" name=\"tipo\" value=$tip>
-                   <input type=\"hidden\" name=\"name\" value=$collocazione>
-                   <input type=\"hidden\" name=\"nomeS\" value=$nomeS>
+                   <input type="hidden" name="name" value=$id>
+                   <input type="hidden" name="tipo" value=$tip>
+                   <input type="hidden" name="name" value=$collocazione>
+                   <input type="hidden" name="nomeS" value=$nomeS>
 
-                   <td name=\"sensName\" align=\"center\">" . $nomeS. "</td>
-                   <td align=\"center\">" . $tip . "</td>";
+                   <td name="sensName" align="center"><?php echo  htmlspecialchars($nomeS); ?></td>
+                   <td align="center">"<?php echo  htmlspecialchars($tip); ?></td>
+                   <?php
                    if($lastRil<= $arrColor['min_critico'] ||  $lastRil>= $arrColor['max_critico']){
-                    echo "<td align=\"center\" > <font color='red'>" . $lastRil. " del ". $lastRilData . " </font> </td>";
+                   ?> 
+                    <td align="center" > <font color='red'><?php echo  htmlspecialchars($lastRil); ?> del <?php echo  htmlspecialchars($lastRilData); ?> </font> </td>
+                   <?php 
                    }elseif($lastRil<= $arrColor['min_accettabile'] ||  $lastRil>= $arrColor['max_accettabile'] ){
-                      echo "<td align=\"center\" > <font color='orange'>" . $lastRil. " del ". $lastRilData . "</font></td>";
+                   ?> 
+                      <td align="center" > <font color='orange'><?php echo  htmlspecialchars($lastRil); ?> del <?php echo  htmlspecialchars($lastRilData); ?></font></td>
+                   <?php 
                    }else{
-                    echo "<td align=\"center\" > <font color='green'>" . $lastRil. " del ". $lastRilData . "</font></td>";
-                   }
-                   
 
-                   echo "<td align=\"center\">
+                    ?>                   
+                    <td align="center" > <font color='green'><?php echo  htmlspecialchars($lastRil);?> del <?php echo  htmlspecialchars($lastRilData); ?></font></td>
+                   <?php 
+                   }
+                   ?>
+
+                   <td align="center">
                      <button
-                       type=\"submit\"
-                       class=\"btn btn-default btn-sm\"
-                       name=\"infoSENS\"
+                       type="submit"
+                       class="btn btn-default btn-sm"
+                       name="infoSENS"
                        value=$id>
-                       <span class=\"glyphicon glyphicon-info-sign\"></span>
-                     </button>"."   "."
+                       <span class="glyphicon glyphicon-info-sign"></span>
+                     </button>
                      
 
                    </td>
                   </tr>
                   </tbody>
                   </div>";
+                  <?php
               }
           }
+
            $rZona=htmlspecialchars($resultZ['zona']);
-          echo "
-         <h3 class=\"intestazione\"> " . $rZona . "</h3>
+           ?>
+        
+         <h3 class="intestazione"><?php echo  htmlspecialchars($rZona); ?></h3>
          <button
-         type=\"submit\"
-         name=\"infoZONA\"
+         type="submit"
+         name="infoZONA"
          value=$collocazione
          >Info Zona
          </button>
          </form>";
+         <?php
       }
     }
   }
