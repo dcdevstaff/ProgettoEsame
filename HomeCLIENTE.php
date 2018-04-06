@@ -99,19 +99,18 @@ $(document).ready(function(){
     INNER JOIN zona_cliente ON zona_cliente.id_pos=sensori_zona.id_pos WHERE zona_cliente.cliente='$cod';";
     $resultContaSens = mysqli_query($conn, $sqlContaSens);
     $contaSensori = mysqli_num_rows($resultContaSens);
-    
+    $displayCS= htmlspecialchars($contaSensori);
+    $displayCZ=htmlspecialchars($contaZone);
     ?>
         <section class="cards clearfix">
 
         <div class="card">
             <img class="card__image" src="res/cerchio.jpg">
             <div class="card__copy">
-                <p>Zone :<?php echo  $contaZone; ?></p>
+                <p>Zone :<?php echo  $displayCZ; ?></p>
             </div>
         </div>
-        <?php
-          $displayCS= htmlspecialchars($contaSensori);
-        ?>
+   
         <div class="card">
             <img class="card__image" src="res/cerchio.jpg">
             <div class="card__copy">
@@ -163,6 +162,7 @@ $(document).ready(function(){
                   $idS=$resultS['id_sensori'];
                   $tip=$resultS['tipo'];
                   $nomeS=$resultS['nome_sensore'];
+
                   
                   $queryLastRil = "SELECT * FROM $tip WHERE idSensore = '$id' ORDER BY idRilevazione DESC LIMIT 1;";
                   $resRil = mysqli_query($conn,$queryLastRil);
@@ -183,21 +183,21 @@ $(document).ready(function(){
                    <input type="hidden" name="name" value=<?php echo $collocazione; ?>>
                    <input type="hidden" name="nomeS" value=<?php echo $nomeS; ?>>
 
-                   <td name="sensName" align="center"><?php echo $nomeS; ?></td>
-                   <td align="center"><?php echo  $tip; ?></td>
+                   <td name="sensName" align="center"><?php echo htmlspecialchars($nomeS); ?></td>
+                   <td align="center"><?php echo htmlspecialchars($tip); ?></td>
                    <?php
                    if($lastRil<= $arrColor['min_critico'] ||  $lastRil>= $arrColor['max_critico']){
                    ?> 
-                    <td align="center" > <font color='red'><?php echo $lastRil; ?> del <?php echo  $lastRilData; ?> </font> </td>
+                    <td align="center" > <font color='red'><?php echo htmlspecialchars($lastRil); ?> del <?php echo  htmlspecialchars($lastRilData); ?> </font> </td>
                    <?php 
                    }elseif($lastRil<= $arrColor['min_accettabile'] ||  $lastRil>= $arrColor['max_accettabile'] ){
                    ?> 
-                      <td align="center" > <font color='orange'><?php echo  $lastRil; ?> del <?php echo  $lastRilData; ?></font></td>
+                      <td align="center" > <font color='orange'><?php echo  htmlspecialchars($lastRil); ?> del <?php echo  htmlspecialchars($lastRilData); ?></font></td>
                    <?php 
                    }else{
 
                     ?>                   
-                    <td align="center" > <font color='green'><?php echo  $lastRil;?> del <?php echo  $lastRilData; ?></font></td>
+                    <td align="center" > <font color='green'><?php echo  htmlspecialchars($lastRil);?> del <?php echo  htmlspecialchars($lastRilData); ?></font></td>
                    <?php 
                    }
                    ?>
@@ -223,7 +223,7 @@ $(document).ready(function(){
            $rZona=$resultZ['zona'];
            ?>
         
-         <h3 class="intestazione"><?php echo  $rZona; ?></h3>
+         <h3 class="intestazione"><?php echo  htmlspecialchars($rZona); ?></h3>
          <button
          type="submit"
          name="infoZONA"
