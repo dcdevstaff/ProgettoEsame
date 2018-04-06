@@ -109,11 +109,13 @@ $(document).ready(function(){
                 <p>Zone :<?php echo  $contaZone; ?></p>
             </div>
         </div>
-
+        <?php
+          $displayCS= htmlspecialchars($contaSensori);
+        ?>
         <div class="card">
             <img class="card__image" src="res/cerchio.jpg">
             <div class="card__copy">
-                <p>Sensori : <?php echo  $contaSensori; ?></p>
+                <p>Sensori : <?php echo  $displayCS ?></p>
             </div>
         </div>
 
