@@ -101,51 +101,61 @@ if (isset($_SESSION['u_email'])){
 
 							 
 
-								echo "
+								?>
 								<tbody id='myTable'>
 								<tr>
-								<input type=\"hidden\" name=\"name\" value=$id>
-								<input type=\"hidden\" name=\"tipo\" value=$tip>
-								<input type=\"hidden\" name=\"name\" value=$collocazione>
-								<input type=\"hidden\" name=\"nomeS\" value=$nomeS>
+								<input type="hidden" name="name" value=<?php echo $id; ?>>
+								<input type="hidden" name="tipo" value=<?php echo $tip; ?>>
+								<input type="hidden" name="name" value=<?php echo $collocazione; ?>>
+								<input type="hidden" name="nomeS" value=<?php echo $nomeS; ?>>
 
-								<td name=\"sensName\" align=\"center\">" . $nomeS. "</td>
-								<td align=\"center\">" . $tip . "</td>";
-								if($lastRil<= $arrColor['min_critico'] ||  $lastRil>= $arrColor['max_critico']){
-								 echo "<td align=\"center\" > <font color='red'>" . $lastRil. " del ". $lastRilData . " </font> </td>";
-								}elseif($lastRil<= $arrColor['min_accettabile'] ||  $lastRil>= $arrColor['max_accettabile'] ){
-									 echo "<td align=\"center\" > <font color='orange'>" . $lastRil. " del ". $lastRilData . "</font></td>";
-								}else{
-								 echo "<td align=\"center\" > <font color='green'>" . $lastRil. " del ". $lastRilData . "</font></td>";
-								}
-								
+								<td name="sensName" align="center"><?php echo htmlspecialchars($nomeS); ?></td>
+								<td align="center"><?php echo htmlspecialchars($tip); ?></td>
+								<?php
+								 if($lastRil<= $arrColor['min_critico'] ||  $lastRil>= $arrColor['max_critico']){
+				                   ?> 
+				                    <td align="center" > <font color='red'><?php echo htmlspecialchars($lastRil); ?> del <?php echo  htmlspecialchars($lastRilData); ?> </font> </td>
+				                   <?php 
+				                   }elseif($lastRil<= $arrColor['min_accettabile'] ||  $lastRil>= $arrColor['max_accettabile'] ){
+				                   ?> 
+				                      <td align="center" > <font color='orange'><?php echo  htmlspecialchars($lastRil); ?> del <?php echo  htmlspecialchars($lastRilData); ?></font></td>
+				                   <?php 
+				                   }else{
 
-								echo "<td align=\"center\">
-									<button
-										type=\"submit\"
-										class=\"btn btn-default btn-sm\"
-										name=\"infoSENS\"
-										value=$id>
-										<span class=\"glyphicon glyphicon-info-sign\"></span>
-									</button>"."   "."
+				                    ?>                   
+				                    <td align="center" > <font color='green'><?php echo  htmlspecialchars($lastRil);?> del <?php echo  htmlspecialchars($lastRilData); ?></font></td>
+				                   <?php 
+				                   }
+				                   ?>
+										<td align="center">
+										                     <button
+										                       type="submit"
+										                       class="btn btn-default btn-sm"
+										                       name="infoSENS"
+										                       value=<?php echo $id; ?>>
+										                       <span class="glyphicon glyphicon-info-sign"></span>
+										                     </button>
 									
 
 								</td>
 							 </tr>
 							 </tbody>
-							 </div>";
+							 </div>
+
+			<?php
 					 }
 			 }
 				$rZona=htmlspecialchars($resultZ['zona']);
-			 echo "
-			<h3 class=\"intestazione\"> " . $rZona . "</h3>
+			 ?>
+			<h3 class="intestazione"><?php echo htmlspecialchars($rZona); ?></h3>
 			<button
-			type=\"submit\"
-			name=\"infoZONA\"
-			value=$collocazione
+			type="submit"
+			name="infoZONA"
+			value=<?php echo $collocazione; ?>
 			>Info Zona
 			</button>
-			</form>";
+			</form>
+			<?php
 	 }
  }
 	
