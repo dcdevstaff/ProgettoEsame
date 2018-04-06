@@ -278,15 +278,15 @@ if ($resultCheckZone<1) {
 						<tr>
 								<input type="hidden" name="name" value=<?php echo $id; ?>>
 								<input type="hidden" name="name" value=<?php echo $collocazione; ?>/>
-								<td name=\"serial\">" <?php htmlspecialchars($idS); ?></td>
-								<td> <?php htmlspecialchars($tip); ?></td>
-								<td><?php htmlspecialchars($nomeS); ?></td>
+								<td name="serial"><?php echo $idS; ?></td>
+								<td> <?php echo $tip; ?></td>
+								<td><?php echo $nomeS; ?></td>
 								<td>
 									<button
 										type="submit"
 										class="btn btn-default btn-sm"
 										name="deleteSENS"
-										value=<? echo $id; ?>
+										value=<?php echo $id; ?>
 									>
 										<span class="glyphicon glyphicon-remove-circle"></span>
 									</button>
@@ -299,7 +299,7 @@ if ($resultCheckZone<1) {
         $rZona=htmlspecialchars($resultZ['zona']);
         ?>
 		
-			<h3 class="intestazione"> <?php htmlspecialchars($rZona); ?></h3>
+			<h3 class="intestazione"> <?php echo $rZona; ?></h3>
 			<button
 			type="submit"
 			name="delAllSens"
@@ -343,7 +343,7 @@ if ($resultCheckZone<1) {
                     </div>
                     <div class="modal-body">
                         <form class="signup-form" action="includes/addItem.inc.php?id=<?php
-			echo htmlspecialchars($cod);
+			echo $cod;
     	?>" method="POST">
 
                             <h3>Nome zona</h3><input type="text" name="zona">
@@ -377,7 +377,7 @@ if ($resultCheckZone<1) {
                     </div>
                     <div class="modal-body">
                         <form class="signup-form" action="includes/addItem.inc.php?id=<?php
-		echo htmlspecialchars($cod);
+		echo $cod;
     	?>" method="POST">
 
                             <h3>Nome Sensore</h3><input type="text" name="name" placeholder="">
@@ -391,7 +391,7 @@ if ($resultCheckZone<1) {
 			foreach ($resultTipiDisponibili as $resultTD ) {
 				$tipo = $resultTD['tipologia'];
 				?>
-				<option value=<?php echo $tipo; ?>><?php htmlspecialchars($tipo); ?> </option>
+				<option value=<?php echo $tipo; ?>><?php echo $tipo; ?> </option>
 				<?php
 			}
 	?>
@@ -408,7 +408,7 @@ if ($resultCheckZone<1) {
 		foreach ($resultZoneDisponibili as $resultZD ) {
 			$zonax = $resultZD['zona'];
 			?>
-			<option value=<?php echo $zonax; ?>> <?php htmlspecialchars($zonax); ?> </option>
+			<option value=<?php echo $zonax; ?>> <?php echo $zonax; ?> </option>
 		<?php
 		}
 	?>

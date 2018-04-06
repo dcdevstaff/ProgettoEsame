@@ -106,14 +106,14 @@ $(document).ready(function(){
         <div class="card">
             <img class="card__image" src="res/cerchio.jpg">
             <div class="card__copy">
-                <p>Zone :<?php echo  htmlspecialchars($contaZone); ?></p>
+                <p>Zone :<?php echo  $contaZone; ?></p>
             </div>
         </div>
 
         <div class="card">
             <img class="card__image" src="res/cerchio.jpg">
             <div class="card__copy">
-                <p>Sensori : <?php echo  htmlspecialchars($contaSensori); ?></p>
+                <p>Sensori : <?php echo  $contaSensori; ?></p>
             </div>
         </div>
 
@@ -181,21 +181,21 @@ $(document).ready(function(){
                    <input type="hidden" name="name" value=<?php echo $collocazione; ?>>
                    <input type="hidden" name="nomeS" value=<?php echo $nomeS; ?>>
 
-                   <td name="sensName" align="center"><?php echo  htmlspecialchars($nomeS); ?></td>
-                   <td align="center"><?php echo  htmlspecialchars($tip); ?></td>
+                   <td name="sensName" align="center"><?php echo $nomeS; ?></td>
+                   <td align="center"><?php echo  $tip; ?></td>
                    <?php
                    if($lastRil<= $arrColor['min_critico'] ||  $lastRil>= $arrColor['max_critico']){
                    ?> 
-                    <td align="center" > <font color='red'><?php echo  htmlspecialchars($lastRil); ?> del <?php echo  htmlspecialchars($lastRilData); ?> </font> </td>
+                    <td align="center" > <font color='red'><?php echo $lastRil; ?> del <?php echo  $lastRilData; ?> </font> </td>
                    <?php 
                    }elseif($lastRil<= $arrColor['min_accettabile'] ||  $lastRil>= $arrColor['max_accettabile'] ){
                    ?> 
-                      <td align="center" > <font color='orange'><?php echo  htmlspecialchars($lastRil); ?> del <?php echo  htmlspecialchars($lastRilData); ?></font></td>
+                      <td align="center" > <font color='orange'><?php echo  $lastRil; ?> del <?php echo  $lastRilData; ?></font></td>
                    <?php 
                    }else{
 
                     ?>                   
-                    <td align="center" > <font color='green'><?php echo  htmlspecialchars($lastRil);?> del <?php echo  htmlspecialchars($lastRilData); ?></font></td>
+                    <td align="center" > <font color='green'><?php echo  $lastRil;?> del <?php echo  $lastRilData; ?></font></td>
                    <?php 
                    }
                    ?>
@@ -221,7 +221,7 @@ $(document).ready(function(){
            $rZona=$resultZ['zona'];
            ?>
         
-         <h3 class="intestazione"><?php echo  htmlspecialchars($rZona); ?></h3>
+         <h3 class="intestazione"><?php echo  $rZona; ?></h3>
          <button
          type="submit"
          name="infoZONA"
