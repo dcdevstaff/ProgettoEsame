@@ -54,6 +54,8 @@ if (!isset($_POST['submitSens'])){
                 <h5><small><i>Utilizza questo campo per eventuali messaggi di malfunzionamento e/o errore...</i></small></h5>
                 <h5><small><i>Usa nomi quali 'stato' o 'cdice errore'.</i></small></h5><br>
                 <?php 
+                if($num>0){
+
 	  	            for( $i=1;$i<=$num;$i++){
 		        ?>
                 <h3>Campo
@@ -61,6 +63,7 @@ if (!isset($_POST['submitSens'])){
                 </h3><input type="text" name=<?php echo 'campo'.$i ?> placeholder="Inserisci nome campo" required>
                 <?php 
 	                                    }
+                                    }
 	  	                            ?>
 
                 <button type="submit" name="submit">Aggiungi i seguenti campi</button>

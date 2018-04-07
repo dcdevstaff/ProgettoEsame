@@ -21,11 +21,12 @@ if (isset($_POST['bottZONA'])) {
 	$result = mysqli_query($conn,$sql);
 	
 		//deve tornare ai dettagli cliente aggiornati! (JQ)
-		echo ("<script LANGUAGE='Javascript'>
+	?>
+	<script LANGUAGE='Javascript'>
 					 window.alert('Zona aggiunta con successo'); 
 					 window.location.href='../HomeIOT.php';
 			 </script>");
-					
+	<?php				
 	
 	
 
@@ -54,15 +55,19 @@ if (isset($_POST['bottZONA'])) {
 		$resultSensor = mysqli_query($conn,$sqlSensor);
 	
 	
-		echo ("<script LANGUAGE='Javascript'>
+		?>
+		<script LANGUAGE='Javascript'>
 		window.alert('Sensore aggiunto con successo'); 
 		window.location.href='../HomeIOT.php';
-		</script>");
+		</script>
+		<?php
 	}else {
-		echo ("<script LANGUAGE='Javascript'>
+		?>
+		<script LANGUAGE='Javascript'>
 		window.alert('Parametri valore incoerenti, riprovare'); 
 		window.location.href='../HomeIOT.php';
-		</script>");
+		</script>
+		<?php
 	}
 
 }

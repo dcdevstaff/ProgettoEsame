@@ -87,18 +87,22 @@ session_start();
 
      	 <?php
 if (isset($_SESSION['u_email'])) {
-    echo '<form action="includes/logout.inc.php" class="navbar-form navbar-right  method="POST">
+    ?>
+    <form action="includes/logout.inc.php" class="navbar-form navbar-right"  method="POST">
 							<button type="submit" name="submit">Logout</button>
-							</form>';
+							</form>
+    <?php
 } else {
-    echo '<form class="navbar-form navbar-right" action="includes/login.inc.php" method="POST">
+    ?>
+    <form class="navbar-form navbar-right" action="includes/login.inc.php" method="POST">
        							<div class="form-group">
           							<input type="text" class="form-control" name="email" placeholder="E-mail">
          							<input type="password" class="form-control" name="password" placeholder="Password" >
         						</div>
 
        								<button type="submit" name="submit" class="btn btn-default">Login</button>
-     						</form>';
+     						</form>
+              <?php
 }?>
 
 

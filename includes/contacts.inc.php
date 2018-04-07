@@ -1,7 +1,7 @@
 <?php
 
 $mittente = $_POST['email'];
-$destinatario = "send_iot@outlook.com"; 
+$destinatario = 'send_iot@outlook.com'; 
 $oggetto = $_POST['oggMail']; 
 $messaggio = $_POST['messMail'];  
 

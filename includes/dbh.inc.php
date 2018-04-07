@@ -1,10 +1,10 @@
 <?php
 // nome del file da cui prelevare i testi
-$file = "includes/datiSql.txt";
+$file = 'includes/datiSql.txt';
 
 
-if(($fp = fopen($file, "r"))) {
-	$fp = fopen($file, "r");
+if(($fp = fopen($file, 'r'))) {
+	$fp = fopen($file, 'r');
 	$riga = [];
 	$i=0;
 	while(!feof($fp)){
@@ -16,8 +16,8 @@ if(($fp = fopen($file, "r"))) {
 
 }else{
 
-	$file = "datiSql.txt";
-		$fp = fopen($file, "r");
+	$file = 'datiSql.txt';
+		$fp = fopen($file, 'r');
 	$riga = [];
 	$i=0;
 	while(!feof($fp)){
