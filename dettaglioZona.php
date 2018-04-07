@@ -29,7 +29,7 @@ if (isset($_SESSION['u_email'])){
 	$resultZ=mysqli_fetch_array($resultZon);
 
 	    //controllo massimimi minimi con colori
-			$x=$resultZ['id_pos'];
+			$x=mysqli_real_escape_string($conn,$resultZ['id_pos']);
 			$queryColor="SELECT * FROM sensori_zona WHERE id_pos = '$x' ;";
 			$qColor=mysqli_query($conn,$queryColor);
 			$arrColor=mysqli_fetch_array($qColor);
@@ -61,29 +61,31 @@ if (isset($_SESSION['u_email'])){
                                 	$i=0;
                                     foreach($resultZon as $resultZ) {
                                     										$i=1;
-																			$sensor=$resultZ['id_pos'];
+																			$sensor=mysqli_real_escape_string($conn,$resultZ['id_pos']);
 																			$querySensor="SELECT * FROM sensori_zona WHERE id_pos = '$sensor';";
 																			$resultSensor= mysqli_query($conn,$querySensor);
 																			$resultS=mysqli_fetch_array($resultSensor);
 																			
 																		   
-        echo "
-				<form method=\"POST\" action=\"infoDash.php\">
+        ?>
+				<form method="POST" action="infoDash.php">
 
-				<table class=\"table table-bordered\">
+				<table class="table table-bordered">
 					<thead>
-								<tr align=\"center\">
+								<tr align="center">
 								 <th>Nome Sensore</th>
 								 <th>Tipo</th>
 								 <th>Ultima rilevazione</th>
 								<th>Altro</th>
 							 </tr>
-					</thead>";
+					</thead>
+			<?php
+
 				$collocazione=$resultZ['id_pos'];
 			 if ($resultS) {
 					 foreach ($resultSensor as $resultS) {
 						 
-						 $id = $resultS['id_sensori'];
+						 $id =mysqli_real_escape_string($conn,$resultS['id_sensori']);
 						 $collocazione= $resultS['id_pos'];
 
 							 $idS=htmlspecialchars($resultS['id_sensori']);

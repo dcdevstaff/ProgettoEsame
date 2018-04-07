@@ -13,10 +13,10 @@ if (isset($_POST['submit'])) {
 	include 'dbh.inc.php';
 
 	$email=mysqli_real_escape_string($conn,$_POST['email']);
-	$password = mysqli_real_escape_string($conn,$_POST['password']);
+	$pwd = mysqli_real_escape_string($conn,$_POST['password']);
 }
 
-if (empty($email) || empty($password)) {
+if (empty($email) || empty($pwd)) {
 		header('Location: ../index.php?login=empty');
 				
 } //gestione stringhe
@@ -31,21 +31,21 @@ else{
 		$resultCheckUser = mysqli_num_rows($resultUser);
 		$resultCheckAdmin = mysqli_num_rows($resultAdmin);
 
-		//ADMIN DATA:
+		
 		$arrayDatiAdmin = mysqli_fetch_array($resultAdmin);
 		$adminName = $arrayDatiAdmin['admin_email'];
 		$adminPassword = $arrayDatiAdmin['password'];
-		$hashedPwdCheckAdmin = password_verify($password,$adminPassword);
+		$hashedPwdCheckAdmin = password_verify($pwd,$adminPassword);
 
-		//USER DATA:
+		
 		$arrayDatiUser = mysqli_fetch_array($resultUser);
 		$usernameUser = $arrayDatiUser['user_email'];
-		$userPassword = $arrayDatiUser['user_password'];
-		$hashedPwdCheckUser = password_verify($password,$userPassword);	 
+		$uPwd = $arrayDatiUser['user_password'];
+		$hashedPwdCheckUser = password_verify($pwd,$uPwd);	 
 		$mysqlDate = strtotime($arrayDatiUser['scadenza']);	
 		$scadenzaPhp = date('yyyy-mm-dd', $mysqlDate);
 		$today = date('yyyy-mm-dd'); 
-		//CONTROLLO VALIDITA' ABBONAMENTO
+		
 		$check = 0;
 		if ($today < $scadenzaPhp){
 			$check = 1;

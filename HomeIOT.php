@@ -21,7 +21,7 @@ include_once 'header.php';
             <img class="card__image" src="https://source.unsplash.com/category/nature/400x260" alt="Nature">
             <div class="card__copy">
                 <button type="button" class="buttonVerd" data-toggle="modal" data-target="#ModalAddC">Aggiungi Cliente</button>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. xcepturi. </p>
+                <p>Permette di creare un account per il Cliente </p>
             </div>
         </div>
 

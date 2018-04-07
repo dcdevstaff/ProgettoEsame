@@ -156,7 +156,7 @@ $(document).ready(function(){
           if ($resultS) {
               foreach ($resultSensor as $resultS) {
                 
-                $id = $resultS['id_sensori'];
+                $id = mysqli_real_escape_string($conn,$resultS['id_sensori']);
                 $collocazione= $resultS['id_pos'];
    
                   $idS=$resultS['id_sensori'];
