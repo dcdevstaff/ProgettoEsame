@@ -27,7 +27,7 @@
                             <h4 class="intestazione" id="myModalLabel">Cerca Zona</h4>
                         </div>
                         <div class="modal-body">
-                            <form class="signup-form" action="www.youtube.it" method="POST">
+                            <form class="signup-form" action="dettaglioZona.php" method="POST">
                                 <!--cambiato-->
 
                                 <h3>Nome zona: </h3><input type="text" name="nomeZona">

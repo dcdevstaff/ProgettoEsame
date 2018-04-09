@@ -90,7 +90,7 @@ if (isset($_SESSION['u_email'])) {
     ?>
     <form action="includes/AccountManagement/logout.inc.php" class="navbar-form navbar-right"  method="POST">
 							<button type="submit" name="submit">Logout</button>
-							</fo../
+							</form>
     <?php
 } else {
     ?>
@@ -119,7 +119,7 @@ if (isset($_SESSION['u_email'])) {
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 	<section class="cover">
 		<div class="cover__filter"></div>

@@ -119,7 +119,7 @@ if (isset($_SESSION['u_email'])) {
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </body>
 
 
@@ -166,13 +166,15 @@ if(isset($_POST['infoSENS'])){
         <div class="cover__filter"></div>
         <div class="cover__caption">
             <div class="cover__caption__copy">
-                <h1 style="margin: auto">Info Sensore ID : <?php echo htmlspecialchars($info); ?> Tipo : <?php echo htmlspecialchars($tipo); ?> Marca : 
-                  <?php echo htmlspecialchars($sArr['marca']); ?></h1>
-                <button type="button" class="btn btn-primary btn-lg" style="width: 200px" data-toggle="modal" data-target="#ModalModificaS">Modifica Sensore</button>
+                                <button type="button" class="btn btn-primary btn-lg" style="width: 200px" data-toggle="modal" data-target="#ModalModificaS">Modifica Sensore</button>
 
             </div>
         </div>
     </section>
+    <div class="form-wrapper">
+      <h1 style="margin: auto">Info Sensore ID : <?php echo htmlspecialchars($info); ?> Tipo : <?php echo htmlspecialchars($tipo); ?> Marca : 
+                  <?php echo htmlspecialchars($sArr['marca']); ?></h1>
+    </div>
        <!-- MODAL AGGIORNA SENSORE-->
        <section>
             <div class="modal fade" id="ModalModificaS" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -219,7 +221,7 @@ if(isset($_POST['infoSENS'])){
     <canvas id="myChart"></canvas>
   </div>
 
-  <div>
+  <div class="centrato">
   <form class="float-wrapper" action="infoDashStorico.php" target="_blank" method="POST">
 
     <h3 class="intestazione"> Cambia Periodo</h3>
