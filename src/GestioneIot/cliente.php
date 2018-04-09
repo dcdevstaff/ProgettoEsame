@@ -128,9 +128,9 @@
 
 
                 <br>
-                
 
-                <button type="submit" name="delete" value='<?php echo $cod_cliente; ?>'>Cancella Cliente</button>
+
+                <button type="submit" class="btn btn-primary btn-lg" name="delete" value='<?php echo $cod_cliente; ?>'>Cancella Cliente</button>
 
                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalModificaCliente">Modifica dati Cliente</button>
 
@@ -169,12 +169,7 @@
 
             </form>
             <form action="stampaDati.php" method="POST">
-                <button type="submit" name="export" value='<?php echo $email;?>'> Esporta dati </button>
+                <button type="submit" class="btn btn-primary btn-lg" name="export" value='<?php echo $email;?>'> Esporta dati </button>
             </form>
         </div>
         </section>
-
-
-
-
-
