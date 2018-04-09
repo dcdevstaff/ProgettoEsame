@@ -90,7 +90,7 @@ if (isset($_SESSION['u_email'])) {
     ?>
     <form action="../includes/AccountManagement/logout.inc.php" class="navbar-form navbar-right"  method="POST">
 							<button type="submit" name="submit">Logout</button>
-							</fo../
+							</form>
     <?php
 } else {
     ?>

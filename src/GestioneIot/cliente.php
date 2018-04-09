@@ -145,7 +145,7 @@
                                     <br>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="signup-form" action="includes/dettCliente.inc.php" method="POST">
+                                    <form class="signup-form" action="dettCliente.php" method="POST">
 
                                         <input type="hidden" name="idCliente" value="<?php echo htmlspecialchars($cod_cliente); ?>">
                                         <h3>Ragione sociale</h3><input type="text" name="newAzienda">
