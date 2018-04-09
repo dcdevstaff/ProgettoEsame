@@ -171,7 +171,8 @@ if(isset($_POST['infoSENS'])){
             </div>
         </div>
     </section>
-    <div class="form-wrapper">
+    <div class="form-wrapper" style="margin-bottom: 20px">
+      <h1 class="intestazione centrato"> Sensore: <?php echo htmlspecialchars($nomeS); ?> </h1>
       <h1 style="margin: auto">Info Sensore ID : <?php echo htmlspecialchars($info); ?> Tipo : <?php echo htmlspecialchars($tipo); ?> Marca : 
                   <?php echo htmlspecialchars($sArr['marca']); ?></h1>
     </div>
@@ -215,14 +216,10 @@ if(isset($_POST['infoSENS'])){
                 </div>
             </div>
         </section>
-    <br>
 
-     <div class="container">
-    <canvas id="myChart"></canvas>
-  </div>
 
-  <div class="centrato">
-  <form class="float-wrapper" action="infoDashStorico.php" target="_blank" method="POST">
+  <div class="form-wrapper" style="margin-bottom: 20px">
+  <form class="#" action="infoDashStorico.php" target="_blank" method="POST">
 
     <h3 class="intestazione"> Cambia Periodo</h3>
 
@@ -240,9 +237,9 @@ if(isset($_POST['infoSENS'])){
 
 
    
-        <div class="table-wrapper">
-        <h1 class="intestazione"> Sensore: <?php echo htmlspecialchars($nomeS); ?> </h1>
-        <table class="table table-bordered" style="width: 400px">
+        <div style="margin:10px auto; width: 950px">
+        
+        <table class="table table-bordered" style="width: 950px">
         <thead>
             <tr> 
        <?php    
@@ -321,4 +318,4 @@ if(isset($_POST['infoSENS'])){
     </script>
 
 
-<div id="chart_div"></div>
+<div class="form-wrapper centrato" style="width: 950px;margin-bottom: 20px" id="chart_div"></div>
