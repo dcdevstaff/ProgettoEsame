@@ -1,34 +1,14 @@
 <?php
-	include_once 'header.php';
+	include_once '../header.php';
 ?>
+
 <br><br><br><br>
 <h1 class="evidenzia">Contattaci</h1>
-<section>
-<div class="form-wrapper" id='wrapper'>
-  <form class='form' action="includes/contacts.inc.php" method="POST">
-    <p class='field required half'>
-      <label class='label required' for='eMail'>eMail</label><br>
-      <input class='text-input' name='email' required>
-    </p>
-    <p class='field required half'>
-      <label class='label' for='Oggetto'>Oggetto</label><br>
-      <input class='text-input' name='oggMail' required>
-    </p>
-    <p class='field'>
-      <label class='label' for='message'>Messaggio</label><br>
-      <textarea class='textarea' cols='50' id='message' name='message' required rows='4'></textarea>
-    </p>
-    <p class='field'>
-      <input class='button' type='submit' name="button" value='Invia'>
-    </p>
-  </form>
-</div>
-</section>
-<br><br><br><br><br><br><br><br><br>
+
 <section class="main-container">
 	<div class="form-wrapper">
 		
-		<form class="signup-form" action="includes/contacts.inc.php" method="POST" >
+		<form class="signup-form" action="../includes/contacts.inc.php" method="POST" >
 
 			 <table class="storage">
                         <tr>
@@ -59,9 +39,4 @@
 		</form>
 	</div>
 </section>
-
-<?php
-	include_once 'footer.php';
-?>
-
 

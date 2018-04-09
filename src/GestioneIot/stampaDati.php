@@ -1,5 +1,5 @@
 <?php
-include_once 'includes/dbh.inc.php';
+include_once '../includes/DbManagement/dbh.inc.php';
 if (isset($_POST['export'])){
 
 $cliente= $_POST['export'];
@@ -32,7 +32,7 @@ fclose($fp);
 ?>
 	<script LANGUAGE='JavaScript'>
     		window.alert('File Creato nella Directory del progetto !');
-    		window.location.href='index.php';
+    		window.location.href='../index.php';
     </script>")
 		
 

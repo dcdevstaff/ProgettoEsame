@@ -1,6 +1,6 @@
 <?php
-  include_once 'header.php';
-  include_once 'includes/dbh.inc.php';
+  include_once '../header.php';
+  include_once '../includes/DbManagement/dbh.inc.php';
 ?>
 
     <section class="cover cover--singleUser" style="margin-top: 50px">
@@ -27,7 +27,7 @@
                             <h4 class="intestazione" id="myModalLabel">Cerca Zona</h4>
                         </div>
                         <div class="modal-body">
-                            <form class="signup-form" action="dettaglioZona.php" method="POST">
+                            <form class="signup-form" action="www.youtube.it" method="POST">
                                 <!--cambiato-->
 
                                 <h3>Nome zona: </h3><input type="text" name="nomeZona">
@@ -104,20 +104,15 @@ $(document).ready(function(){
     ?>
         <section class="cards clearfix">
 
-        <div class="card">
-            <img class="card__image" src="res/cerchio.jpg">
-            <div class="card__copy">
-                <p>Zone :<?php echo  $displayCZ; ?></p>
-            </div>
+        <div style="text-align: center">
+           
+          
+                <h5 class="intestazione">Zone :<?php echo  $displayCZ; ?></h5>
+                <h5 class="intestazione"> Sensori :<?php echo  $displayCS ?></h5>
+            
         </div>
-   
-        <div class="card">
-            <img class="card__image" src="res/cerchio.jpg">
-            <div class="card__copy">
-                <p>Sensori : <?php echo  $displayCS ?></p>
-            </div>
-        </div>
-
+        
+      
         
     </section>
     <?php
@@ -224,12 +219,7 @@ $(document).ready(function(){
            ?>
         
          <h3 class="intestazione"><?php echo  htmlspecialchars($rZona); ?></h3>
-         <button
-         type="submit"
-         name="infoZONA"
-         value=$collocazione
-         >Info Zona
-         </button>
+       
          </form>
          <?php
       }

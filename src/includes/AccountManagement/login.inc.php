@@ -10,14 +10,14 @@ session_start();
 
 if (isset($_POST['submit'])) {
 
-	include 'dbh.inc.php';
+	include '../DbManagement/dbh.inc.php';
 
 	$email=mysqli_real_escape_string($conn,$_POST['email']);
 	$pwd = mysqli_real_escape_string($conn,$_POST['password']);
 }
 
 if (empty($email) || empty($pwd)) {
-		header('Location: ../index.php?login=empty');
+		header('Location: ../../index.php?login=empty');
 				
 } //gestione stringhe
 else{
@@ -61,30 +61,30 @@ else{
 if ($resultCheckAdmin >0) {
 		if ($hashedPwdCheckAdmin){
 			$_SESSION['u_email'] = $adminName;
-			header('Location: ../HomeIOT.php');
+			header('Location: ../../GestioneIot/HomeIOT.php');
 		} 
 		else
-			header('Location: ../index.php?login=passwordAdminSbagliata');
+			header('Location: ../../index.php?login=passwordAdminSbagliata');
 		}
 	
 	// CASO: è un USER
 elseif ($resultCheckUser >0){
 		if ($hashedPwdCheckUser && $check==1){
 			$_SESSION['u_email'] = $usernameUser;
-			header('Location: ../HomeCliente.php');
+			header('Location: ../../GestioneCliente/HomeCliente.php');
 			} 
 		else
-			header('Location: ../index.php?login=passwordUserSbagliata'.$check);
+			header('Location: ../../index.php?login=passwordUserSbagliata'.$check);
 		}
 
 
 		//  CASO: NON è UN USER - NON è UN ADMIN
 elseif($resultCheckUser<1 && $resultCheckAdmin<1){
 			
-			header('Location: ../index.php?login=noAdmin_noUser');
+			header('Location: ../../index.php?login=noAdmin_noUser');
 			//
 } 
 
-else header('Location: ../index.php?login=FineBlocco');
+else header('Location: ../../index.php?login=FineBlocco');
 
 ?>

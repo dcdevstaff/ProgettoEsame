@@ -1,12 +1,8 @@
 <?php
 
 
-/* SISTEMARE: 
-1. dopo aver aggiunto un sensore o una zona il browser deve tornare ad una versione aggiornata di dettCliente.php
-*/
 
-
-include_once 'dbh.inc.php';
+include_once '../DbManagement/dbh.inc.php';
 $cod_cliente=$_GET['id'];
 
 
@@ -24,7 +20,7 @@ if (isset($_POST['bottZONA'])) {
 	?>
 	<script LANGUAGE='Javascript'>
 					 window.alert('Zona aggiunta con successo'); 
-					 window.location.href='../HomeIOT.php';
+					 window.location.href='../../HomeIOT.php';
 			 </script>");
 	<?php				
 	
@@ -58,14 +54,14 @@ if (isset($_POST['bottZONA'])) {
 		?>
 		<script LANGUAGE='Javascript'>
 		window.alert('Sensore aggiunto con successo'); 
-		window.location.href='../HomeIOT.php';
+		window.location.href='../../HomeIOT.php';
 		</script>
 		<?php
 	}else {
 		?>
 		<script LANGUAGE='Javascript'>
 		window.alert('Parametri valore incoerenti, riprovare'); 
-		window.location.href='../HomeIOT.php';
+		window.location.href='../../HomeIOT.php';
 		</script>
 		<?php
 	}

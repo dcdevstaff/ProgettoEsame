@@ -1,6 +1,6 @@
 <?php
 //home Iot
-include_once 'header.php';
+include_once '../header.php';
 ?>
     <section class="cover cover--single" style="margin-top: 50px">
         <div class="cover__filter"></div>
@@ -37,7 +37,7 @@ include_once 'header.php';
                             <h5><small><i>I campi contrassegnati con * sono obbligatori </i></small></h5>
                         </div>
                         <div class="modal-body">
-                            <form class="signup-form" action="includes/signup.inc.php" method="POST">
+                            <form class="signup-form" action="../includes/AccountManagement/signup.inc.php" method="POST">
 
                                 <h3>Nome *</h3><input type="text" name="first"  required>
                                 <h3>Cognome *</h3><input type="text" name="last"  required>
@@ -84,7 +84,7 @@ include_once 'header.php';
     
                         </div>
                         <div class="modal-body">
-                            <form class="signup-form" action="includes/signupAdmin.inc.php" method="POST">
+                            <form class="signup-form" action="../includes/AccountManagement/signupAdmin.inc.php" method="POST">
 
                                 <h3>Nome</h3><input type="text" name="adminName">
                                 <h5><sub><small><i>Il suffisso "@iot.it" sarà aggiunto automaticamente</i></small></sub></h5>
@@ -140,7 +140,7 @@ include_once 'header.php';
                         <h4 class="intestazione" id="myModalLabel">Cerca Cliente</h4>
                     </div>
                     <div class="modal-body">
-                        <form class="signup-form" action="includes/searcAccount.inc.php" method="POST">
+                        <form class="signup-form" action="../includes/ToolManager/searcAccount.inc.php" method="POST">
 
                             <h3>e-Mail user</h3><input type="text" name="email">
                             

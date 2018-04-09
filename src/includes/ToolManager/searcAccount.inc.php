@@ -4,7 +4,7 @@
 
 if (isset($_POST['submit'])){
 
-	include_once 'dbh.inc.php';
+	include_once '../DbManagement/dbh.inc.php';
 
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
 	$sql=" SELECT *  FROM cliente WHERE email = '$email' ;";
@@ -20,7 +20,7 @@ if (isset($_POST['submit'])){
 
 		?>
 		<script LANGUAGE='JavaScript'>
-    		window.location.href='<?php echo ("../cliente.php?cod=$row[0]&nome=$row[1]&cognome=$row[2]&azienda=$row[3]&telefono=$row[4]&iva=$row[5]&sede=$row[6]&mail=$row[7]"); ?>';
+    		window.location.href='<?php echo ("../../GestioneIot/cliente.php?cod=$row[0]&nome=$row[1]&cognome=$row[2]&azienda=$row[3]&telefono=$row[4]&iva=$row[5]&sede=$row[6]&mail=$row[7]"); ?>';
     		</script>");
 		
 	<?php
@@ -31,7 +31,7 @@ if (isset($_POST['submit'])){
 		?>
 	<script LANGUAGE='JavaScript'>
     		window.alert('Cliente non trovato, riprova !');
-    		window.location.href='../searcAccount.php';
+    		window.location.href='../../Index.php';
     </script>
     <?php
 		

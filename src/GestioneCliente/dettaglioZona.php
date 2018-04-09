@@ -1,8 +1,8 @@
 <?php
 
 
-include_once 'includes/dbh.inc.php';
-include_once 'header.php';
+include_once '../includes/DbManagement/dbh.inc.php';
+include_once '../header.php';
 
 
 if (isset($_SESSION['u_email'])){

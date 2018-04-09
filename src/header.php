@@ -19,16 +19,16 @@ session_start();
 
   <link
   rel="stylesheet"
-  href="style.css"
+  href="../style.css"
   >
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
   <link
   rel="stylesheet"
-  href="stile3.css"
+  href="../stile3.css"
   >
 
 	<link rel="stylesheet" type="text/css"
-  href="stylec2.css"
+  href="../stylec2.css"
   >
 
   
@@ -61,7 +61,7 @@ session_start();
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
+      <a class="navbar-brand" href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -69,18 +69,18 @@ session_start();
 
 		<ul class="nav navbar-nav">
 
-      <li><a href="contact.php"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Contattaci</a></li>
+      <li><a href="../GestioneCliente/contact.php"><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Contattaci</a></li>
 
 		  <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Info <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="HomeIOT.php">Home IOT (verrà tolto)</a></li>
+            <li><a href="../GestioneIot/HomeIOT.php">Home IOT (verrà tolto)</a></li>
             <li role="separator" class="divider"></li> 
-            <li><a href="HomeCLIENTE.php">Dashboard (verrà tolto)</a></li>
+            <li><a href="../GestioneCliente/HomeCLIENTE.php">Dashboard (verrà tolto)</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="aboutRadar.php">About Radar</a></li>
+            <li><a href="#">About Radar</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="aboutIOT.php">About IOT</a></li>
+            <li><a href="#">About IOT</a></li>
           </ul>
       </li>
     </ul>
@@ -88,13 +88,13 @@ session_start();
      	 <?php
 if (isset($_SESSION['u_email'])) {
     ?>
-    <form action="includes/logout.inc.php" class="navbar-form navbar-right"  method="POST">
+    <form action="../includes/AccountManagement/logout.inc.php" class="navbar-form navbar-right"  method="POST">
 							<button type="submit" name="submit">Logout</button>
-							</form>
+							</fo../
     <?php
 } else {
     ?>
-    <form class="navbar-form navbar-right" action="includes/login.inc.php" method="POST">
+    <form class="navbar-form navbar-right" action="../includes/AccountManagement/login.inc.php" method="POST">
        							<div class="form-group">
           							<input type="text" class="form-control" name="email" placeholder="E-mail">
          							<input type="password" class="form-control" name="password" placeholder="Password" >
@@ -119,5 +119,5 @@ if (isset($_SESSION['u_email'])) {
 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
 </body>

@@ -1,7 +1,7 @@
 <?php
 
 
-include_once 'dbh.inc.php';
+include_once '../DbManagement/dbh.inc.php';
 $tipo=mysqli_real_escape_string($conn,$_GET['tipo']);
 $n=$_GET['num'];
 
@@ -30,14 +30,14 @@ if($result){
 	?>
 	<script LANGUAGE='JavaScript'>
     		window.alert('CREATO !');
-    		window.location.href='../HomeIOT.php';
+    		window.location.href='../../HomeIOT.php';
     		</script>
     <?php
 }else{
 	?>
 	<script LANGUAGE='JavaScript'>
     		window.alert('NON CREATO ERRORE !');
-    		window.location.href='../tipiSensori.php';
+    		window.location.href='../../tipiSensori.php';
     		</script>
    <?php
 }

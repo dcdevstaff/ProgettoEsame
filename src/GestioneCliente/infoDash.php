@@ -18,16 +18,16 @@ session_start();
 
   <link
   rel="stylesheet"
-  href="style.css"
+  href="../style.css"
   >
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
   <link
   rel="stylesheet" 
-  href="stile3.css"
+  href="../stile3.css"
   >
 
 	<link rel="stylesheet" type="text/css"
-  href="stylec2.css"
+  href="../stylec2.css"
   >
 
   
@@ -61,7 +61,7 @@ session_start();
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
+      <a class="navbar-brand" href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -88,13 +88,13 @@ session_start();
      	 <?php
 if (isset($_SESSION['u_email'])) {
     ?>
-    <form action="includes/logout.inc.php" class="navbar-form navbar-right  method="POST">
+    <form action="../includes/AccountManagement/logout.inc.php" class="navbar-form navbar-right  method="POST">
 							<button type="submit" name="submit">Logout</button>
 							</form>
 <?php
 } else {
 ?>
-<form class="navbar-form navbar-right" action="includes/login.inc.php" method="POST">
+<form class="navbar-form navbar-right" action="../includes/AccountManagement/login.inc.php" method="POST">
        							<div class="form-group">
           							<input type="text" class="form-control" name="email" placeholder="E-mail">
          							<input type="password" class="form-control" name="password" placeholder="Password" >
@@ -133,7 +133,7 @@ if (isset($_SESSION['u_email'])) {
 
 if(isset($_POST['infoSENS'])){
 	
-	include_once 'includes/dbh.inc.php';
+	include_once '../includes/DbManagement/dbh.inc.php';
 
 	  $info= $_POST['infoSENS'];
 
@@ -220,7 +220,7 @@ if(isset($_POST['infoSENS'])){
   </div>
 
   <div>
-  <form class="float-wrapper" action="infoDashStorico.php" method="POST">
+  <form class="float-wrapper" action="infoDashStorico.php" target="_blank" method="POST">
 
     <h3 class="intestazione"> Cambia Periodo</h3>
 
@@ -239,7 +239,7 @@ if(isset($_POST['infoSENS'])){
 
    
         <div class="table-wrapper">
-        <h1 class="intestazione"> Sensore: $nomeS </h1>
+        <h1 class="intestazione"> Sensore: <?php echo htmlspecialchars($nomeS); ?> </h1>
         <table class="table table-bordered" style="width: 400px">
         <thead>
             <tr> 

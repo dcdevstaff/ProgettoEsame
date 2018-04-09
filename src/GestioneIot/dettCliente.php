@@ -2,8 +2,9 @@
 error_reporting(0);
 
 
-include_once 'includes/dbh.inc.php';
-include_once 'header.php';
+
+include_once '../header.php';
+include_once '../includes/DbManagement/dbh.inc.php';
 
 if (isset($_POST['delete'])) {
 
@@ -18,14 +19,14 @@ if (isset($_POST['delete'])) {
     	?>
         <script LANGUAGE='JavaScript'>
     		window.alert('Cliente cancellato !');
-    		window.location.href='../HomeIOT.php';
+    		window.location.href='HomeIOT.php';
     		</script>
     <?php
     } else {
     ?>
      <script LANGUAGE='JavaScript'>
     		window.alert('Errore riprovare !');
-    		window.location.href='../HomeIOT.php';
+    		window.location.href='HomeIOT.php';
     		</script>
     <?php
     }
@@ -342,7 +343,7 @@ if ($resultCheckZone<1) {
                         <h4 class="modal-title" id="myModalLabel">Aggiungi Zona</h4>
                     </div>
                     <div class="modal-body">
-                        <form class="signup-form" action="includes/addItem.inc.php?id=<?php
+                        <form class="signup-form" action="includes/ItemManagement/addItem.inc.php?id=<?php
 			echo $cod;
     	?>" method="POST">
 
@@ -376,7 +377,7 @@ if ($resultCheckZone<1) {
                         <h4 class="modal-title" id="myModalLabel">Aggiungi Sensore</h4>
                     </div>
                     <div class="modal-body">
-                        <form class="signup-form" action="includes/addItem.inc.php?id=<?php
+                        <form class="signup-form" action="includes/ItemManagement/addItem.inc.php?id=<?php
 		echo $cod;
     	?>" method="POST">
 

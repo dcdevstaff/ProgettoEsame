@@ -1,5 +1,6 @@
 <?php
-include_once 'includes/dbh.inc.php';
+  include_once '../header.php';
+include_once '../includes/DbManagement/dbh.inc.php';
 
 if (isset($_POST['submit'])){
 	$prima= mysqli_real_escape_string($conn, $_POST['primaData']);

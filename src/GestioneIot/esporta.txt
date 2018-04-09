@@ -1,0 +1,6 @@
+Zona : Vinovo Nome Sensore : testUMI2 Marca : Sony Tipo : Umidita
+Zona : Garage Nome Sensore : Mallo Marca : Alaala Tipo : Pressione
+Zona : Parco Nome Sensore : PressioneCamera Marca : Acer Tipo : Pressione
+Zona : Vinovo Nome Sensore : testUMI2 Marca : Sony Tipo : Umidita
+Zona : Garage Nome Sensore : Mallo Marca : Alaala Tipo : Pressione
+Zona : Parco Nome Sensore : PressioneCamera Marca : Acer Tipo : Pressione
