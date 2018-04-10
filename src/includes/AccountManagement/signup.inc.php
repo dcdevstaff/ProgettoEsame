@@ -23,7 +23,7 @@ if (isset($_POST['submit'])){
 		?>
 		<script LANGUAGE='Javascript'>
 					 window.alert('Campo obbligatorio vuoto o scadenza impossibile'); 
-					 window.location.href='../../HomeIOT.php';
+					 window.location.href='../../GestioneIot/HomeIOT.php';
 					 </script>
 	<?php
 		
@@ -32,19 +32,19 @@ if (isset($_POST['submit'])){
 		
 		//Check if input are valid
 		if (!preg_match("/^[a-zA-Z]*$/", $first) || !preg_match("/^[a-zA-Z]*$/", $last) ) {
-			header('Location: ../../signup.php?signup=invalid');
+			header('Location: ../../GestioneIot/signup.php?signup=invalid');
 			
 		}else{
 			//Check Mail Valid
 			if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-				header('Location: ../../signup.php?signup=email');
+				header('Location: ../../GestioneIot/signup.php?signup=email');
 				
 			}else{
 				$sql=" SELECT *  FROM users WhERE user_email = '$email'  ;";
 				$result = mysqli_query($conn,$sql);
 				$resultCheck = mysqli_num_rows($result);
 				if ($resultCheck>0) {
-					header('Location: ../../signup.php?signup=usertaken');
+					header('Location: ../../GestioneIot/signup.php?signup=usertaken');
 					
 				}else{
 					
@@ -59,7 +59,7 @@ if (isset($_POST['submit'])){
 					?>
 					<script LANGUAGE='Javascript'>
 					 window.alert('Utente registrato'); 
-					 window.location.href='../../HomeIOT.php';
+					 window.location.href='../../GestioneIot/HomeIOT.php';
 					 </script>
 					 <?php
 				
@@ -70,7 +70,7 @@ if (isset($_POST['submit'])){
 
 
 }else{
-	header('Location: ../../signup.php?errore'); 
+	header('Location: ../../GestioneIot/signup.php?errore'); 
 	
 }
 

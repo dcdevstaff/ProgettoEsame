@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
 	$admPassConf = mysqli_real_escape_string($conn, $_POST['adminPasswordConf']);
 
 	if (empty($adminName) || empty($adminPassword) || empty($admPassConf)) {
-		header('Location: ../../signupAdmin.php?signupAdmin=MancaUnDato');
+		header('Location: ../../GestioneIot/HomeIot.php?signupAdmin=MancaUnDato');
 			
 	} 
 	else {
@@ -20,20 +20,20 @@ if (isset($_POST['submit'])) {
 		$resultQueryAdmin = mysqli_query($conn, $sqlNomeAdmOccupatoQuery);
 		$resultQueryAdminCheck  = mysqli_num_rows($resultQueryAdmin);
 			if ($resultQueryAdminCheck<0) {
-				header('Location: ../../signup.php?signup=NomeAdminInUso');
+				header('Location: ../../GestioneIot/signup.php?signup=NomeAdminInUso');
 				
 			}
 			else {
 				$hashedAdminPassword = password_hash($adminPassword, PASSWORD_DEFAULT);
 				$sqlQuerySalvataggioAccountAdmin = "INSERT INTO admin (admin_email,password) VALUES('$emailNewAdmin','$hashedAdminPassword');";
 				mysqli_query($conn,$sqlQuerySalvataggioAccountAdmin);
-				header('Location: ../../homeIOT.php?signup=success');
+				header('Location: ../../GestioneIot/homeIOT.php?signup=success');
 				
 			}
 		} else{ ?>
 			<script LANGUAGE='JavaScript'>
 			window.alert('Le password non corrspondono !');
-			window.location.href='../../HomeIOT.php';
+			window.location.href='../../GestioneIot/HomeIOT.php';
 			</script>
 		<?php
 		}
@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
 	} 
 }else{
 	//NON ESISTE PIU, CORREGGERE LINK!!!
-	header('Location: ../../HomeIOT.php'); 
+	header('Location: ../../GestioneIot/HomeIOT.php'); 
 
 }
 	

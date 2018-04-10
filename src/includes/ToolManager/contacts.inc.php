@@ -11,14 +11,14 @@ if (mail($destinatario, $oggetto, $messaggio,$mittente)){
    ?>
 	<script LANGUAGE='JavaScript'>
     window.alert('E-Mail inviata con successo !');
-    window.location.href='../homecliente.php';
+    window.location.href='../GestioneCliente/homecliente.php';
     </script>
     <?php
 }else{
 	?>
 	<script LANGUAGE='JavaScript'>
     window.alert('E-Mail non inviata !');
-    window.location.href='../contact.php';
+    window.location.href='../GestioneCliente/contact.php';
     </script>   
    <?php
  }

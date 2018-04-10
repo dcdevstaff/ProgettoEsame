@@ -30,14 +30,14 @@ if($result){
 	?>
 	<script LANGUAGE='JavaScript'>
     		window.alert('CREATO !');
-    		window.location.href='../../HomeIOT.php';
+    		window.location.href='../../GestioneIot/HomeIOT.php';
     		</script>
     <?php
 }else{
 	?>
 	<script LANGUAGE='JavaScript'>
     		window.alert('NON CREATO ERRORE !');
-    		window.location.href='../../tipiSensori.php';
+    		window.location.href='../../GestioneIot/tipiSensori.php';
     		</script>
    <?php
 }

@@ -20,7 +20,7 @@ if (isset($_POST['bottZONA'])) {
 	?>
 	<script LANGUAGE='Javascript'>
 					 window.alert('Zona aggiunta con successo'); 
-					 window.location.href='../../HomeIOT.php';
+					 window.location.href='../../GestioneIot/HomeIOT.php';
 			 </script>");
 	<?php				
 	
@@ -54,14 +54,14 @@ if (isset($_POST['bottZONA'])) {
 		?>
 		<script LANGUAGE='Javascript'>
 		window.alert('Sensore aggiunto con successo'); 
-		window.location.href='../../HomeIOT.php';
+		window.location.href='../../GestioneIot/HomeIOT.php';
 		</script>
 		<?php
 	}else {
 		?>
 		<script LANGUAGE='Javascript'>
 		window.alert('Parametri valore incoerenti, riprovare'); 
-		window.location.href='../../HomeIOT.php';
+		window.location.href='../../GestioneIot/HomeIOT.php';
 		</script>
 		<?php
 	}
