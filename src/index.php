@@ -167,8 +167,6 @@ if (isset($_SESSION['u_email'])) {
 
 
 
-<?php
-	include_once 'footer.php';
-?>
+
 
 </body>

@@ -1,5 +1,5 @@
 <?php
-	include_once 'header.php';
+	include_once '../header.php';
 ?>
 
 <div><!-- Button trigger modal -->
@@ -40,7 +40,7 @@
 	<h3>Partita Iva</h3><input type="text" name="p_iva">
 	<h3>Sede</h3><input type="text" name="sede">
 
-	<button type="submit" name="submit" onclick="mostraAllert()">Registra ClienteVECCHIO</button>
+	<button type="submit" name="submit" onclick="mostraAllert()">Registra Cliente</button>
 	</form>
 
       </div>
@@ -101,7 +101,7 @@
 	<h3>Partita Iva</h3><input type="text" name="p_iva">
 	<h3>Sede</h3><input type="text" name="sede">
 
-	<button type="submit" name="bottSENS" onclick="mostraAllert()">Registra ClienteVECCHIO</button>
+	<button type="submit" name="bottSENS" onclick="mostraAllert()">Registra Cliente</button>
 	</form>
 
       </div>
@@ -113,8 +113,4 @@
 </div>
 </section>
 
-
-<?php
-	include_once 'footer.php';
-?>
 
