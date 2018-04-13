@@ -123,7 +123,7 @@ $(document).ready(function(){
     <?php
     } else {
     ?>
-    <div class="scrollable">
+    <div class="scrollable" style="height: 320px">
     <?php
 
        foreach ($resultZone as $resultZ) {
@@ -195,6 +195,10 @@ $(document).ready(function(){
                     <td align="center" > <font color='green'><?php echo  htmlspecialchars($lastRil);?> del <?php echo  htmlspecialchars($lastRilData); ?></font></td>
                    <?php 
                    }
+
+                   $arrDati = [$nomeS,$id,$tip];
+                   $arrDati2 = serialize($arrDati);
+                   $arrDati3 =urlencode($arrDati2);
                    ?>
 
                    <td align="center">
@@ -202,7 +206,7 @@ $(document).ready(function(){
                        type="submit"
                        class="btn btn-default btn-sm"
                        name="infoSENS"
-                       value=<?php echo $id; ?>>
+                       value=<?php echo $arrDati3  ?>>
                        <span class="glyphicon glyphicon-info-sign"></span>
                      </button>
                      

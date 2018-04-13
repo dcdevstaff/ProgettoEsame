@@ -18,10 +18,10 @@ include_once '../header.php';
 
         <!-- CARD ADD CLIENTE -->
         <div class="card">
-            <img class="card__image" src="https://source.unsplash.com/category/nature/400x260" alt="Nature">
+            <img class="card__image" src="../res/clienti.jpeg">
             <div class="card__copy">
                 <button type="button" class="buttonVerd" data-toggle="modal" data-target="#ModalAddC">Aggiungi Cliente</button>
-                <p>Permette di creare un account per il Cliente </p>
+                <p>Crea un account per il Cliente </p>
             </div>
         </div>
 
@@ -34,7 +34,7 @@ include_once '../header.php';
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="intestazione" id="myModalLabel">Aggiungi Cliente</h4>
-                            <h5><small><i>I campi contrassegnati con * sono obbligatori </i></small></h5>
+                            <h5><small><i>I campi contrassegnati con * sono obbligatori</i></small></h5>
                         </div>
                         <div class="modal-body">
                             <form class="signup-form" action="../includes/AccountManagement/signup.inc.php" method="POST">
@@ -67,10 +67,10 @@ include_once '../header.php';
 
         <!-- CARD ADD amministratore -->
         <div class="card">
-            <img class="card__image" src="https://source.unsplash.com/category/food/400x260" alt="Nature">
+            <img class="card__image" src="../res/admin.jpeg">
             <div class="card__copy">
                 <button type="button" class="buttonVerd" data-toggle="modal" data-target="#ModalAddADMIN">Aggiungi Admin</button>
-                <p>Permette di creare un account per personale IoT inc.</p>
+                <p>Creare un account IoT inc.</p>
             </div>
         </div>
         <!-- MODAL ADD ADMIN-->
@@ -108,10 +108,10 @@ include_once '../header.php';
 
 				<!-- CARD Gestione tipi -->
         <div class="card">
-            <img class="card__image" src="https://source.unsplash.com/category/people/400x260" alt="Nature">
+            <img class="card__image" src="../res/impostazioni.jpeg" >
             <div class="card__copy">
 								<button class="buttonVerd" onclick="window.location.href='tipiSensori.php'">Gestione Tipi Sensori</button>
-                <p>Permette di trovare i dati di un singolo user in base alla sua email </p>
+                <p>Creazione di nuovi tipi sensori</p>
             </div>
 				</div>
 
@@ -119,10 +119,10 @@ include_once '../header.php';
 
         <!-- CARD cerca CLIENTE -->
         <div class="card">
-            <img class="card__image" src="https://source.unsplash.com/category/people/400x260" alt="Nature">
+            <img class="card__image" src="../res/cerca.jpeg">
             <div class="card__copy">
                 <button type="button" class="buttonVerd" data-toggle="modal" data-target="#ModalCercaACC">Cerca Cliente</button>
-                <p>Permette di trovare i dati di un singolo user in base alla sua email </p>
+                <p>Trovare i dati di un singolo user </p>
             </div>
 				</div>
 				

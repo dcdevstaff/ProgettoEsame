@@ -28,12 +28,10 @@
         <div class="cover__filter"></div>
         <div class="cover__caption">
             <div class="cover__caption__copy">
-                <h1 class="centrto">ANAGRAFICA CLIENTE</h1>
-                <h1 class="centrto">
-                    <?php echo htmlspecialchars($email); ?>
-                </h1>
+             
             </div>
         </div>
+          
     </section>
 
 
@@ -41,7 +39,7 @@
     <section class="main-container">
         <div class="form-wrapper">
             <form class="signup-form" action="dettCliente.php" method="POST">
-
+                 <h1 class="intestazione" style="margin: auto">ANAGRAFICA CLIENTE</h1><br><br>
                 <table class="storage">
                     <tr>
                         <th>
@@ -130,8 +128,7 @@
                 <br>
 
 
-                <button type="submit" class="btn btn-primary btn-lg" name="delete" value='<?php echo $cod_cliente; ?>'>Cancella Cliente</button>
-
+              
                 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#ModalModificaCliente">Modifica dati Cliente</button>
 
                 <!----------------- MODAL MODIFICA CLIENTE------------------------>
@@ -165,11 +162,12 @@
                     <!----------------- fine MODAL MODIFICA CLIENTE------------------------>
 
                     <button type="submit" name="dectail" value='<?php echo $cod_cliente; ?>'>Gestione Zone e Sensori </button>
+                      <button type="submit" class="btn btn-primary btn-lg" style="background-color: red" name="delete" value='<?php echo $cod_cliente; ?>'>Cancella Cliente</button>
 
 
             </form>
             <form action="stampaDati.php" method="POST">
-                <button type="submit" class="btn btn-primary btn-lg" name="export" value='<?php echo $email;?>'> Esporta dati </button>
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 150px; margin: 10px auto;" name="export" value='<?php echo $email;?>'> Esporta dati </button>
             </form>
         </div>
         </section>

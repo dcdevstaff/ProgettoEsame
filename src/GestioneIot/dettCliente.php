@@ -343,7 +343,7 @@ if ($resultCheckZone<1) {
                         <h4 class="modal-title" id="myModalLabel">Aggiungi Zona</h4>
                     </div>
                     <div class="modal-body">
-                        <form class="signup-form" action="includes/ItemManagement/addItem.inc.php?id=<?php
+                        <form class="signup-form" action="../includes/ItemManagement/addItem.inc.php?id=<?php
 			echo $cod;
     	?>" method="POST">
 
@@ -377,7 +377,7 @@ if ($resultCheckZone<1) {
                         <h4 class="modal-title" id="myModalLabel">Aggiungi Sensore</h4>
                     </div>
                     <div class="modal-body">
-                        <form class="signup-form" action="includes/ItemManagement/addItem.inc.php?id=<?php
+                        <form class="signup-form" action="../includes/ItemManagement/addItem.inc.php?id=<?php
 		echo $cod;
     	?>" method="POST">
 

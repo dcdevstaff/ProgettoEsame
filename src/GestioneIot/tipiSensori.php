@@ -49,7 +49,7 @@ if (!isset($_POST['submitSens'])){
 	$num=$_POST['nCampi'];
     ?>
         <div class="form-wrapper">
-            <form class="signup-form" action="includes/SensorManagement/tipiSensori.inc.php?tipo=<?php echo $typ ?>&num=<?php echo $num ?>" method="POST">
+            <form class="signup-form" action="../includes/SensorManagement/tipiSensori.inc.php?tipo=<?php echo $typ ?>&num=<?php echo $num ?>" method="POST">
                 <h2 class="intestazione centrato">2- Definisci struttura dati</h2><br>
                 <h5><small><i>Utilizza questo campo per eventuali messaggi di malfunzionamento e/o errore...</i></small></h5>
                 <h5><small><i>Usa nomi quali 'stato' o 'cdice errore'.</i></small></h5><br>

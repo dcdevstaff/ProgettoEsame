@@ -135,11 +135,13 @@ if(isset($_POST['infoSENS'])){
 	
 	include_once '../includes/DbManagement/dbh.inc.php';
 
-	  $info= $_POST['infoSENS'];
+	  $infoArr= unserialize(urldecode($_POST['infoSENS']));
+    $info=$infoArr[1];
+    
 
 	  $cod = mysqli_real_escape_string($conn,$info);
-    $tipo = mysqli_real_escape_string($conn, $_POST['tipo']);
-    $nomeS = mysqli_real_escape_string($conn, $_POST['nomeS']);
+    $tipo = mysqli_real_escape_string($conn, $infoArr[2]);
+    $nomeS = mysqli_real_escape_string($conn, $infoArr[0]);
 
     $sqlRilevazioni = "SELECT * FROM $tipo WHERE idSensore = '$cod' ORDER BY idRilevazione DESC; ";
     $sqlRilevazioniG = "SELECT * FROM $tipo WHERE idSensore = '$cod' ORDER BY idRilevazione DESC LIMIT 6; ";
@@ -165,16 +167,14 @@ if(isset($_POST['infoSENS'])){
    <section class="cover cover--single" style="margin-top: 50px">
         <div class="cover__filter"></div>
         <div class="cover__caption">
-            <div class="cover__caption__copy">
-                                <button type="button" class="btn btn-primary btn-lg" style="width: 200px" data-toggle="modal" data-target="#ModalModificaS">Modifica Sensore</button>
-
-            </div>
+            <div class="cover__caption__copy"> </div>
         </div>
     </section>
     <div class="form-wrapper" style="margin-bottom: 20px">
       <h1 class="intestazione centrato"> Sensore: <?php echo htmlspecialchars($nomeS); ?> </h1>
       <h1 style="margin: auto">Info Sensore ID : <?php echo htmlspecialchars($info); ?> Tipo : <?php echo htmlspecialchars($tipo); ?> Marca : 
                   <?php echo htmlspecialchars($sArr['marca']); ?></h1>
+                    <button type="button" class="centrato" style="width: 200px" data-toggle="modal" data-target="#ModalModificaS">Modifica Sensore</button>
     </div>
        <!-- MODAL AGGIORNA SENSORE-->
        <section>
@@ -184,7 +184,7 @@ if(isset($_POST['infoSENS'])){
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             <h4 class="intestazione" id="myModalLabel">Modifica Sensore</h4>
-                            <h5><sub><small><i>Il suffisso "@iot.it" sarà aggiunto automaticamente</i></small></sub></h5>
+                            
     
                         </div>
                         <div class="modal-body">
@@ -229,17 +229,18 @@ if(isset($_POST['infoSENS'])){
     <input type="hidden" name="tipo" value="<?php echo $tipo; ?>">
 
   <button type="submit" name="submit">Elabora Grafico</button>
+
 </form>
 
   </div>
-       
+    <div style="margin-top:30px; margin-bottom: 30px;" id="chart_div"></div>   
    
 
 
    
         <div style="margin:10px auto; width: 950px">
         
-        <table class="table table-bordered" style="width: 950px">
+        <table class="table table-bordered" style="background-color: white; width: 950px">
         <thead>
             <tr> 
        <?php    
@@ -271,7 +272,7 @@ if(isset($_POST['infoSENS'])){
             ?>
           </tbody>
       
-
+        </table></div>/
     
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -308,7 +309,7 @@ if(isset($_POST['infoSENS'])){
         //}
         // Set chart options
         var options = {'title':'Rilevazioni sensore',
-                       'width':900,
+                       'width':$(window).width(),
                        'height':300};
 
         // Instantiate and draw our chart, passing in some options.
@@ -318,4 +319,4 @@ if(isset($_POST['infoSENS'])){
     </script>
 
 
-<div class="form-wrapper centrato" style="width: 950px;margin-bottom: 20px" id="chart_div"></div>
+

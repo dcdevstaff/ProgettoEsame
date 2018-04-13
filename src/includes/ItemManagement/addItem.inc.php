@@ -42,14 +42,13 @@ if (isset($_POST['bottZONA'])) {
 	if ($maxC >= $maxA && $maxA > $minA && $minA >= $minC) {
 
 		$sqlPos = " SELECT id_pos FROM zona_cliente WHERE (cliente = '$code' AND zona='$zonaSens');";
-
+		
 		$resultPos = mysqli_query($conn,$sqlPos);
 		$resP= mysqli_fetch_array($resultPos);
 		$pos= mysqli_real_escape_string($conn,$resP['id_pos']);
 		$sqlSensor = " INSERT INTO sensori_zona (id_sensori, nome_sensore, min_critico, max_critico, min_accettabile, max_accettabile, marca, tipo, id_pos) VALUES ('$idSens','$nomeSens','$minC','$maxC','$minA','$maxA','$marcaSens','$tipoSens','$pos');";
 	
 		$resultSensor = mysqli_query($conn,$sqlSensor);
-	
 	
 		?>
 		<script LANGUAGE='Javascript'>
@@ -64,6 +63,7 @@ if (isset($_POST['bottZONA'])) {
 		window.location.href='../../GestioneIot/HomeIOT.php';
 		</script>
 		<?php
+		
 	}
 
 }

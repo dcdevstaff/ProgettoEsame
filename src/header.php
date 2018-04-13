@@ -74,10 +74,6 @@ session_start();
 		  <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Info <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="../GestioneIot/HomeIOT.php">Home IOT (verrà tolto)</a></li>
-            <li role="separator" class="divider"></li> 
-            <li><a href="../GestioneCliente/HomeCLIENTE.php">Dashboard (verrà tolto)</a></li>
-            <li role="separator" class="divider"></li>
             <li><a href="#">About Radar</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">About IOT</a></li>

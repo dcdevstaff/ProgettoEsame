@@ -135,10 +135,9 @@ if (isset($_SESSION['u_email'])) {
 <section>
 	<article class="panel2">
 		<div class="panel__copy">
-		<h1 class="evidenzia">DEFAUT HOME</h1>
+		<h1 class="evidenzia">HOME</h1>
 			<p class="panel__copy__meta"> 2018, DCdev
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et fuga quae aperiam eaque id, illum delectus repudiandae natus minus, ullam! Impedit excepturi quaerat delectus provident consectetur laboriosam deleniti at, temporibus.
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et fuga quae aperiam eaque id, illum delectus repudiandae natus minus, ullam! Impedit excepturi quaerat delectus provident consectetur laboriosam deleniti at, temporibus.</p>
+			<p>Radar è il sito per il monitoraggio dei sensori, grazie al servizio fornito da IoT-Inc, sarà sempre possibile avere sotto controllo la situzione</p>
 		</div>
 	</article>
 </section>
